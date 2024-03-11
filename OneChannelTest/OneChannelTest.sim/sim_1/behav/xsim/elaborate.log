@@ -5,22 +5,6 @@ Running: /software/Xilinx/Vitis_2023.2/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 12 for port 'DACData1_P' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sim_1/new/main_tb.v:109]
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 12 for port 'DACData1_N' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sim_1/new/main_tb.v:110]
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 12 for port 'DACData2_P' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sim_1/new/main_tb.v:111]
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 12 for port 'DACData2_N' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sim_1/new/main_tb.v:112]
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 12 for port 'DACData3_P' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sim_1/new/main_tb.v:113]
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 12 for port 'DACData3_N' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sim_1/new/main_tb.v:114]
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 12 for port 'DACData4_P' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sim_1/new/main_tb.v:115]
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 12 for port 'DACData4_N' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sim_1/new/main_tb.v:116]
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 12 for port 'DACData5_P' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sim_1/new/main_tb.v:117]
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 12 for port 'DACData5_N' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sim_1/new/main_tb.v:118]
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 12 for port 'DACData6_P' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sim_1/new/main_tb.v:119]
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 12 for port 'DACData6_N' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sim_1/new/main_tb.v:120]
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 12 for port 'DACData7_P' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sim_1/new/main_tb.v:121]
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 12 for port 'DACData7_N' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sim_1/new/main_tb.v:122]
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 12 for port 'DACData8_P' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sim_1/new/main_tb.v:123]
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 12 for port 'DACData8_N' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sim_1/new/main_tb.v:124]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis

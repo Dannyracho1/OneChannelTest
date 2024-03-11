@@ -289,6 +289,7 @@ module main(
 	reg [7:0]	r_BB_Settings	= 8'h00;			// Bit 0 -> 16QAM; Bit 1 -> 4QAM reduced; Bit 2 -> shift output data by one cycle; Bit 3 -> IQ interchange; Bit 4 -> invert DAC ResetIQ ; Bit 5 -> noInterleavedFFT
 	reg [7:0]	r_dacconfig		= 8'h00;			// New (Danny): Bit0 -> Resetb, Bit1 -> Alarm, Bit2 -> Ex_ENA, Bit3 -> Sleep
 	reg [7:0]	r_spiACTDAC		= 8'h00;			// New (Danny): 8 different latches on 8 DACs
+	reg [7:0]	r_oddrsettings	= 8'h01;			// New (Danny): Check ODDR instance for documentation about register values
 
 	
 	// Internal register (state machine etc.)
@@ -329,7 +330,16 @@ module main(
         .I(SYSCLK_P),
         .IB(SYSCLK_N)
     );
-		
+
+	// PLL/DAC MISO
+	IBUF IBUF_PLL_MISO(
+		.I(PLL_MISO), 
+		.O(w_PLL_MISO));
+
+	IBUF IBUF_DAC_MISO(
+		.I(DAC_MISO),
+		.O(w_DAC_MISO));
+	
 	// PLL_SPI
 	OBUF OBUF_PLL_MOSI(
 		.I(w_PLL_MOSI), 
@@ -426,26 +436,25 @@ module main(
 
 	/************** r_oddrsettings for ODDR test on DACData7 **************/
 	/************** 	Add r_oddrsettings to MATLAB!!		 **************/
-	/************** 	Register settings as follows:		 **************/	
+	/************** 	Register settings as follows:		 **************/
+	// Check: https://docs.xilinx.com/v/u/2012.2-English/ug953-vivado-7series-libraries (Page 292) for S/R and SRTYPE
 	// r_oddrsettings[0] = 1: CE (Enable Input) or 0: Not-Enable
-	// r_oddrsettings[1] = 1: SYNC 				or 0: ASYNC
-	// r_oddrsettings[2] = 1: SET=1 			or 0: SET=0
+	// r_oddrsettings[2] = 1: clk (200MHz)		or 0: clk is adjustable_clock
 	// r_oddrsettings[3] = 1: RESET=1 			or 0: RESET=0
-	// r_oddrsettings[4] = 1: I_clk (200MHz)	or 0: I_clk is adjustable_clock
-	// r_oddrsettings[5] NOT ASSIGNED YET 
+	// r_oddrsettings[X] NOT ASSIGNED YET 
 
     ODDR #(
        .DDR_CLK_EDGE("SAME_EDGE"), // "OPPOSITE_EDGE" or "SAME_EDGE"
        .INIT(1'b0),    // Initial value of Q: 1'b0 or 1'b1
-       .SRTYPE((r_oddrsettings[1]) ? "SYNC" : "ASYNC") // Set/Reset type: "SYNC" or "ASYNC"
+       .SRTYPE("SYNC") // Set/Reset type: "SYNC" or "ASYNC"
     ) ODDR_DACData7[11:0] (
        .Q(w_DACData7_toDIFF),   // 1-bit DDR output
        .C((r_oddrsettings[2]) ? clk : w_adjustable_clock),   // 1-bit clock input
-       .CE((r_oddrsettings[0]) ? 8'b1111_1111 : 8'b0000_0000), // 1-bit clock enable input
+       .CE(r_oddrsettings[0]), // 1-bit clock enable input
        .D1(w_adjustable_clock), // 1-bit data input (positive edge)
        .D2(w_adjustable_clock), // 1-bit data input (negative edge)
        .R((r_oddrsettings[3]) ? 12'b1 : 12'b0),   // 1-bit reset
-       .S((r_oddrsettings[2]) ? 12'b1 : 12'b0)    // 1-bit set
+       .S(12'b0)    // 1-bit set
     );
     
     

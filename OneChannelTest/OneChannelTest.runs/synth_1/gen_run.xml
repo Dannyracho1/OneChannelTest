@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7vx485tffg1761-2" LaunchTime="1710089996" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/main.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7vx485tffg1761-2" LaunchTime="1710187530" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/main.dcp">
+  <File Type="VDS-TIMINGSUMMARY" Name="main_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="main.dcp"/>
   <File Type="RDS-UTIL-PB" Name="main_utilization_synth.pb"/>
-  <File Type="PA-TCL" Name="main.tcl"/>
   <File Type="RDS-UTIL" Name="main_utilization_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="main_reports.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="main_drc_synth.rpt"/>
   <File Type="RDS-RDS" Name="main.vds"/>
+  <File Type="REPORTS-TCL" Name="main_reports.tcl"/>
+  <File Type="VDS-TIMING-PB" Name="main_timing_summary_synth.pb"/>
+  <File Type="PA-TCL" Name="main.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/clock_10Hz.v">
@@ -73,14 +76,6 @@
     </File>
     <File Path="$PPRDIR/../OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v">
       <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/signalgen_v2.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>

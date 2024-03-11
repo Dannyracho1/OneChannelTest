@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-| Date             : Sun Mar 10 18:02:53 2024
+| Date             : Mon Mar 11 21:09:00 2024
 | Host             : eddard.hfe.rwth-aachen.de running 64-bit Rocky Linux release 8.8 (Green Obsidian)
 | Command          : report_power -file main_power_routed.rpt -pb main_power_summary_routed.pb -rpx main_power_routed.rpx
 | Design           : main
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 2.089        |
+| Total On-Chip Power (W)  | 2.092        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.833        |
+| Dynamic (W)              | 1.836        |
 | Device Static (W)        | 0.257        |
 | Effective TJA (C/W)      | 1.1          |
 | Max Ambient (C)          | 82.6         |
@@ -53,18 +53,18 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.020 |        3 |       --- |             --- |
-| Slice Logic    |     0.008 |     2031 |       --- |             --- |
-|   LUT as Logic |     0.006 |     1053 |    303600 |            0.35 |
+| Slice Logic    |     0.008 |     2025 |       --- |             --- |
+|   LUT as Logic |     0.006 |     1055 |    303600 |            0.35 |
 |   CARRY4       |     0.001 |      246 |     75900 |            0.32 |
-|   Register     |    <0.001 |      519 |    607200 |            0.09 |
+|   Register     |    <0.001 |      510 |    607200 |            0.08 |
 |   Others       |     0.000 |       24 |       --- |             --- |
 |   F7/F8 Muxes  |     0.000 |        4 |    303600 |           <0.01 |
 | Signals        |     0.010 |     1817 |       --- |             --- |
 | Block RAM      |    <0.001 |       12 |      1030 |            1.17 |
 | DSPs           |    <0.001 |        1 |      2800 |            0.04 |
-| I/O            |     1.811 |      263 |       700 |           37.57 |
+| I/O            |     1.813 |      263 |       700 |           37.57 |
 | Static Power   |     0.257 |          |           |                 |
-| Total          |     2.105 |          |           |                 |
+| Total          |     2.108 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.190 |       0.043 |      0.147 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.193 |       0.046 |      0.147 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.047 |       0.009 |      0.038 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -147,12 +147,12 @@ Table of Contents
 +--------------------+-----------+
 | Name               | Power (W) |
 +--------------------+-----------+
-| main               |     1.848 |
+| main               |     1.851 |
 |   DAC_SPI          |     0.003 |
 |   PLL_SPI          |     0.003 |
-|   adjustable_clock |     0.015 |
-|   rcv              |     0.003 |
-|   signalgen        |     0.002 |
+|   adjustable_clock |     0.014 |
+|   rcv              |     0.002 |
+|   signalgen        |     0.001 |
 |   tenhz_mod        |     0.004 |
 |   trx              |     0.001 |
 +--------------------+-----------+
