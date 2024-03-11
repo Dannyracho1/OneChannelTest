@@ -148,8 +148,9 @@ module main(
 	wire [11:0]     w_DACData_I;			// DAC Data In-Phase:   from RAM to ODDR (Double-Data Rate)
 	wire [11:0]     w_DACData_Q;			// DAC Data Quadrature: from RAM to ODDR (Double-Data Rate)
 
-    wire [11:0]	    w_DACData1_toDIFF;                 // DAC Data 1 over ODDR to OBUFDS
-    wire [11:0]	    w_DACData8_toDIFF;                 // DAC Data 8 over ODDR to OBUFDS
+    wire [11:0]	    w_DACData1_toDIFF;		// DAC Data 1 over ODDR to OBUFDS
+	wire [11:0]		w_DACData7_toDIFF;		// DAC Data 7 over ODDR to OBUFDS
+    wire [11:0]	    w_DACData8_toDIFF;		// DAC Data 8 over ODDR to OBUFDS
 	
 	// SYNC Signal!!
 	wire            w_DAC_SYNC;
@@ -231,6 +232,7 @@ module main(
 	parameter BB_SETTINGS			= 8'h2C;		// Baseband settings (16QAM, reduced 4QAM, data shift by one DAC update cycle) 
 	parameter DAC_CONFIG			= 8'h2D;		// New (Danny): Resetb, Alarm, Ex_ENA, Sleep directly to PINS (41, 47, 48, 49) on each DAC
 	parameter SPIACTDAC				= 8'h2E;		// New (Danny): Controls the SPI_CSB pins on DAC
+	parameter ODDR_Settings			= 8'h2F;		// New (Danny): Testing settings for ODDR on DACData7
 	
 	// Internal constant parameters
 	parameter RESETTIME 		= 2_000_000; 		// Whenever reset is triggered, this number of clock cycles does the reset takes time (in case of 2_000_000 this is 10 ms)
@@ -421,6 +423,31 @@ module main(
        .S(12'b1)    // 1-bit set
     );
     
+
+	/************** r_oddrsettings for ODDR test on DACData7 **************/
+	/************** 	Add r_oddrsettings to MATLAB!!		 **************/
+	/************** 	Register settings as follows:		 **************/	
+	// r_oddrsettings[0] = 1: CE (Enable Input) or 0: Not-Enable
+	// r_oddrsettings[1] = 1: SYNC 				or 0: ASYNC
+	// r_oddrsettings[2] = 1: SET=1 			or 0: SET=0
+	// r_oddrsettings[3] = 1: RESET=1 			or 0: RESET=0
+	// r_oddrsettings[4] = 1: I_clk (200MHz)	or 0: I_clk is adjustable_clock
+	// r_oddrsettings[5] NOT ASSIGNED YET 
+
+    ODDR #(
+       .DDR_CLK_EDGE("SAME_EDGE"), // "OPPOSITE_EDGE" or "SAME_EDGE"
+       .INIT(1'b0),    // Initial value of Q: 1'b0 or 1'b1
+       .SRTYPE((r_oddrsettings[1]) ? "SYNC" : "ASYNC") // Set/Reset type: "SYNC" or "ASYNC"
+    ) ODDR_DACData7[11:0] (
+       .Q(w_DACData7_toDIFF),   // 1-bit DDR output
+       .C((r_oddrsettings[2]) ? clk : w_adjustable_clock),   // 1-bit clock input
+       .CE((r_oddrsettings[0]) ? 8'b1111_1111 : 8'b0000_0000), // 1-bit clock enable input
+       .D1(w_adjustable_clock), // 1-bit data input (positive edge)
+       .D2(w_adjustable_clock), // 1-bit data input (negative edge)
+       .R((r_oddrsettings[3]) ? 12'b1 : 12'b0),   // 1-bit reset
+       .S((r_oddrsettings[2]) ? 12'b1 : 12'b0)    // 1-bit set
+    );
+    
     
     ODDR #(
        .DDR_CLK_EDGE("SAME_EDGE"), // "OPPOSITE_EDGE" or "SAME_EDGE"
@@ -478,7 +505,7 @@ module main(
     );
     
     OBUFDS OBUFDS_DACData7[11:0] (
-    	.I(w_adjustable_clock), 
+    	.I(w_DACData7_toDIFF), 
     	.O(DACData7_P), 
     	.OB(DACData7_N)
     );
@@ -956,6 +983,7 @@ module main(
 					DACACTIVECORE: 	r_dacActiveCore <= r_tempRegVal;
 					DAC_MODE:		r_dacMode		<= r_tempRegVal;
 					DAC_CONFIG:		r_dacconfig		<= r_tempRegVal;
+					ODDR_Settings:	r_oddrsettings	<= r_tempRegVal;
 					
 					PLLSYNC: 		r_pll_sync		<= r_tempRegVal;
 					PLLSYNCPULSESHIFT: 		r_syncPulseShift		<= r_tempRegVal;
