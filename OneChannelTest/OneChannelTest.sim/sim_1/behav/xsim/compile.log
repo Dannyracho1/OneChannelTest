@@ -1,0 +1,23 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/clock_10Hz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clock_10Hz
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sources_1/new/clock_1khz_100khz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clock_1khz_100khz
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/crc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module crc
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module main
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/pll_sync.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pll_sync
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/pll_sync_rqst.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pll_sync_rqst
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/realSPI.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module realSPI
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/signalgen_DDR.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module signalgen_DDR
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/uart_rcv.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_rcv
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/uart_trx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_trx
+INFO: [VRFC 10-311] analyzing module clkDiv
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sim_1/new/main_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module main_tb

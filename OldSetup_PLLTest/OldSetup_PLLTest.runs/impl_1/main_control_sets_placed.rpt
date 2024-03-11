@@ -1,0 +1,103 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Thu Oct 26 15:04:06 2023
+| Host         : brienne running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file main_control_sets_placed.rpt
+| Design       : main
+| Device       : xc7vx690t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    25 |
+|    Minimum number of control sets                        |    25 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    62 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    25 |
+| >= 0 to < 4        |     3 |
+| >= 4 to < 6        |     6 |
+| >= 6 to < 8        |     2 |
+| >= 8 to < 10       |     8 |
+| >= 10 to < 12      |     2 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     1 |
+| >= 16              |     3 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              38 |           15 |
+| No           | No                    | Yes                    |              15 |            3 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |              69 |           20 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             104 |           34 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++--------------+----------------------------------------+-------------------------------------+------------------+----------------+--------------+
+| Clock Signal |              Enable Signal             |           Set/Reset Signal          | Slice Load Count | Bel Load Count | Bels / Slice |
++--------------+----------------------------------------+-------------------------------------+------------------+----------------+--------------+
+|  clk_BUFG    | SYNCING/PLLSync/p_0_in__0              | SYNCING/r_syncTrigger               |                1 |              1 |         1.00 |
+|  clk_BUFG    | spiModule/O_SDI_i_2_n_0                | spiModule/O_SCK0                    |                1 |              1 |         1.00 |
+|  clk_BUFG    | trx/div/counter_reg_2_sn_1             | trx/div/dataSend4_out               |                1 |              2 |         2.00 |
+|  clk_BUFG    | rcv/FSM_sequential_r_state[3]_i_1_n_0  |                                     |                1 |              4 |         4.00 |
+|  clk_BUFG    | spiModule/r_bitCount[4]_i_1_n_0        |                                     |                1 |              4 |         4.00 |
+|  clk_BUFG    | spiModule/r_bitCount[4]_i_1_n_0        | spiModule/r_bitCount[7]_i_1_n_0     |                2 |              4 |         2.00 |
+|  clk_BUFG    | rcv/r_count                            |                                     |                2 |              5 |         2.50 |
+|  clk_BUFG    | r_spiREGADDR                           | r_spiREGADDR[5]_i_1_n_0             |                1 |              5 |         5.00 |
+|  clk_BUFG    | r_spiTXLSB                             | r_spiTXLSB[5]_i_1_n_0               |                1 |              5 |         5.00 |
+|  clk_BUFG    | SYNCING/PLLSync/r_counter[5]_i_1_n_0   | SYNCING/r_syncTrigger               |                2 |              6 |         3.00 |
+|  clk_BUFG    | spiModule/r_counter[15]_i_2_n_0        | spiModule/r_counter[10]_i_1_n_0     |                3 |              6 |         2.00 |
+|  clk_BUFG    | rcv/data_recv[7]_i_1_n_0               |                                     |                2 |              8 |         4.00 |
+|  clk_BUFG    | rcv/r_regaddr                          | rcv/FSM_sequential_r_state_reg[2]_2 |                2 |              8 |         4.00 |
+|  clk_BUFG    | rcv/E[0]                               |                                     |                5 |              8 |         1.60 |
+|  clk_BUFG    | rcv/FSM_sequential_r_state_reg[1]_0[0] |                                     |                1 |              8 |         8.00 |
+|  clk_BUFG    | trx/div/counter                        | trx/div/clk_out_reg_1               |                3 |              8 |         2.67 |
+|  clk_BUFG    | r_spiACTPLL                            |                                     |                1 |              8 |         8.00 |
+|  clk_BUFG    | r_spiTXMSB                             | r_spiTXMSB[7]_i_1_n_0               |                2 |              8 |         4.00 |
+|  clk_BUFG    | spiModule/O_CSB[7]_i_2_n_0             | spiModule/O_CSB[7]_i_1_n_0          |                1 |              8 |         8.00 |
+|  clk_BUFG    | spiModule/r_counter[15]_i_2_n_0        | spiModule/r_counter[15]_i_1_n_0     |                4 |             10 |         2.50 |
+|  clk_BUFG    | rcv/r_count                            | rcv/r_count[15]_i_1_n_0             |                4 |             11 |         2.75 |
+|  clk_BUFG    |                                        | trx/rst_reg_n_0                     |                3 |             15 |         5.00 |
+|  clk_BUFG    | r_resetCounter                         | r_resetCounter[0]_i_1_n_0           |                6 |             21 |         3.50 |
+|  clk_BUFG    | spiModule/r_address                    |                                     |                7 |             24 |         3.43 |
+|  clk_BUFG    |                                        |                                     |               15 |             38 |         2.53 |
++--------------+----------------------------------------+-------------------------------------+------------------+----------------+--------------+
+
+
