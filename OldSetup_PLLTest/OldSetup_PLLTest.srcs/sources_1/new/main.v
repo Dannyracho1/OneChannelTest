@@ -464,12 +464,12 @@ module main(
        .SRTYPE("SYNC") // Set/Reset type: "SYNC" or "ASYNC"
     ) ODDR_DACData8[11:0] (
        .Q(w_DACData8_toDIFF),   // 1-bit DDR output
-       .C(w_adjustable_clock),   // 1-bit clock input
+       .C(clk),   // 1-bit clock input
        .CE(I_mode == 8'b1111_1111), // 1-bit clock enable input
        .D1(w_DACData_I), // 1-bit data input (positive edge)
        .D2(w_DACData_Q), // 1-bit data input (negative edge)
-       .R(12'b0),   // 1-bit reset
-       .S(12'b1)    // 1-bit set
+       .R(12'b1),   // 1-bit reset
+       .S(12'b0)    // 1-bit set
     );
     
     

@@ -2,10 +2,16 @@
 | Launch Setup Clock | Launch Hold Clock | Pin                                           |
 +====================+===================+===============================================+
 | SYSCLK_P           | SYSCLK_P          | adjustable_clock/clk_out_reg_lopt_replica_9/D |
-| SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[2]/CE                           |
+| SYSCLK_P           | SYSCLK_P          | adjustable_clock/clk_out_reg/D                |
+| SYSCLK_P           | SYSCLK_P          | adjustable_clock/clk_out_reg_lopt_replica_8/D |
+| SYSCLK_P           | SYSCLK_P          | adjustable_clock/clk_out_reg_lopt_replica_3/D |
+| SYSCLK_P           | SYSCLK_P          | adjustable_clock/clk_out_reg_lopt_replica_4/D |
+| SYSCLK_P           | SYSCLK_P          | adjustable_clock/clk_out_reg_lopt_replica_7/D |
+| SYSCLK_P           | SYSCLK_P          | adjustable_clock/clk_out_reg_lopt_replica_6/D |
 | SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[3]/CE                           |
-| SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[2]/D1                           |
-| SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[2]/D2                           |
+| SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[2]/CE                           |
 | SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[3]/D1                           |
 | SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[3]/D2                           |
+| SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[2]/D1                           |
+| SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[2]/D2                           |
 +--------------------+-------------------+-----------------------------------------------+
