@@ -1,13 +1,11 @@
-+====================+===================+=============================================+
-| Launch Setup Clock | Launch Hold Clock | Pin                                         |
-+====================+===================+=============================================+
-| SYSCLK_P           | SYSCLK_P          | adjustable_clock/clk_out_reg_lopt_replica/D |
-| SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[2]/CE                         |
-| SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[3]/CE                         |
-| SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[2]/D1                         |
-| SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[2]/D2                         |
-| SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[3]/D1                         |
-| SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[3]/D2                         |
-| SYSCLK_P           | SYSCLK_P          | ODDR_DACData8[6]/CE                         |
-| SYSCLK_P           | SYSCLK_P          | ODDR_DACData8[8]/CE                         |
-+--------------------+-------------------+---------------------------------------------+
++====================+===================+================================================+
+| Launch Setup Clock | Launch Hold Clock | Pin                                            |
++====================+===================+================================================+
+| SYSCLK_P           | SYSCLK_P          | adjustable_clock/clk_out_reg_lopt_replica_12/D |
+| SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[3]/CE                            |
+| SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[2]/CE                            |
+| SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[3]/D1                            |
+| SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[3]/D2                            |
+| SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[2]/D1                            |
+| SYSCLK_P           | SYSCLK_P          | ODDR_DACData7[2]/D2                            |
++--------------------+-------------------+------------------------------------------------+

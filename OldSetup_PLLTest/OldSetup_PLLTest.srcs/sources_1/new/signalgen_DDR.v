@@ -107,6 +107,25 @@ module signalgen_DDR(
 	reg [15:0]  uart_data_count		= 16'b0; 	// keeps track of UART data bits
 	reg         output_flag			= 1'b1;		
 	
+	// Edge Detection
+
+	reg		reg1, reg2;
+	wire	edge_detected;
+
+	always @ (posedge I_clk)
+	begin
+		reg1 <= I_IQdataReady;
+		reg2 <= reg1;
+	end
+
+	assign edge_detected = reg1 & ~reg2;
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////		Edge detected needed for IQ Data flag ready								//////////////
+	//////////////		Global clock is much faster that of UART								//////////////
+	//////////////		(MATLAB) Set I_IQdataReady or r_dac_Q_msb[7] after data transmission	//////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	always @ (posedge I_clk) 
 	begin
 		if(!I_pause) // Stop the Convertion if I_pause is set
@@ -131,7 +150,7 @@ module signalgen_DDR(
 				end
 				SET_IQ_DATA:	// Gettin flag to store IQ to RAM
 				begin
-					if(I_IQdataReady)
+					if(I_IQdataReady && edge_detected)
 					begin
 						r_memory_I[uart_data_count] <= I_Idata;
 						r_memory_Q[uart_data_count] <= I_Qdata;
