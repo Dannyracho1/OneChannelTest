@@ -103,9 +103,9 @@ module signalgen_DDR(
 	
 	
 	// Register	
-	reg [15:0]	memory_idx  	   = 16'b0; // keeps track of position in RAM
-	reg [15:0]  uart_data_count    = 16'b0;  // keeps track of UART data bits
-	reg         adjustable_flag    = 1'b1;
+	reg [15:0]	memory_idx			= 16'b0;	// keeps track of position in RAM
+	reg [15:0]  uart_data_count		= 16'b0; 	// keeps track of UART data bits
+	reg         output_flag			= 1'b1;		
 	
 	always @ (posedge I_clk) 
 	begin
@@ -115,7 +115,7 @@ module signalgen_DDR(
 				NORMAL_OUTPUT:	// Push the data from RAM to DAC
 				begin
 				    
-				    if(I_adjustable_clk && adjustable_flag) 
+				    if(I_adjustable_clk && output_flag) 
 				    begin
                         O_DAC_I <= r_memory_I[memory_idx];
                         O_DAC_Q <= r_memory_Q[memory_idx];
@@ -124,10 +124,10 @@ module signalgen_DDR(
                         else
                             memory_idx <= memory_idx + 1;
                         
-                        adjustable_flag = 1'b0;
+                        output_flag = 1'b0;
                     end
-                    else if (~I_adjustable_clk && ~adjustable_flag)
-                        adjustable_flag = 1'b1;
+                    else if (!I_adjustable_clk && !output_flag)
+                        output_flag = 1'b1;
 				end
 				SET_IQ_DATA:	// Gettin flag to store IQ to RAM
 				begin

@@ -1,6 +1,6 @@
 -------------------------------------
 | Tool Version : Vivado v.2023.2
-| Date         : Tue Mar 12 18:00:23 2024
+| Date         : Wed Mar 13 13:12:18 2024
 | Host         : eddard.hfe.rwth-aachen.de
 | Design       : design_1
 | Device       : xc7vx485t-ffg1761-2--
