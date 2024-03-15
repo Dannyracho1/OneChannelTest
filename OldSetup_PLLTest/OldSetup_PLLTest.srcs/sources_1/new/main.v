@@ -23,8 +23,10 @@ module main(
 /*--------------------------------------------------------------------------------------------*/
 /*----  Outputs/Inputs -----------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------*/
-	// input 		SYSCLK_P,			// Systemclock 100MHz - will be connected to a multiplier with single ended output "clk" at 400 MHz
 	
+	// USER_CLOCK 100MHz - set first to 200MHz for test
+	
+	// input 		SYSCLK_P,
 	
 	// Systemclock 200MHz - will be connected to a buffer with single ended output "clk"
     input SYSCLK_P,
