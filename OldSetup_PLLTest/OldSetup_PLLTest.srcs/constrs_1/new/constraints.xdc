@@ -41,12 +41,22 @@ set_property IOSTANDARD LVCMOS18 [get_ports {GPIO_LED[7]}]
 
 
 ###### Up-Down Dip Switch Pin assignment ########
-# set_property PACKAGE_PIN AV30 [get_ports DIP_SW0]
-# set_property IOSTANDARD LVCMOS18 [get_ports DIP_SW0]
-# set_property PACKAGE_PIN AY33 [get_ports DIP_SW1]
-# set_property IOSTANDARD LVCMOS18 [get_ports DIP_SW1]
-# set_property PACKAGE_PIN BA31 [get_ports DIP_SW2]
-# set_property IOSTANDARD LVCMOS18 [get_ports DIP_SW2]
+set_property PACKAGE_PIN AV30 [get_ports GPIO_DIP_SW0]
+set_property IOSTANDARD LVCMOS18 [get_ports GPIO_DIP_SW0]
+# set_property PACKAGE_PIN AY33 [get_ports GPIO_DIP_SW1]
+# set_property IOSTANDARD LVCMOS18 [get_ports GPIO_DIP_SW1]
+# set_property PACKAGE_PIN BA31 [get_ports GPIO_DIP_SW2]
+# set_property IOSTANDARD LVCMOS18 [get_ports GPIO_DIP_SW2]
+# set_property PACKAGE_PIN BA32 [get_ports GPIO_DIP_SW3]
+# set_property IOSTANDARD LVCMOS18 [get_ports GPIO_DIP_SW3]
+# set_property PACKAGE_PIN AW30 [get_ports GPIO_DIP_SW4]
+# set_property IOSTANDARD LVCMOS18 [get_ports GPIO_DIP_SW4]
+# set_property PACKAGE_PIN AY30 [get_ports GPIO_DIP_SW5]
+# set_property IOSTANDARD LVCMOS18 [get_ports GPIO_DIP_SW5]
+# set_property PACKAGE_PIN BA30 [get_ports GPIO_DIP_SW6]
+# set_property IOSTANDARD LVCMOS18 [get_ports GPIO_DIP_SW6]
+# set_property PACKAGE_PIN BB31 [get_ports GPIO_DIP_SW7]
+# set_property IOSTANDARD LVCMOS18 [get_ports GPIO_DIP_SW7]
 
 
 ###### XADC GPIOs Pin assignment ########

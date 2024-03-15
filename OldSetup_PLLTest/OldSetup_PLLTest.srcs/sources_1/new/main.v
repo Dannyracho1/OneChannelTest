@@ -24,13 +24,16 @@ module main(
 /*----  Outputs/Inputs -----------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------*/
 	
-	// USER_CLOCK 100MHz - set first to 200MHz for test
+	// USER_CLOCK 100MHz - SMA Connector J31 on the VC707
 	
 	input			USER_CLOCK,
 	
 	// Systemclock 200MHz - will be connected to a buffer with single ended output "clk"
     input			SYSCLK_P,
     input			SYSCLK_N,
+
+	// DIP SWITCH controls the main clock (USER_CLOCK or SYSCLK)
+	input			GPIO_DIP_SW0,
 
 	// LEDs on the VC707_FPGA Board itself
 	output [7:0]	GPIO_LED,		// LED0..7
@@ -114,7 +117,8 @@ module main(
 	
 	// Clock
 	wire 			clk;			// 200 MHz System Clock
-	wire			w_clk;			// 200 MHz (might not be needed)
+	wire			w_SYSCLK;		// 200 MHz (Generated on board)
+	wire			w_USERCLK;		// 200 MHz (Coming from frequency generator)
 	
 	// UART
 	wire 			w_dataRdy;		// UART Data available		
@@ -329,7 +333,7 @@ module main(
         .DIFF_TERM("FALSE"), .IBUF_LOW_PWR("TRUE"), .IOSTANDARD("DEFAULT")
         ) 
     IBUFGDS_inst (
-        .O(w_clk),
+        .O(w_SYSCLK),
         .I(SYSCLK_P),
         .IB(SYSCLK_N)
     );
@@ -338,9 +342,12 @@ module main(
 	// 200 MHz Main Clock generated from the 100 MHz reference
 	system_clk_creator clk_gen(
 		.CLK_IN1(USER_CLOCK),
-		.CLK_OUT1(clk)
+		.CLK_OUT1(w_USERCLK)
 	);
 	
+	// Choose your clock from the DIP Switch GPIO_DIP_SW0 (OFF is toward the number)
+	assign clk = (GPIO_DIP_SW0) ? w_USERCLK : w_SYSCLK;
+
 
 	// PLL/DAC MISO
 	IBUF IBUF_PLL_MISO(

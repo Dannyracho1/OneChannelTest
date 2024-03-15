@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-| Date                      : Fri Mar 15 16:15:37 2024
+| Date                      : Fri Mar 15 17:06:37 2024
 | Host                      : eddard.hfe.rwth-aachen.de running 64-bit Rocky Linux release 8.8 (Green Obsidian)
 | Command                   : report_io -file main_io_placed.rpt
 | Design                    : main
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|           267 |
+|           268 |
 +---------------+
 
 
@@ -818,7 +818,7 @@ Table of Contents
 | AV27       |                |                  | GND                          | GND           |             |         |            |      |                     |                      |       0.0 |            |           |          |      |                  |              |                   |              |
 | AV28       |                |                  | NC                           | Not Connected |             |         |            |      |                     |                      |           |            |           |          |      |                  |              |                   |              |
 | AV29       |                |                  | NC                           | Not Connected |             |         |            |      |                     |                      |           |            |           |          |      |                  |              |                   |              |
-| AV30       |                | High Performance | IO_L18P_T2_13                | User IO       |             |      13 |            |      |                     |                      |           |            |           |          |      |                  |              |                   |              |
+| AV30       | GPIO_DIP_SW0   | High Performance | IO_L18P_T2_13                | INPUT         | LVCMOS18    |      13 |            |      |                     |                 NONE |           | FIXED      |           |          |      | NONE             |              |                   |              |
 | AV31       |                | High Performance | IO_L20N_T3_13                | User IO       |             |      13 |            |      |                     |                      |           |            |           |          |      |                  |              |                   |              |
 | AV32       |                | High Performance | VCCO_13                      | VCCO          |             |      13 |            |      |                     |                      |      1.80 |            |           |          |      |                  |              |                   |              |
 | AV33       |                | High Performance | IO_L11N_T1_SRCC_13           | User IO       |             |      13 |            |      |                     |                      |           |            |           |          |      |                  |              |                   |              |
