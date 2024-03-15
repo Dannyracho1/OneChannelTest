@@ -11,8 +11,8 @@ Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module unisims_ver.IBUFDS
 Compiling module unisims_ver.IBUFGDS
-Compiling module unisims_ver.OBUF
 Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.OBUF
 Compiling module unisims_ver.OBUFDS
 Compiling module unisims_ver.ODDR(DDR_CLK_EDGE="SAME_EDGE")
 Compiling module xil_defaultlib.uart_rcv

@@ -200,39 +200,38 @@ signalgen_DDR signal_tb(
     .I_BB_Settings(I_BB_Settings)
 );
 
-/*
-
-// Differential to single ended buffer for the input System clock of 200 MHz
-IBUFGDS #(
-    .DIFF_TERM("FALSE"), .IBUF_LOW_PWR("TRUE"), .IOSTANDARD("DEFAULT")
-    ) 
-IBUFGDS_inst (
-    .O(w_clk),
-    .I(SYSCLK_P),
-    .IB(SYSCLK_N)
-);
-
-*/
-
-/*
-
-OBUFDS general_clock (
-    	.I(w_clk), 
-    	.O(SYSCLK_P), 
-    	.OB(SYSCLK_N)
-    );
-
-*/
-
 
 always
     begin
         w_clk = 1'b0;
         forever
-            #2.5 w_clk = ~w_clk;
+        begin
+            // single-ended clock
+            #2.5 w_clk  = ~w_clk;
+            // differential clock
+            SYSCLK_P    =  w_clk;
+            SYSCLK_N    = ~w_clk;
+        end
     end
 
 
+
+
+initial
+    begin
+        // Set I_pause, I_mode, I_dataLength, I_Idata, I_Qdata, I_BB_Settings, I_IQdataReady
+        #100 I_pause        = 1'b0; // Stop the Convertion if I_pause is set
+        I_mode = 8'd0;  // FSM 0 is default (MATLAB: pause stream)
+        I_dataLength[11:0]  =   12'd1;
+        I_Idata[11:0]       =   12'b00_0000_0001;   // random I data --> 1
+        I_Qdata[11:0]       =   12'b00_0000_0010;   // random Q data --> 2
+        I_BB_Settings[7:0]  =   8'd0;               // No settings here
+        I_IQdataReady       =   1'b0;               // Data not ready
+		// ready_flag			=	1'b0;				// Ready flag (to be tested)
+		divisor = 100; // 100 kHz
+
+    end
+/*
 initial
     begin
         // Set I_pause, I_mode, I_dataLength, I_Idata, I_Qdata, I_BB_Settings, I_IQdataReady
@@ -244,18 +243,82 @@ initial
         I_BB_Settings[7:0]  =   8'd0;               // No settings here
         I_IQdataReady       =   1'b0;               // Data not ready
     end
-
-
+*/
+/*
 initial
     begin
         #1000 I_mode  = 8'd2; // FSM 2 is SET_IQ_DATA (MATLAB: Overwrite memory)
         I_IQdataReady = 1'b1; // Data ready
 
-
-
         #100000000 $stop;
     end
-    
+*/
 
+
+initial
+    begin
+        #10000 
+		I_mode  = 8'b0000_0010;	// FSM 2 is SET_IQ_DATA (MATLAB: Overwrite memory)
+        I_IQdataReady = 1'b1;	// Data ready
+
+
+		// Just increment by 1 and add new entries to RAM memory
+		#10000
+		I_IQdataReady = 1'b1;	// Data ready
+		I_Idata[11:0]       =   12'b00_0000_0010;	// I data --> 2
+		I_Qdata[11:0]       =   12'b00_0000_0011;	// Q data --> 3
+		I_dataLength = I_dataLength + 12'd1;
+		
+		#1000
+		I_IQdataReady = 1'b0;	// Data NOT ready
+		
+		#10000
+		I_IQdataReady = 1'b1;	// Data ready
+		I_Idata[11:0]       =   12'b00_0000_0011;	// I data --> 3
+		I_Qdata[11:0]       =   12'b00_0000_0100;	// Q data --> 4
+		I_dataLength = I_dataLength + 12'd1;
+		
+		#1000
+		I_IQdataReady = 1'b0;	// Data NOT ready
+		
+		#10000
+		I_IQdataReady = 1'b1;	// Data ready
+		I_Idata[11:0]       =   12'b00_0000_0100;	// I data --> 4
+		I_Qdata[11:0]       =   12'b00_0000_0101;	// Q data --> 5
+		I_dataLength = I_dataLength + 12'd1;
+		
+		#1000
+		I_IQdataReady = 1'b0;	// Data NOT ready
+		
+		
+		// Check if memory still gets written in another mode
+		#10000
+		I_mode  = 8'd0;	// FSM 0 is default
+		I_IQdataReady = 1'b1;	// Data ready
+		I_Idata[11:0]       =   12'b00_1000_0000;	// I data --> NOT IN THE SAME SEQ
+		I_Qdata[11:0]       =   12'b00_1000_0000;	// Q data --> NOT IN THE SAME SEQ
+		I_dataLength = I_dataLength + 12'd1;		// Check what happens to length
+		
+		// Check if memory still gets written in IQData Not Ready!
+		#10000
+		I_mode  = 8'd2;	// Back to FSM 2 SET_IQ_DATA (Overwrite RAM)
+		I_IQdataReady = 1'b0;	// Data not ready
+		I_Idata[11:0]       =   12'b00_1111_0000;	// I data --> NOT IN THE SAME SEQ
+		I_Qdata[11:0]       =   12'b00_1111_0000;	// Q data --> NOT IN THE SAME SEQ
+		I_dataLength = I_dataLength + 12'd1;		// Check what happens to length
+		
+		
+		
+		
+		#10000 I_mode = 8'd1;	// FSM 1 is NORMAL_OUTPUT (MATLAB: Stream)
+		
+		// DATA SHOULD LOOP HERE
+		// LENGTH ACCORDING TO I_dataLength
+		
+
+
+        #1000000 $stop;
+    end
+    
 
 endmodule
