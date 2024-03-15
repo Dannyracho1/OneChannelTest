@@ -1,60 +1,10 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="dracho" Host="eddard.hfe.rwth-aachen.de" Pid="2726262" HostCore="8" HostMemory="16280016">
+    <Process Command="vivado" Owner="dracho" Host="eddard.hfe.rwth-aachen.de" Pid="238573" HostCore="8" HostMemory="16280016">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="dracho" Host="eddard.hfe.rwth-aachen.de" Pid="2739603" HostCore="8" HostMemory="16280016">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="dracho" Host="eddard.hfe.rwth-aachen.de" Pid="2743271" HostCore="8" HostMemory="16280016">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="dracho" Host="eddard.hfe.rwth-aachen.de" Pid="2757650" HostCore="8" HostMemory="16280016">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="dracho" Host="eddard.hfe.rwth-aachen.de" Pid="2759753" HostCore="8" HostMemory="16280016">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="dracho" Host="eddard.hfe.rwth-aachen.de" Pid="2761311" HostCore="8" HostMemory="16280016">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="dracho" Host="eddard.hfe.rwth-aachen.de" Pid="2762892" HostCore="8" HostMemory="16280016">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="dracho" Host="eddard.hfe.rwth-aachen.de" Pid="2777415" HostCore="8" HostMemory="16280016">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="dracho" Host="eddard.hfe.rwth-aachen.de" Pid="3127964" HostCore="8" HostMemory="16280016">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="dracho" Host="eddard.hfe.rwth-aachen.de" Pid="3140099" HostCore="8" HostMemory="16280016">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="dracho" Host="eddard.hfe.rwth-aachen.de" Pid="3152434" HostCore="8" HostMemory="16280016">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="dracho" Host="eddard.hfe.rwth-aachen.de" Pid="3166932" HostCore="8" HostMemory="16280016">
+    <Process Command="vivado" Owner="dracho" Host="eddard.hfe.rwth-aachen.de" Pid="252058" HostCore="8" HostMemory="16280016">
     </Process>
 </ProcessHandle>

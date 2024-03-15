@@ -1,4 +1,11 @@
 
+###### USER_CLOCK defines ########
+## ISE Constraints (Daniel's implementation IOSTANDRARD HSTLI_DCI)
+## Check again, if UltraScale board is used, no need for the VC707
+set_property PACKAGE_PIN AJ32 [get_ports USER_CLOCK]
+set_property IOSTANDARD LVCMOS18 [get_ports USER_CLOCK]
+
+
 ###### LVDS clock works ########
 set_property PACKAGE_PIN E19 [get_ports SYSCLK_P]
 set_property IOSTANDARD LVDS [get_ports SYSCLK_P]

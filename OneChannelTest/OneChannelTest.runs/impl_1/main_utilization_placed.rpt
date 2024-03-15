@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-| Date         : Tue Mar 12 18:00:44 2024
+| Date         : Fri Mar 15 16:15:37 2024
 | Host         : eddard.hfe.rwth-aachen.de running 64-bit Rocky Linux release 8.8 (Green Obsidian)
 | Command      : report_utilization -file main_utilization_placed.rpt -pb main_utilization_placed.pb
 | Design       : main
@@ -69,9 +69,9 @@ Table of Contents
 +--------------------------------------------+------+-------+------------+-----------+-------+
 |                  Site Type                 | Used | Fixed | Prohibited | Available | Util% |
 +--------------------------------------------+------+-------+------------+-----------+-------+
-| Slice                                      |  425 |     0 |          0 |     75900 |  0.56 |
-|   SLICEL                                   |  218 |     0 |            |           |       |
-|   SLICEM                                   |  207 |     0 |            |           |       |
+| Slice                                      |  422 |     0 |          0 |     75900 |  0.56 |
+|   SLICEL                                   |  222 |     0 |            |           |       |
+|   SLICEM                                   |  200 |     0 |            |           |       |
 | LUT as Logic                               | 1055 |     0 |          0 |    303600 |  0.35 |
 |   using O5 output only                     |    1 |       |            |           |       |
 |   using O6 output only                     |  868 |       |            |           |       |
@@ -80,10 +80,10 @@ Table of Contents
 |   LUT as Distributed RAM                   |    0 |     0 |            |           |       |
 |   LUT as Shift Register                    |    0 |     0 |            |           |       |
 | Slice Registers                            |  510 |     0 |          0 |    607200 |  0.08 |
-|   Register driven from within the Slice    |  289 |       |            |           |       |
-|   Register driven from outside the Slice   |  221 |       |            |           |       |
-|     LUT in front of the register is unused |  174 |       |            |           |       |
-|     LUT in front of the register is used   |   47 |       |            |           |       |
+|   Register driven from within the Slice    |  284 |       |            |           |       |
+|   Register driven from outside the Slice   |  226 |       |            |           |       |
+|     LUT in front of the register is unused |  194 |       |            |           |       |
+|     LUT in front of the register is used   |   32 |       |            |           |       |
 | Unique Control Sets                        |   45 |       |          0 |     75900 |  0.06 |
 +--------------------------------------------+------+-------+------------+-----------+-------+
 * * Note: Available Control Sets calculated as Slice * 1, Review the Control Sets Report for more information regarding control sets.
@@ -120,9 +120,9 @@ Table of Contents
 +-----------------------------+------+-------+------------+-----------+-------+
 |          Site Type          | Used | Fixed | Prohibited | Available | Util% |
 +-----------------------------+------+-------+------------+-----------+-------+
-| Bonded IOB                  |  263 |   263 |          0 |       700 | 37.57 |
+| Bonded IOB                  |  262 |   262 |          0 |       700 | 37.43 |
 |   IOB Master Pads           |  132 |       |            |           |       |
-|   IOB Slave Pads            |  130 |       |            |           |       |
+|   IOB Slave Pads            |  129 |       |            |           |       |
 | Bonded IPADs                |    0 |     0 |          0 |        86 |  0.00 |
 | Bonded OPADs                |    0 |     0 |          0 |        56 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |          0 |        14 |  0.00 |
@@ -130,7 +130,7 @@ Table of Contents
 | OUT_FIFO                    |    0 |     0 |          0 |        56 |  0.00 |
 | IN_FIFO                     |    0 |     0 |          0 |        56 |  0.00 |
 | IDELAYCTRL                  |    0 |     0 |          0 |        14 |  0.00 |
-| IBUFDS                      |    1 |     1 |          0 |       672 |  0.15 |
+| IBUFDS                      |    0 |     0 |          0 |       672 |  0.00 |
 | GTXE2_COMMON                |    0 |     0 |          0 |         7 |  0.00 |
 | GTXE2_CHANNEL               |    0 |     0 |          0 |        28 |  0.00 |
 | PHASER_OUT/PHASER_OUT_PHY   |    0 |     0 |          0 |        56 |  0.00 |
@@ -150,10 +150,10 @@ Table of Contents
 +------------+------+-------+------------+-----------+-------+
 |  Site Type | Used | Fixed | Prohibited | Available | Util% |
 +------------+------+-------+------------+-----------+-------+
-| BUFGCTRL   |    1 |     0 |          0 |        32 |  3.13 |
+| BUFGCTRL   |    2 |     0 |          0 |        32 |  6.25 |
 | BUFIO      |    0 |     0 |          0 |        56 |  0.00 |
 | MMCME2_ADV |    0 |     0 |          0 |        14 |  0.00 |
-| PLLE2_ADV  |    0 |     0 |          0 |        14 |  0.00 |
+| PLLE2_ADV  |    1 |     0 |          0 |        14 |  7.14 |
 | BUFMRCE    |    0 |     0 |          0 |        28 |  0.00 |
 | BUFHCE     |    0 |     0 |          0 |       168 |  0.00 |
 | BUFR       |    0 |     0 |          0 |        56 |  0.00 |
@@ -181,29 +181,29 @@ Table of Contents
 8. Primitives
 -------------
 
-+----------+------+---------------------+
-| Ref Name | Used | Functional Category |
-+----------+------+---------------------+
-| LUT3     |  595 |                 LUT |
-| FDRE     |  446 |        Flop & Latch |
-| CARRY4   |  246 |          CarryLogic |
-| LUT1     |  156 |                 LUT |
-| LUT2     |  143 |                 LUT |
-| LUT6     |  141 |                 LUT |
-| LUT4     |  130 |                 LUT |
-| OBUFDS   |  113 |                  IO |
-| LUT5     |   76 |                 LUT |
-| FDSE     |   49 |        Flop & Latch |
-| ODDR     |   36 |                  IO |
-| OBUF     |   34 |                  IO |
-| FDCE     |   15 |        Flop & Latch |
-| RAMB36E1 |   12 |        Block Memory |
-| MUXF7    |    4 |               MuxFx |
-| IBUFDS   |    1 |                  IO |
-| IBUF     |    1 |                  IO |
-| DSP48E1  |    1 |    Block Arithmetic |
-| BUFG     |    1 |               Clock |
-+----------+------+---------------------+
++-----------+------+---------------------+
+|  Ref Name | Used | Functional Category |
++-----------+------+---------------------+
+| LUT3      |  595 |                 LUT |
+| FDRE      |  446 |        Flop & Latch |
+| CARRY4    |  246 |          CarryLogic |
+| LUT1      |  156 |                 LUT |
+| LUT2      |  143 |                 LUT |
+| LUT6      |  141 |                 LUT |
+| LUT4      |  130 |                 LUT |
+| OBUFDS    |  113 |                  IO |
+| LUT5      |   76 |                 LUT |
+| FDSE      |   49 |        Flop & Latch |
+| ODDR      |   36 |                  IO |
+| OBUF      |   34 |                  IO |
+| FDCE      |   15 |        Flop & Latch |
+| RAMB36E1  |   12 |        Block Memory |
+| MUXF7     |    4 |               MuxFx |
+| IBUF      |    2 |                  IO |
+| BUFG      |    2 |               Clock |
+| PLLE2_ADV |    1 |               Clock |
+| DSP48E1   |    1 |    Block Arithmetic |
++-----------+------+---------------------+
 
 
 9. Black Boxes
@@ -217,8 +217,10 @@ Table of Contents
 10. Instantiated Netlists
 -------------------------
 
-+----------+------+
-| Ref Name | Used |
-+----------+------+
++--------------------+------+
+|      Ref Name      | Used |
++--------------------+------+
+| system_clk_creator |    1 |
++--------------------+------+
 
 

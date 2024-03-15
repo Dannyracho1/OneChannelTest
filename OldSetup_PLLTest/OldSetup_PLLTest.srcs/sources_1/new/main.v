@@ -26,19 +26,19 @@ module main(
 	
 	// USER_CLOCK 100MHz - set first to 200MHz for test
 	
-	// input 		SYSCLK_P,
+	input			USER_CLOCK,
 	
 	// Systemclock 200MHz - will be connected to a buffer with single ended output "clk"
-    input SYSCLK_P,
-    input SYSCLK_N,
+    input			SYSCLK_P,
+    input			SYSCLK_N,
 
 	// LEDs on the VC707_FPGA Board itself
-	output 	[7:0] GPIO_LED,		// LED0..7
+	output [7:0]	GPIO_LED,		// LED0..7
    
 	// PC Control
-	output 		USB_UART_RX,		// Data to the PC
-	input 		USB_UART_TX,		// Data from the PC
-	output 		USB_UART_CTS,		// Indicates the UART IC, if it can accepted data from the PC	
+	output 			USB_UART_RX,		// Data to the PC
+	input 			USB_UART_TX,		// Data from the PC
+	output 			USB_UART_CTS,		// Indicates the UART IC, if it can accepted data from the PC	
 
 	// Signals to DAC on PCB
 	
@@ -73,8 +73,8 @@ module main(
 	
 	// DAC SYNC Signal
 	
-	output SYNC_P,	
-	output SYNC_N,
+	output			SYNC_P,	
+	output			SYNC_N,
 	
 
 	// PLL SPI Signals
@@ -114,20 +114,21 @@ module main(
 	
 	// Clock
 	wire 			clk;			// 200 MHz System Clock
+	wire			w_clk;			// 200 MHz (might not be needed)
 	
 	// UART
 	wire 			w_dataRdy;		// UART Data available		
-	wire [7:0] 	w_uartrx; 		// UART Data	
+	wire [7:0]		w_uartrx; 		// UART Data	
 	
 	// CRC
-	wire [7:0] 	w_crcResult; 	// Result of the CRC check to be send back to PC
+	wire [7:0]		w_crcResult; 	// Result of the CRC check to be send back to PC
 	wire 			w_crcRdy; 		// Indicates whether the CRC calculation is done or not
 	
 	// SPI
 	wire			w_MOSI;			// SPI Data Output
 	wire			w_SCK;			// SPI Clock
-	wire [7:0]	w_PLL_CSB;			// SPI Chip Select for the 8 different PLLs
-	wire [7:0]	w_DAC_CSB;			// SPI Chip Select for the 8 different DACs
+	wire [7:0]		w_PLL_CSB;			// SPI Chip Select for the 8 different PLLs
+	wire [7:0]		w_DAC_CSB;			// SPI Chip Select for the 8 different DACs
 	
 	// PLL SYNC
 	wire			w_PLL_SYNC;			// Synchronisation line for PLLs
@@ -176,8 +177,8 @@ module main(
 	assign w_DACCLKIQ_delayed[7:0] = 8'b0000_0000;
 	
 	// Driving UART_RX/TX out to debug
-	wire w_datasend_rx;
-	wire w_switch_to_tx;
+	wire			w_datasend_rx;
+	wire			w_switch_to_tx;
 	
 	
 /*---------------------------------------------------------------------------------------------------*/
@@ -222,19 +223,19 @@ module main(
 	parameter PLLSYNC			= 8'h22;			// Triggers the PLL Sync pulse
 	parameter PLLSYNCPULSESHIFT = 8'h23;			// This register Shifts the output of the PLL Sync Pulse relative to the DAC update clock. (Actually just delays it by a number of reference clock cycles)
 	
-	parameter CLKDELAY_CLK1			= 8'h24;		// Delay for DAC1 output clock
-	parameter CLKDELAY_CLK2			= 8'h25;		// Delay for DAC2 output clock
-	parameter CLKDELAY_CLK3			= 8'h26;		// Delay for DAC3 output clock
-	parameter CLKDELAY_CLK4			= 8'h27;		// Delay for DAC4 output clock
-	parameter CLKDELAY_CLK5			= 8'h28;		// Delay for DAC5 output clock
-	parameter CLKDELAY_CLK6			= 8'h29;		// Delay for DAC6 output clock
-	parameter CLKDELAY_CLK7			= 8'h2A;		// Delay for DAC7 output clock
-	parameter CLKDELAY_CLK8			= 8'h2B;		// Delay for DAC8 output clock
-	
-	parameter BB_SETTINGS			= 8'h2C;		// Baseband settings (16QAM, reduced 4QAM, data shift by one DAC update cycle) 
-	parameter DAC_CONFIG			= 8'h2D;		// New (Danny): Resetb, Alarm, Ex_ENA, Sleep directly to PINS (41, 47, 48, 49) on each DAC
-	parameter SPIACTDAC				= 8'h2E;		// New (Danny): Controls the SPI_CSB pins on DAC
-	parameter ODDR_Settings			= 8'h2F;		// New (Danny): Testing settings for ODDR on DACData7
+	parameter CLKDELAY_CLK1		= 8'h24;			// Delay for DAC1 output clock
+	parameter CLKDELAY_CLK2		= 8'h25;			// Delay for DAC2 output clock
+	parameter CLKDELAY_CLK3		= 8'h26;			// Delay for DAC3 output clock
+	parameter CLKDELAY_CLK4		= 8'h27;			// Delay for DAC4 output clock
+	parameter CLKDELAY_CLK5		= 8'h28;			// Delay for DAC5 output clock
+	parameter CLKDELAY_CLK6		= 8'h29;			// Delay for DAC6 output clock
+	parameter CLKDELAY_CLK7		= 8'h2A;			// Delay for DAC7 output clock
+	parameter CLKDELAY_CLK8		= 8'h2B;			// Delay for DAC8 output clock
+
+	parameter BB_SETTINGS		= 8'h2C;			// Baseband settings (16QAM, reduced 4QAM, data shift by one DAC update cycle) 
+	parameter DAC_CONFIG		= 8'h2D;			// New (Danny): Resetb, Alarm, Ex_ENA, Sleep directly to PINS (41, 47, 48, 49) on each DAC
+	parameter SPIACTDAC			= 8'h2E;			// New (Danny): Controls the SPI_CSB pins on DAC
+	parameter ODDR_Settings		= 8'h2F;			// New (Danny): Testing settings for ODDR on DACData7
 	
 	// Internal constant parameters
 	parameter RESETTIME 		= 2_000_000; 		// Whenever reset is triggered, this number of clock cycles does the reset takes time (in case of 2_000_000 this is 10 ms)
@@ -328,10 +329,18 @@ module main(
         .DIFF_TERM("FALSE"), .IBUF_LOW_PWR("TRUE"), .IOSTANDARD("DEFAULT")
         ) 
     IBUFGDS_inst (
-        .O(clk),
+        .O(w_clk),
         .I(SYSCLK_P),
         .IB(SYSCLK_N)
     );
+
+	
+	// 200 MHz Main Clock generated from the 100 MHz reference
+	system_clk_creator clk_gen(
+		.CLK_IN1(USER_CLOCK),
+		.CLK_OUT1(clk)
+	);
+	
 
 	// PLL/DAC MISO
 	IBUF IBUF_PLL_MISO(
@@ -813,14 +822,6 @@ module main(
 	);
 	*/
 	
-	
-	/*
-	// 400 MHz Main Clock generated from the 100 MHz reference
-	system_clk_creator clk_gen(
-		.CLK_IN1(SYSCLK_P),
-		.CLK_OUT1(clk)
-	);
-	*/
 
 /*##############################################################################################*/
 /*######################################  Main Programm  #######################################*/
