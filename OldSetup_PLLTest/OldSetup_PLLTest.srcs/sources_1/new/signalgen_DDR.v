@@ -28,6 +28,7 @@ module signalgen_DDR(
 		
 		output reg 	[11:0] 	O_DAC_I,		// DAC Data Output CHA --> 12-bits
 		output reg 	[11:0] 	O_DAC_Q,		// DAC Data Output CHB --> 12-bits
+		output reg  		O_SYNC,			// DAC SYNC (DDR --> Set on rising edge)
 		
 		//Main clock divider (for DAC update rate reduction)
 		// input [7:0] I_speedDiv,
@@ -119,6 +120,7 @@ module signalgen_DDR(
 				    begin
                         O_DAC_I <= r_memory_I[memory_idx];
                         O_DAC_Q <= r_memory_Q[memory_idx];
+						O_SYNC  <= 1'b1;
                         if (memory_idx >= (I_dataLength-1))
                             memory_idx <= 0;
                         else

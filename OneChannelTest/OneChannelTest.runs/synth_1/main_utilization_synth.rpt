@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-| Date         : Fri Mar 15 16:14:34 2024
+| Date         : Tue Apr  9 19:13:44 2024
 | Host         : eddard.hfe.rwth-aachen.de running 64-bit Rocky Linux release 8.8 (Green Obsidian)
 | Command      : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
 | Design       : main
@@ -111,8 +111,8 @@ Warning! LUT value is adjusted to account for LUT combining.
 | ODELAYE2/ODELAYE2_FINEDELAY |    0 |     0 |          0 |       700 |  0.00 |
 | IBUFDS_GTE2                 |    0 |     0 |          0 |        14 |  0.00 |
 | ILOGIC                      |    0 |     0 |          0 |       700 |  0.00 |
-| OLOGIC                      |   36 |     0 |          0 |       700 |  5.14 |
-|   ODDR                      |   36 |       |            |           |       |
+| OLOGIC                      |   48 |     0 |          0 |       700 |  6.86 |
+|   ODDR                      |   48 |       |            |           |       |
 +-----------------------------+------+-------+------------+-----------+-------+
 
 
@@ -167,7 +167,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | INV      |  113 |                 LUT |
 | LUT5     |   76 |                 LUT |
 | FDSE     |   49 |        Flop & Latch |
-| ODDR     |   36 |                  IO |
+| ODDR     |   48 |                  IO |
 | OBUF     |   34 |                  IO |
 | FDCE     |   15 |        Flop & Latch |
 | RAMB36E1 |   12 |        Block Memory |

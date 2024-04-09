@@ -152,6 +152,7 @@ module main(
 	wire [11:0]     w_DACData_Q;			// DAC Data Quadrature: from RAM to ODDR (Double-Data Rate)
 
     wire [11:0]	    w_DACData1_toDIFF;		// DAC Data 1 over ODDR to OBUFDS
+	wire [11:0]	    w_DACData2_toDIFF;		// DAC Data 1 over ODDR to OBUFDS
 	wire [11:0]		w_DACData7_toDIFF;		// DAC Data 7 over ODDR to OBUFDS
     wire [11:0]	    w_DACData8_toDIFF;		// DAC Data 8 over ODDR to OBUFDS
 	
@@ -454,6 +455,21 @@ module main(
 	// r_oddrsettings[3] = 1: RESET=1 			or 0: RESET=0
 	// r_oddrsettings[X] NOT ASSIGNED YET 
 
+	ODDR #(
+       .DDR_CLK_EDGE("SAME_EDGE"), // "OPPOSITE_EDGE" or "SAME_EDGE"
+       .INIT(1'b0),    // Initial value of Q: 1'b0 or 1'b1
+       .SRTYPE("SYNC") // Set/Reset type: "SYNC" or "ASYNC"
+    ) ODDR_DACData2[11:0] (
+       .Q(w_DACData2_toDIFF),   // 1-bit DDR output
+       .C((r_oddrsettings[2]) ? clk : w_adjustable_clock),   // 1-bit clock input
+       .CE((r_oddrsettings[0]) || (I_mode == 8'b1111_1111)), // 1-bit clock enable input
+       .D1(w_DACData_I), // 1-bit data input (positive edge)
+       .D2(w_DACData_Q), // 1-bit data input (negative edge)
+       .R((r_oddrsettings[3]) ? 12'b1 : 12'b0),   // 1-bit reset
+       .S(12'b0)    // 1-bit set
+    );
+    
+
     ODDR #(
        .DDR_CLK_EDGE("SAME_EDGE"), // "OPPOSITE_EDGE" or "SAME_EDGE"
        .INIT(1'b0),    // Initial value of Q: 1'b0 or 1'b1
@@ -495,7 +511,7 @@ module main(
     // Unused BUT buffered for protection
     
     OBUFDS OBUFDS_DACData2[11:0] (
-    	.I(w_10hz_clock), 
+    	.I(w_DACData2_toDIFF), 
     	.O(DACData2_P), 
     	.OB(DACData2_N)
     );
@@ -762,6 +778,7 @@ module main(
 		.I_adjustable_clk(w_adjustable_clock),
 		.O_DAC_I(w_DACData_I),
 		.O_DAC_Q(w_DACData_Q),
+		.O_SYNC(w_DAC_SYNC),
 	
 		// .I_speedDiv(r_dacCLOCK[7:0]),
 		.I_pause(r_dacSet[6]),

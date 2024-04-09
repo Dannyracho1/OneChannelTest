@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-| Date         : Fri Mar 15 16:16:44 2024
+| Date         : Tue Apr  9 19:18:10 2024
 | Host         : eddard.hfe.rwth-aachen.de running 64-bit Rocky Linux release 8.8 (Green Obsidian)
 | Command      : report_methodology -file main_methodology_drc_routed.rpt -pb main_methodology_drc_routed.pb -rpx main_methodology_drc_routed.rpx
 | Design       : main
@@ -36,7 +36,7 @@ Table of Contents
 -----------------
 TIMING-14#1 Critical Warning
 LUT on the clock tree  
-The LUT adjustable_clock/ODDR_DACData7[11]_i_1 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+The LUT adjustable_clock/ODDR_DACData2[11]_i_1 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
 Related violations: <none>
 
 TIMING-17#1 Critical Warning
@@ -101,237 +101,237 @@ Related violations: <none>
 
 TIMING-16#1 Warning
 Large setup violation  
-There is a large setup violation of -1.171 ns between r_oddrsettings_reg[0]/C (clocked by CLK_OUT1_system_clk_creator) and ODDR_DACData7[2]/CE (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.170 ns between r_oddrsettings_reg[0]/C (clocked by CLK_OUT1_system_clk_creator) and ODDR_DACData7[2]/CE (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#2 Warning
 Large setup violation  
-There is a large setup violation of -1.187 ns between r_oddrsettings_reg[0]/C (clocked by CLK_OUT1_system_clk_creator) and ODDR_DACData7[3]/CE (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -2.341 ns between r_oddrsettings_reg[0]/C (clocked by CLK_OUT1_system_clk_creator) and ODDR_DACData7[3]/CE (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#3 Warning
 Large setup violation  
-There is a large setup violation of -27.068 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_7/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -26.905 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_9/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#4 Warning
 Large setup violation  
-There is a large setup violation of -27.304 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_12/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -27.146 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_12/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#5 Warning
 Large setup violation  
-There is a large setup violation of -27.307 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_9/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -27.149 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_7/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#6 Warning
 Large setup violation  
-There is a large setup violation of -27.398 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_10/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -27.242 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_4/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#7 Warning
 Large setup violation  
-There is a large setup violation of -27.401 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_11/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -27.262 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_10/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#8 Warning
 Large setup violation  
-There is a large setup violation of -27.415 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_4/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -27.262 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_2/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#9 Warning
 Large setup violation  
-There is a large setup violation of -27.427 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_6/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -27.264 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_5/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#10 Warning
 Large setup violation  
-There is a large setup violation of -27.429 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_5/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -27.264 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_8/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#11 Warning
 Large setup violation  
-There is a large setup violation of -27.432 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -27.270 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#12 Warning
 Large setup violation  
-There is a large setup violation of -27.432 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_2/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -27.271 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_11/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#13 Warning
 Large setup violation  
-There is a large setup violation of -27.434 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -27.273 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#14 Warning
 Large setup violation  
-There is a large setup violation of -27.434 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_3/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -27.371 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_6/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#15 Warning
 Large setup violation  
-There is a large setup violation of -27.444 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_8/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -27.373 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/clk_out_reg_lopt_replica_3/D (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#16 Warning
 Large setup violation  
-There is a large setup violation of -29.495 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[4]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.659 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[12]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#17 Warning
 Large setup violation  
-There is a large setup violation of -29.495 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[5]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.659 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[13]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#18 Warning
 Large setup violation  
-There is a large setup violation of -29.495 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[6]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.659 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[14]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#19 Warning
 Large setup violation  
-There is a large setup violation of -29.495 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[7]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.659 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[15]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#20 Warning
 Large setup violation  
-There is a large setup violation of -29.520 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[0]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.659 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[28]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#21 Warning
 Large setup violation  
-There is a large setup violation of -29.520 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[16]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.659 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[29]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#22 Warning
 Large setup violation  
-There is a large setup violation of -29.520 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[17]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.659 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[30]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#23 Warning
 Large setup violation  
-There is a large setup violation of -29.520 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[18]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.659 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[31]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#24 Warning
 Large setup violation  
-There is a large setup violation of -29.520 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[19]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.739 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[10]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#25 Warning
 Large setup violation  
-There is a large setup violation of -29.520 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[1]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.739 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[11]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#26 Warning
 Large setup violation  
-There is a large setup violation of -29.520 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[2]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.739 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[24]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#27 Warning
 Large setup violation  
-There is a large setup violation of -29.520 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[3]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.739 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[25]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#28 Warning
 Large setup violation  
-There is a large setup violation of -29.583 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[10]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.739 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[26]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#29 Warning
 Large setup violation  
-There is a large setup violation of -29.583 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[11]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.739 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[27]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#30 Warning
 Large setup violation  
-There is a large setup violation of -29.583 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[8]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.739 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[8]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#31 Warning
 Large setup violation  
-There is a large setup violation of -29.583 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[9]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.739 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[9]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#32 Warning
 Large setup violation  
-There is a large setup violation of -29.608 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[12]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.741 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[4]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#33 Warning
 Large setup violation  
-There is a large setup violation of -29.608 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[13]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.741 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[5]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#34 Warning
 Large setup violation  
-There is a large setup violation of -29.608 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[14]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.741 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[6]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#35 Warning
 Large setup violation  
-There is a large setup violation of -29.608 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[15]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.741 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[7]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#36 Warning
 Large setup violation  
-There is a large setup violation of -29.608 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[20]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.742 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[20]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#37 Warning
 Large setup violation  
-There is a large setup violation of -29.608 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[21]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.742 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[21]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#38 Warning
 Large setup violation  
-There is a large setup violation of -29.608 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[22]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.742 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[22]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#39 Warning
 Large setup violation  
-There is a large setup violation of -29.608 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[23]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.742 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[23]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#40 Warning
 Large setup violation  
-There is a large setup violation of -29.611 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[24]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.832 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[0]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#41 Warning
 Large setup violation  
-There is a large setup violation of -29.611 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[25]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.832 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[16]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#42 Warning
 Large setup violation  
-There is a large setup violation of -29.611 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[26]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.832 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[17]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#43 Warning
 Large setup violation  
-There is a large setup violation of -29.611 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[27]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.832 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[18]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#44 Warning
 Large setup violation  
-There is a large setup violation of -29.699 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[28]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.832 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[19]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#45 Warning
 Large setup violation  
-There is a large setup violation of -29.699 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[29]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.832 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[1]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#46 Warning
 Large setup violation  
-There is a large setup violation of -29.699 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[30]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.832 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[2]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#47 Warning
 Large setup violation  
-There is a large setup violation of -29.699 ns between r_dacActiveCore_reg[5]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[31]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -29.832 ns between r_dacWRTConfig_reg[3]/C (clocked by CLK_OUT1_system_clk_creator) and adjustable_clock/counter_reg[3]/R (clocked by CLK_OUT1_system_clk_creator). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 

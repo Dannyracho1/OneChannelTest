@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="system_clk_creator_synth_1" LaunchPart="xc7vx485tffg1761-2" LaunchTime="1710515570">
-  <File Type="VDS-TIMINGSUMMARY" Name="system_clk_creator_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="system_clk_creator.dcp"/>
   <File Type="RDS-UTIL-PB" Name="system_clk_creator_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="system_clk_creator_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="system_clk_creator_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="system_clk_creator.vds"/>
-  <File Type="REPORTS-TCL" Name="system_clk_creator_reports.tcl"/>
-  <File Type="VDS-TIMING-PB" Name="system_clk_creator_timing_summary_synth.pb"/>
   <File Type="PA-TCL" Name="system_clk_creator.tcl"/>
+  <File Type="RDS-UTIL" Name="system_clk_creator_utilization_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="system_clk_creator_reports.tcl"/>
+  <File Type="RDS-RDS" Name="system_clk_creator.vds"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/system_clk_creator" RelGenDir="$PGENDIR/system_clk_creator">
     <File Path="$PSRCDIR/sources_1/ip/system_clk_creator/system_clk_creator.xci">
       <FileInfo>
@@ -50,9 +47,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

@@ -3,16 +3,16 @@
 # SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Fri Mar 15 16:13:40 2024
-# Process ID: 237910
+# Start of session at: Tue Apr  9 19:12:47 2024
+# Process ID: 980853
 # Current directory: /home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.runs/synth_1
 # Command line: vivado -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
 # Log file: /home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.runs/synth_1/main.vds
 # Journal file: /home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.runs/synth_1/vivado.jou
-# Running On: eddard.hfe.rwth-aachen.de, OS: Linux, CPU Frequency: 3790.738 MHz, CPU Physical cores: 4, Host memory: 16670 MB
+# Running On: eddard.hfe.rwth-aachen.de, OS: Linux, CPU Frequency: 3793.412 MHz, CPU Physical cores: 4, Host memory: 16670 MB
 #-----------------------------------------------------------
 source main.tcl -notrace
-create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1549.113 ; gain = 2.016 ; free physical = 2367 ; free virtual = 12571
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1522.910 ; gain = 50.828 ; free physical = 1652 ; free virtual = 16590
 Command: read_checkpoint -auto_incremental -incremental /home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/utils_1/imports/synth_1/main.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from /home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/utils_1/imports/synth_1/main.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -25,25 +25,25 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 238001
+INFO: [Synth 8-7075] Helper process launched with PID 981047
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2439.379 ; gain = 402.746 ; free physical = 1340 ; free virtual = 11561
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2439.543 ; gain = 402.746 ; free physical = 429 ; free virtual = 15375
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-11241] undeclared symbol 'w_PLL_MISO', assumed default net type 'wire' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:348]
-INFO: [Synth 8-11241] undeclared symbol 'w_DAC_MISO', assumed default net type 'wire' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:352]
-INFO: [Synth 8-11241] undeclared symbol 'w_PLL_MOSI', assumed default net type 'wire' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:356]
-INFO: [Synth 8-11241] undeclared symbol 'w_PLL_SCK', assumed default net type 'wire' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:360]
-INFO: [Synth 8-11241] undeclared symbol 'w_DAC_MOSI', assumed default net type 'wire' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:370]
-INFO: [Synth 8-11241] undeclared symbol 'w_DAC_SCLK', assumed default net type 'wire' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:374]
-INFO: [Synth 8-11241] undeclared symbol 'I_mode', assumed default net type 'wire' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:440]
+INFO: [Synth 8-11241] undeclared symbol 'w_PLL_MISO', assumed default net type 'wire' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:349]
+INFO: [Synth 8-11241] undeclared symbol 'w_DAC_MISO', assumed default net type 'wire' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:353]
+INFO: [Synth 8-11241] undeclared symbol 'w_PLL_MOSI', assumed default net type 'wire' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:357]
+INFO: [Synth 8-11241] undeclared symbol 'w_PLL_SCK', assumed default net type 'wire' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:361]
+INFO: [Synth 8-11241] undeclared symbol 'w_DAC_MOSI', assumed default net type 'wire' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:371]
+INFO: [Synth 8-11241] undeclared symbol 'w_DAC_SCLK', assumed default net type 'wire' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:375]
+INFO: [Synth 8-11241] undeclared symbol 'I_mode', assumed default net type 'wire' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:441]
 INFO: [Synth 8-6157] synthesizing module 'main' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:21]
 INFO: [Synth 8-6157] synthesizing module 'IBUFGDS' [/software/Xilinx/Vitis_2023.2/Vivado/2023.2/scripts/rt/data/unisim_comp.v:74129]
 	Parameter DIFF_TERM bound to: FALSE - type: string 
 	Parameter IBUF_LOW_PWR bound to: TRUE - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
 INFO: [Synth 8-6155] done synthesizing module 'IBUFGDS' (0#1) [/software/Xilinx/Vitis_2023.2/Vivado/2023.2/scripts/rt/data/unisim_comp.v:74129]
-INFO: [Synth 8-6157] synthesizing module 'system_clk_creator' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.runs/synth_1/.Xil/Vivado-237910-eddard.hfe.rwth-aachen.de/realtime/system_clk_creator_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_clk_creator' (0#1) [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.runs/synth_1/.Xil/Vivado-237910-eddard.hfe.rwth-aachen.de/realtime/system_clk_creator_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_clk_creator' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.runs/synth_1/.Xil/Vivado-980853-eddard.hfe.rwth-aachen.de/realtime/system_clk_creator_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_clk_creator' (0#1) [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.runs/synth_1/.Xil/Vivado-980853-eddard.hfe.rwth-aachen.de/realtime/system_clk_creator_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'IBUF' [/software/Xilinx/Vitis_2023.2/Vivado/2023.2/scripts/rt/data/unisim_comp.v:73631]
 INFO: [Synth 8-6155] done synthesizing module 'IBUF' (0#1) [/software/Xilinx/Vitis_2023.2/Vivado/2023.2/scripts/rt/data/unisim_comp.v:73631]
 INFO: [Synth 8-6157] synthesizing module 'OBUF' [/software/Xilinx/Vitis_2023.2/Vivado/2023.2/scripts/rt/data/unisim_comp.v:93059]
@@ -68,12 +68,12 @@ INFO: [Synth 8-6155] done synthesizing module 'crc' (0#1) [/home/dracho/Download
 INFO: [Synth 8-6157] synthesizing module 'realSPI' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/realSPI.v:21]
 INFO: [Synth 8-155] case statement is not full and has no default [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/realSPI.v:81]
 INFO: [Synth 8-6155] done synthesizing module 'realSPI' (0#1) [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/realSPI.v:21]
-WARNING: [Synth 8-7071] port 'O_doneFlag' of module 'realSPI' is unconnected for instance 'PLL_SPI' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:703]
-WARNING: [Synth 8-7071] port 'O_data' of module 'realSPI' is unconnected for instance 'PLL_SPI' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:703]
-WARNING: [Synth 8-7023] instance 'PLL_SPI' of module 'realSPI' has 12 connections declared, but only 10 given [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:703]
-WARNING: [Synth 8-7071] port 'O_doneFlag' of module 'realSPI' is unconnected for instance 'DAC_SPI' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:718]
-WARNING: [Synth 8-7071] port 'O_data' of module 'realSPI' is unconnected for instance 'DAC_SPI' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:718]
-WARNING: [Synth 8-7023] instance 'DAC_SPI' of module 'realSPI' has 12 connections declared, but only 10 given [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:718]
+WARNING: [Synth 8-7071] port 'O_doneFlag' of module 'realSPI' is unconnected for instance 'PLL_SPI' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:719]
+WARNING: [Synth 8-7071] port 'O_data' of module 'realSPI' is unconnected for instance 'PLL_SPI' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:719]
+WARNING: [Synth 8-7023] instance 'PLL_SPI' of module 'realSPI' has 12 connections declared, but only 10 given [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:719]
+WARNING: [Synth 8-7071] port 'O_doneFlag' of module 'realSPI' is unconnected for instance 'DAC_SPI' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:734]
+WARNING: [Synth 8-7071] port 'O_data' of module 'realSPI' is unconnected for instance 'DAC_SPI' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:734]
+WARNING: [Synth 8-7023] instance 'DAC_SPI' of module 'realSPI' has 12 connections declared, but only 10 given [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:734]
 INFO: [Synth 8-6157] synthesizing module 'pll_sync_rqst' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/pll_sync_rqst.v:26]
 INFO: [Synth 8-6157] synthesizing module 'pll_sync' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/pll_sync.v:21]
 INFO: [Synth 8-6155] done synthesizing module 'pll_sync' (0#1) [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/pll_sync.v:21]
@@ -84,24 +84,23 @@ INFO: [Synth 8-6157] synthesizing module 'clock_1khz_100khz' [/home/dracho/Downl
 INFO: [Synth 8-6155] done synthesizing module 'clock_1khz_100khz' (0#1) [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sources_1/new/clock_1khz_100khz.v:26]
 INFO: [Synth 8-6157] synthesizing module 'signalgen_DDR' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/signalgen_DDR.v:25]
 INFO: [Synth 8-6155] done synthesizing module 'signalgen_DDR' (0#1) [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/signalgen_DDR.v:25]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:915]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:973]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:910]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:932]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:990]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:927]
 INFO: [Synth 8-6155] done synthesizing module 'main' (0#1) [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:21]
 WARNING: [Synth 8-6014] Unused sequential element r_dataRead_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/realSPI.v:127]
 WARNING: [Synth 8-6014] Unused sequential element r_syncRequested_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/pll_sync_rqst.v:65]
-WARNING: [Synth 8-6014] Unused sequential element r_dacCLOCK_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:853]
-WARNING: [Synth 8-6014] Unused sequential element r_spiRXMSB_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:858]
-WARNING: [Synth 8-6014] Unused sequential element r_spiRXLSB_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:859]
-WARNING: [Synth 8-6014] Unused sequential element r_delayValue_CLK1_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:867]
-WARNING: [Synth 8-6014] Unused sequential element r_delayValue_CLK2_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:868]
-WARNING: [Synth 8-6014] Unused sequential element r_delayValue_CLK3_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:869]
-WARNING: [Synth 8-6014] Unused sequential element r_delayValue_CLK4_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:870]
-WARNING: [Synth 8-6014] Unused sequential element r_delayValue_CLK5_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:871]
-WARNING: [Synth 8-6014] Unused sequential element r_delayValue_CLK6_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:872]
-WARNING: [Synth 8-6014] Unused sequential element r_delayValue_CLK7_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:873]
-WARNING: [Synth 8-6014] Unused sequential element r_delayValue_CLK8_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:874]
-WARNING: [Synth 8-3848] Net w_DAC_SYNC in module/entity main does not have driver. [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:159]
+WARNING: [Synth 8-6014] Unused sequential element r_dacCLOCK_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:870]
+WARNING: [Synth 8-6014] Unused sequential element r_spiRXMSB_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:875]
+WARNING: [Synth 8-6014] Unused sequential element r_spiRXLSB_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:876]
+WARNING: [Synth 8-6014] Unused sequential element r_delayValue_CLK1_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:884]
+WARNING: [Synth 8-6014] Unused sequential element r_delayValue_CLK2_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:885]
+WARNING: [Synth 8-6014] Unused sequential element r_delayValue_CLK3_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:886]
+WARNING: [Synth 8-6014] Unused sequential element r_delayValue_CLK4_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:887]
+WARNING: [Synth 8-6014] Unused sequential element r_delayValue_CLK5_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:888]
+WARNING: [Synth 8-6014] Unused sequential element r_delayValue_CLK6_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:889]
+WARNING: [Synth 8-6014] Unused sequential element r_delayValue_CLK7_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:890]
+WARNING: [Synth 8-6014] Unused sequential element r_delayValue_CLK8_reg was removed.  [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:891]
 WARNING: [Synth 8-7129] Port I_BB_Settings[7] in module signalgen_DDR is either unconnected or has no load
 WARNING: [Synth 8-7129] Port I_BB_Settings[6] in module signalgen_DDR is either unconnected or has no load
 WARNING: [Synth 8-7129] Port I_BB_Settings[5] in module signalgen_DDR is either unconnected or has no load
@@ -120,19 +119,19 @@ WARNING: [Synth 8-7129] Port I_PLLSyncPulseShift[1] in module pll_sync_rqst is e
 WARNING: [Synth 8-7129] Port I_PLLSyncPulseShift[0] in module pll_sync_rqst is either unconnected or has no load
 WARNING: [Synth 8-7129] Port I_MUXout in module realSPI is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2547.348 ; gain = 510.715 ; free physical = 1332 ; free virtual = 11553
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2547.512 ; gain = 510.715 ; free physical = 367 ; free virtual = 15265
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2565.160 ; gain = 528.527 ; free physical = 1317 ; free virtual = 11538
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2562.355 ; gain = 525.559 ; free physical = 367 ; free virtual = 15266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2565.160 ; gain = 528.527 ; free physical = 1317 ; free virtual = 11538
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2562.355 ; gain = 525.559 ; free physical = 367 ; free virtual = 15266
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2571.098 ; gain = 0.000 ; free physical = 1314 ; free virtual = 11535
-INFO: [Netlist 29-17] Analyzing 150 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2568.293 ; gain = 0.000 ; free physical = 364 ; free virtual = 15258
+INFO: [Netlist 29-17] Analyzing 162 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
@@ -146,24 +145,24 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/main_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2706.910 ; gain = 0.000 ; free physical = 1067 ; free virtual = 11288
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2702.074 ; gain = 0.000 ; free physical = 334 ; free virtual = 15082
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 114 instances were transformed.
   IBUFGDS => IBUFDS: 1 instance 
   OBUFDS => OBUFDS: 113 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2706.945 ; gain = 0.000 ; free physical = 1062 ; free virtual = 11284
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2702.109 ; gain = 0.000 ; free physical = 320 ; free virtual = 15063
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2706.945 ; gain = 670.312 ; free physical = 1051 ; free virtual = 11272
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2702.109 ; gain = 665.312 ; free physical = 319 ; free virtual = 14976
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7vx485tffg1761-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2706.945 ; gain = 670.312 ; free physical = 1051 ; free virtual = 11272
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2702.109 ; gain = 665.312 ; free physical = 319 ; free virtual = 14976
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -172,14 +171,14 @@ Applied set_property IO_BUFFER_TYPE = NONE for USER_CLOCK. (constraint file  /ho
 Applied set_property CLOCK_BUFFER_TYPE = NONE for USER_CLOCK. (constraint file  /home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.gen/sources_1/ip/system_clk_creator/system_clk_creator/system_clk_creator_in_context.xdc, line 4).
 Applied set_property KEEP_HIERARCHY = SOFT for clk_gen. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2706.945 ; gain = 670.312 ; free physical = 1051 ; free virtual = 11272
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2702.109 ; gain = 665.312 ; free physical = 319 ; free virtual = 14975
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'r_state_reg' in module 'uart_rcv'
 INFO: [Synth 8-802] inferred FSM for state register 'r_case_reg' in module 'crc'
 WARNING: [Synth 8-6040] Register r_adress_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
 INFO: [Synth 8-802] inferred FSM for state register 'r_state_reg' in module 'realSPI'
-WARNING: [Synth 8-3936] Found unconnected internal register 'r_dacDataLength_msb_reg' and it is trimmed from '8' to '4' bits. [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:777]
-WARNING: [Synth 8-3936] Found unconnected internal register 'r_oddrsettings_reg' and it is trimmed from '8' to '4' bits. [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:463]
+WARNING: [Synth 8-3936] Found unconnected internal register 'r_dacDataLength_msb_reg' and it is trimmed from '8' to '4' bits. [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:794]
+WARNING: [Synth 8-3936] Found unconnected internal register 'r_oddrsettings_reg' and it is trimmed from '8' to '4' bits. [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:464]
 INFO: [Synth 8-802] inferred FSM for state register 'r_state_reg' in module 'main'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
@@ -226,7 +225,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'r_state_reg' using encodin
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'r_state_reg' using encoding 'sequential' in module 'main'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2706.945 ; gain = 670.312 ; free physical = 1126 ; free virtual = 11348
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2702.109 ; gain = 665.312 ; free physical = 322 ; free virtual = 14968
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -249,7 +248,7 @@ Detailed RTL Component Info :
 	                8 Bit    Registers := 36    
 	                7 Bit    Registers := 1     
 	                4 Bit    Registers := 2     
-	                1 Bit    Registers := 34    
+	                1 Bit    Registers := 35    
 +---RAMs : 
 	              97K Bit	(8348 X 12 bit)          RAMs := 2     
 +---Muxes : 
@@ -274,10 +273,10 @@ Detailed RTL Component Info :
 	   4 Input    3 Bit        Muxes := 1     
 	   4 Input    2 Bit        Muxes := 2     
 	   2 Input    2 Bit        Muxes := 2     
-	   2 Input    1 Bit        Muxes := 102   
+	   2 Input    1 Bit        Muxes := 103   
 	  11 Input    1 Bit        Muxes := 5     
 	   4 Input    1 Bit        Muxes := 24    
-	   3 Input    1 Bit        Muxes := 7     
+	   3 Input    1 Bit        Muxes := 8     
 	  35 Input    1 Bit        Muxes := 18    
 	   5 Input    1 Bit        Muxes := 23    
 ---------------------------------------------------------------------------------
@@ -316,7 +315,7 @@ WARNING: [Synth 8-3332] Sequential element (IBUF_PLL_MISO) is unused and will be
 WARNING: [Synth 8-3332] Sequential element (IBUF_DAC_MISO) is unused and will be removed from module main.
 WARNING: [Synth 8-3332] Sequential element (IBUF_ALARM) is unused and will be removed from module main.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2706.945 ; gain = 670.312 ; free physical = 1102 ; free virtual = 11333
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2702.109 ; gain = 665.312 ; free physical = 320 ; free virtual = 14975
 ---------------------------------------------------------------------------------
  Sort Area is  counter3_0 : 0 0 : 282 282 : Used 1 time 0
 ---------------------------------------------------------------------------------
@@ -357,13 +356,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2706.945 ; gain = 670.312 ; free physical = 1099 ; free virtual = 11331
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2702.109 ; gain = 665.312 ; free physical = 312 ; free virtual = 14967
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 2706.945 ; gain = 670.312 ; free physical = 1099 ; free virtual = 11331
+Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 2702.109 ; gain = 665.312 ; free physical = 312 ; free virtual = 14967
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -396,7 +395,7 @@ INFO: [Synth 8-7052] The timing for the instance signalgen/r_memory_Q_reg_3 (imp
 INFO: [Synth 8-7052] The timing for the instance signalgen/r_memory_Q_reg_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance signalgen/r_memory_Q_reg_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 2706.945 ; gain = 670.312 ; free physical = 1172 ; free virtual = 11404
+Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 2702.109 ; gain = 665.312 ; free physical = 564 ; free virtual = 15220
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -414,37 +413,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2706.945 ; gain = 670.312 ; free physical = 1171 ; free virtual = 11403
+Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2702.109 ; gain = 665.312 ; free physical = 579 ; free virtual = 15234
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2706.945 ; gain = 670.312 ; free physical = 1171 ; free virtual = 11403
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2702.109 ; gain = 665.312 ; free physical = 579 ; free virtual = 15234
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2706.945 ; gain = 670.312 ; free physical = 1171 ; free virtual = 11403
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2702.109 ; gain = 665.312 ; free physical = 579 ; free virtual = 15234
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2706.945 ; gain = 670.312 ; free physical = 1171 ; free virtual = 11403
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2702.109 ; gain = 665.312 ; free physical = 579 ; free virtual = 15234
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2706.945 ; gain = 670.312 ; free physical = 1171 ; free virtual = 11403
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2702.109 ; gain = 665.312 ; free physical = 579 ; free virtual = 15234
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2706.945 ; gain = 670.312 ; free physical = 1171 ; free virtual = 11403
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2702.109 ; gain = 665.312 ; free physical = 579 ; free virtual = 15234
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -479,7 +478,7 @@ Report Cell Usage:
 |8     |LUT5               |    76|
 |9     |LUT6               |   141|
 |10    |MUXF7              |     4|
-|11    |ODDR               |    36|
+|11    |ODDR               |    48|
 |12    |RAMB36E1           |    12|
 |13    |FDCE               |    15|
 |14    |FDRE               |   387|
@@ -490,31 +489,31 @@ Report Cell Usage:
 |19    |OBUFDS             |   113|
 +------+-------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2706.945 ; gain = 670.312 ; free physical = 1171 ; free virtual = 11403
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2702.109 ; gain = 665.312 ; free physical = 579 ; free virtual = 15234
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 21 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 2706.945 ; gain = 528.527 ; free physical = 1171 ; free virtual = 11403
-Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2706.945 ; gain = 670.312 ; free physical = 1171 ; free virtual = 11403
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2702.109 ; gain = 525.559 ; free physical = 578 ; free virtual = 15233
+Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2702.109 ; gain = 665.312 ; free physical = 578 ; free virtual = 15233
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2706.945 ; gain = 0.000 ; free physical = 1454 ; free virtual = 11686
-INFO: [Netlist 29-17] Analyzing 413 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2702.109 ; gain = 0.000 ; free physical = 878 ; free virtual = 15533
+INFO: [Netlist 29-17] Analyzing 425 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2706.945 ; gain = 0.000 ; free physical = 1439 ; free virtual = 11671
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2702.109 ; gain = 0.000 ; free physical = 885 ; free virtual = 15540
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 114 instances were transformed.
   IBUFGDS => IBUFDS: 1 instance 
   OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS(x2)): 113 instances
 
-Synth Design complete | Checksum: 310db390
+Synth Design complete | Checksum: d89e8146
 INFO: [Common 17-83] Releasing license: Synthesis
-89 Infos, 58 Warnings, 0 Critical Warnings and 0 Errors encountered.
+89 Infos, 57 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:44 ; elapsed = 00:00:43 . Memory (MB): peak = 2706.945 ; gain = 1157.832 ; free physical = 1438 ; free virtual = 11670
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2073.057; main = 1744.222; forked = 374.759
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 4320.340; main = 2706.914; forked = 1613.426
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2730.922 ; gain = 0.000 ; free physical = 1506 ; free virtual = 11738
+synth_design: Time (s): cpu = 00:00:44 ; elapsed = 00:00:45 . Memory (MB): peak = 2702.109 ; gain = 1162.355 ; free physical = 885 ; free virtual = 15540
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2023.326; main = 1698.056; forked = 372.849
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 4315.500; main = 2702.078; forked = 1613.422
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2726.086 ; gain = 0.000 ; free physical = 884 ; free virtual = 15540
 INFO: [Common 17-1381] The checkpoint '/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.runs/synth_1/main.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Mar 15 16:14:34 2024...
+INFO: [Common 17-206] Exiting Vivado at Tue Apr  9 19:13:44 2024...
