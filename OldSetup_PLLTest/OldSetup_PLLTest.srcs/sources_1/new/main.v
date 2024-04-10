@@ -405,13 +405,13 @@ module main(
 	// DAC Clocks
 	
 	OBUFDS OBUFDS_DACCLK[7:0] (
-    	.I(clk), 
+    	.I(w_adjustable_clock), 
     	.O(DACCLK_P), 
     	.OB(DACCLK_N)
     );
 	
 	OBUFDS OBUFDS_DATACLK[7:0] (
-    	.I(clk), 
+    	.I(w_adjustable_clock), 
     	.O(DATACLK_P),
     	.OB(DATACLK_N)
     );
