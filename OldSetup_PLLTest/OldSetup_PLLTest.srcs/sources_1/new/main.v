@@ -161,9 +161,12 @@ module main(
 	
 	// DACData Protection: 10Hz from tenhz_mod
 	wire            w_10hz_clock;
+
 	// DACData Protection: 10Hz from tenhz_mod
 	wire            w_adjustable_clock;
 	
+	// DACData2: delayed to meet the setup+hold constraints of the DAC
+	wire			DATACLK_delayed;
 	
 	// Daniel suggestion:                      --> ODELAY2 ODATAIN not connected (error)
 	// [DRC REQP-131] enum_DELAY_SRC_ODATAIN_connects_ODATAIN_connects_ODATAIN_ACTIVE: ODELAY2_DAC_CLK1: 
@@ -410,12 +413,75 @@ module main(
     	.OB(DACCLK_N)
     );
 	
-	OBUFDS OBUFDS_DATACLK[7:0] (
+	// Danny: Refactor the ODELAY2 again!!! NOT FINAL
+	// DAC2 Clk_Delay, Bit [3:0] -> Delay Value (~75 picoseconds per step); Bit 4: if set to one, the new value will be set (autoreset implemented)
+
+	ODELAYE2 #(
+		.DELAY_SRC("ODATAIN"),			// default
+		.HIGH_PERFORMANCE_MODE("TRUE"), // reduced jitter
+		.ODELAY_TYPE("VAR_LOAD"), 		// CNTVALUEIN determines the delay, LD = 1 sets a new value (round about 75 ps delay per step)
+		.SIGNAL_PATTERN("DATA")			// input type: data
+	)	ODELAY2_DATACLK2 (
+		.DATAOUT(DATACLK_delayed),
+		.C(clk),
+		.CE(1'b0),
+		.CNTVALUEIN(r_delayValue_CLK2[4:0]),
+		.LD(r_delayValue_CLK2[5]),
+		.ODATAIN(w_adjustable_clock),
+		.REGRST(1'b0)
+	);
+
+
+	OBUFDS OBUFDS_DATACLK0 (
     	.I(w_adjustable_clock), 
-    	.O(DATACLK_P),
-    	.OB(DATACLK_N)
+    	.O(DATACLK_P[0]),
+    	.OB(DATACLK_N[0])
     );
-    
+
+	OBUFDS OBUFDS_DATACLK1 (
+    	.I(DATACLK_delayed), 
+    	.O(DATACLK_P[1]),
+    	.OB(DATACLK_N[1])
+    );
+	
+	OBUFDS OBUFDS_DATACLK2 (
+    	.I(w_adjustable_clock), 
+    	.O(DATACLK_P[2]),
+    	.OB(DATACLK_N[2])
+    );
+	
+	OBUFDS OBUFDS_DATACLK3 (
+    	.I(w_adjustable_clock), 
+    	.O(DATACLK_P[3]),
+    	.OB(DATACLK_N[3])
+    );
+	
+	OBUFDS OBUFDS_DATACLK4 (
+    	.I(w_adjustable_clock), 
+    	.O(DATACLK_P[4]),
+    	.OB(DATACLK_N[4])
+    );
+	
+	OBUFDS OBUFDS_DATACLK5 (
+    	.I(w_adjustable_clock), 
+    	.O(DATACLK_P[5]),
+    	.OB(DATACLK_N[5])
+    );
+	
+	OBUFDS OBUFDS_DATACLK6 (
+    	.I(w_adjustable_clock), 
+    	.O(DATACLK_P[6]),
+    	.OB(DATACLK_N[6])
+    );
+	
+	OBUFDS OBUFDS_DATACLK7 (
+    	.I(w_adjustable_clock), 
+    	.O(DATACLK_P[7]),
+    	.OB(DATACLK_N[7])
+    );
+	
+
+
     
     // SYNC Signal!!
 	OBUFDS OBUFDS_SYNC (
@@ -468,7 +534,7 @@ module main(
        .R((r_oddrsettings[3]) ? 12'b1 : 12'b0),   // 1-bit reset
        .S(12'b0)    // 1-bit set
     );
-    
+
 
     ODDR #(
        .DDR_CLK_EDGE("SAME_EDGE"), // "OPPOSITE_EDGE" or "SAME_EDGE"
@@ -670,12 +736,14 @@ module main(
 	);
 	*/
 	
-	/*
+	// Danny: Needed for the ODELAY2 initialization
+
+
 	IDELAYCTRL IDELAYCTRL_instance (
 		.RST(1'b0),
 		.REFCLK(clk)
 	);
-    */
+
 	
 
 /*---------------------------------------------------------------------------------------*/

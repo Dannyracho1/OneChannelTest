@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-| Date         : Wed Apr 10 10:17:59 2024
+| Date         : Wed Apr 10 16:28:28 2024
 | Host         : eddard.hfe.rwth-aachen.de running 64-bit Rocky Linux release 8.8 (Green Obsidian)
 | Command      : report_control_sets -verbose -file main_control_sets_placed.rpt
 | Design       : main
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    45 |
-|    Minimum number of control sets                        |    45 |
+| Total control sets                                       |    47 |
+|    Minimum number of control sets                        |    47 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    94 |
+| Unused register locations in slices containing registers |   104 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,9 +39,9 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    45 |
-| >= 0 to < 4        |     3 |
-| >= 4 to < 6        |     8 |
+| Total control sets |    47 |
+| >= 0 to < 4        |     4 |
+| >= 4 to < 6        |     9 |
 | >= 6 to < 8        |     4 |
 | >= 8 to < 10       |    20 |
 | >= 10 to < 12      |     1 |
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             110 |           62 |
+| No           | No                    | No                     |             110 |           57 |
 | No           | No                    | Yes                    |              15 |            4 |
 | No           | Yes                   | No                     |              57 |           15 |
-| Yes          | No                    | No                     |             129 |           43 |
+| Yes          | No                    | No                     |             138 |           43 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             203 |           66 |
+| Yes          | Yes                   | No                     |             200 |           65 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -73,51 +73,53 @@ Table of Contents
 +------------------------+---------------------------------------+---------------------------------------+------------------+----------------+--------------+
 |      Clock Signal      |             Enable Signal             |            Set/Reset Signal           | Slice Load Count | Bel Load Count | Bels / Slice |
 +------------------------+---------------------------------------+---------------------------------------+------------------+----------------+--------------+
-|  clk_gen/inst/CLK_OUT1 | SYNCING/PLLSync/O_PLL_sync_i_1_n_0    | SYNCING/r_syncTrigger                 |                1 |              1 |         1.00 |
+|  clk_gen/inst/CLK_OUT1 | adjustable_clock/O_DAC_I              |                                       |                1 |              1 |         1.00 |
 |  clk_gen/inst/CLK_OUT1 | trx/div/counter_reg_2_sn_1            | trx/div/dataSend4_out                 |                1 |              1 |         1.00 |
-|  clk_gen/inst/CLK_OUT1 | r_dacconfig                           |                                       |                1 |              3 |         3.00 |
-|  clk_gen/inst/CLK_OUT1 | rcv/FSM_sequential_r_state[3]_i_1_n_0 |                                       |                1 |              4 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | r_dac_Q_msb[3]_i_2_n_0                | r_dac_Q_msb[3]_i_1_n_0                |                2 |              4 |         2.00 |
+|  clk_gen/inst/CLK_OUT1 | SYNCING/PLLSync/O_PLL_sync_i_1_n_0    | SYNCING/r_syncTrigger                 |                1 |              1 |         1.00 |
+|  clk_gen/inst/CLK_OUT1 | r_dacconfig                           |                                       |                2 |              3 |         1.50 |
 |  clk_gen/inst/CLK_OUT1 | DAC_SPI/r_bitCount[4]_i_1__0_n_0      | DAC_SPI/r_bitCount[7]_i_1__0_n_0      |                1 |              4 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | rcv/FSM_sequential_r_state[3]_i_1_n_0 |                                       |                1 |              4 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | PLL_SPI/r_bitCount[4]_i_1_n_0         | PLL_SPI/r_bitCount[7]_i_1_n_0         |                2 |              4 |         2.00 |
+|  clk_gen/inst/CLK_OUT1 | PLL_SPI/r_bitCount[4]_i_1_n_0         |                                       |                2 |              4 |         2.00 |
 |  clk_gen/inst/CLK_OUT1 | DAC_SPI/r_bitCount[4]_i_1__0_n_0      |                                       |                2 |              4 |         2.00 |
+|  clk_gen/inst/CLK_OUT1 | r_dac_Q_msb[3]_i_2_n_0                | r_dac_Q_msb[3]_i_1_n_0                |                1 |              4 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | r_dac_I_msb                           | r_dac_I_msb[3]_i_1_n_0                |                2 |              4 |         2.00 |
-|  clk_gen/inst/CLK_OUT1 | PLL_SPI/r_bitCount[4]_i_1_n_0         |                                       |                1 |              4 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | PLL_SPI/r_bitCount[4]_i_1_n_0         | PLL_SPI/r_bitCount[7]_i_1_n_0         |                1 |              4 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | r_dacDataLength_msb                   | r_dacDataLength_msb[3]_i_1_n_0        |                1 |              4 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | DAC_SPI/r_counter[15]_i_2__0_n_0      |                                       |                3 |              6 |         2.00 |
-|  clk_gen/inst/CLK_OUT1 | SYNCING/PLLSync/r_counter[5]_i_1_n_0  | SYNCING/r_syncTrigger                 |                1 |              6 |         6.00 |
+|  clk_gen/inst/CLK_OUT1 | r_delayValue_CLK2[4]_i_2_n_0          | r_delayValue_CLK2[4]_i_1_n_0          |                2 |              5 |         2.50 |
 |  clk_gen/inst/CLK_OUT1 | rcv/r_count                           |                                       |                2 |              6 |         3.00 |
+|  clk_gen/inst/CLK_OUT1 | DAC_SPI/r_counter[15]_i_2__0_n_0      |                                       |                3 |              6 |         2.00 |
+|  clk_gen/inst/CLK_OUT1 | SYNCING/PLLSync/r_counter[5]_i_1_n_0  | SYNCING/r_syncTrigger                 |                2 |              6 |         3.00 |
 |  clk_gen/inst/CLK_OUT1 | PLL_SPI/r_counter[15]_i_2_n_0         |                                       |                3 |              6 |         2.00 |
-|  clk_gen/inst/CLK_OUT1 | PLL_SPI/O_CSB[7]_i_1_n_0              |                                       |                2 |              8 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | r_spiTXMSB                            | r_spiTXMSB[7]_i_1_n_0                 |                4 |              8 |         2.00 |
-|  clk_gen/inst/CLK_OUT1 | r_spiTXLSB                            | r_spiTXLSB[7]_i_1_n_0                 |                1 |              8 |         8.00 |
-|  clk_gen/inst/CLK_OUT1 | r_spiACTDAC                           |                                       |                4 |              8 |         2.00 |
-|  clk_gen/inst/CLK_OUT1 | r_dac_I_lsb                           | r_dac_I_lsb[7]_i_1_n_0                |                3 |              8 |         2.67 |
-|  clk_gen/inst/CLK_OUT1 | r_dacMode                             | r_dacMode[7]_i_1_n_0                  |                3 |              8 |         2.67 |
 |  clk_gen/inst/CLK_OUT1 | r_dacActiveCore                       | r_dacActiveCore[7]_i_1_n_0            |                2 |              8 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | rcv/r_regaddr__0                      | rcv/FSM_sequential_r_state_reg[2]_1   |                3 |              8 |         2.67 |
-|  clk_gen/inst/CLK_OUT1 | rcv/r_ledval                          | rcv/FSM_sequential_r_state_reg[1]_0   |                2 |              8 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | r_spiACTPLL                           |                                       |                4 |              8 |         2.00 |
-|  clk_gen/inst/CLK_OUT1 | r_spiREGADDR                          | r_spiREGADDR[7]_i_1_n_0               |                2 |              8 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | r_dacWRTConfig                        | r_dacWRTConfig[7]_i_1_n_0             |                3 |              8 |         2.67 |
-|  clk_gen/inst/CLK_OUT1 | r_dac_Q_lsb                           | r_dac_Q_lsb[7]_i_1_n_0                |                4 |              8 |         2.00 |
-|  clk_gen/inst/CLK_OUT1 | trx/div/counter                       | trx/div/clkBTemp_reg                  |                3 |              8 |         2.67 |
-|  clk_gen/inst/CLK_OUT1 | rcv/r_tempRegVal                      |                                       |                4 |              8 |         2.00 |
-|  clk_gen/inst/CLK_OUT1 | rcv/data_recv[7]_i_1_n_0              |                                       |                3 |              8 |         2.67 |
 |  clk_gen/inst/CLK_OUT1 | DAC_SPI/O_CSB[7]_i_1__0_n_0           |                                       |                3 |              8 |         2.67 |
-|  clk_gen/inst/CLK_OUT1 | r_dacDataLength_lsb                   | r_dacDataLength_lsb[7]_i_1_n_0        |                2 |              8 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | DAC_SPI/r_counter[15]_i_2__0_n_0      | DAC_SPI/r_counter[15]_i_1__0_n_0      |                4 |              9 |         2.25 |
+|  clk_gen/inst/CLK_OUT1 | rcv/data_recv[7]_i_1_n_0              |                                       |                2 |              8 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | rcv/E[0]                              |                                       |                1 |              8 |         8.00 |
+|  clk_gen/inst/CLK_OUT1 | trx/div/counter                       | trx/div/clkBTemp_reg                  |                2 |              8 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | r_spiTXMSB                            | r_spiTXMSB[7]_i_1_n_0                 |                3 |              8 |         2.67 |
+|  clk_gen/inst/CLK_OUT1 | rcv/r_regaddr__0                      | rcv/FSM_sequential_r_state_reg[2]_0   |                2 |              8 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | rcv/r_ledval                          |                                       |                1 |              8 |         8.00 |
+|  clk_gen/inst/CLK_OUT1 | PLL_SPI/O_CSB[7]_i_1_n_0              |                                       |                3 |              8 |         2.67 |
+|  clk_gen/inst/CLK_OUT1 | r_spiACTDAC                           |                                       |                3 |              8 |         2.67 |
+|  clk_gen/inst/CLK_OUT1 | r_spiACTPLL                           |                                       |                4 |              8 |         2.00 |
+|  clk_gen/inst/CLK_OUT1 | r_spiREGADDR                          | r_spiREGADDR[7]_i_1_n_0               |                1 |              8 |         8.00 |
+|  clk_gen/inst/CLK_OUT1 | r_spiTXLSB                            | r_spiTXLSB[7]_i_1_n_0                 |                2 |              8 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | r_dacMode                             | r_dacMode[7]_i_1_n_0                  |                2 |              8 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | r_dac_Q_lsb                           | r_dac_Q_lsb[7]_i_1_n_0                |                2 |              8 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | r_dacWRTConfig                        | r_dacWRTConfig[7]_i_1_n_0             |                4 |              8 |         2.00 |
+|  clk_gen/inst/CLK_OUT1 | r_dac_I_lsb                           | r_dac_I_lsb[7]_i_1_n_0                |                5 |              8 |         1.60 |
+|  clk_gen/inst/CLK_OUT1 | r_dacDataLength_lsb                   | r_dacDataLength_lsb[7]_i_1_n_0        |                1 |              8 |         8.00 |
 |  clk_gen/inst/CLK_OUT1 | PLL_SPI/r_counter[15]_i_2_n_0         | PLL_SPI/r_counter[15]_i_1_n_0         |                4 |              9 |         2.25 |
+|  clk_gen/inst/CLK_OUT1 | DAC_SPI/r_counter[15]_i_2__0_n_0      | DAC_SPI/r_counter[15]_i_1__0_n_0      |                4 |              9 |         2.25 |
 |  clk_gen/inst/CLK_OUT1 | rcv/r_count                           | rcv/r_count[15]_i_1_n_0               |                5 |             10 |         2.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/uart_data_count[13]_i_2_n_0 | signalgen/uart_data_count[13]_i_1_n_0 |                2 |             14 |         7.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/uart_data_count[13]_i_2_n_0 | signalgen/uart_data_count[13]_i_1_n_0 |                3 |             14 |         4.67 |
 |  clk_gen/inst/CLK_OUT1 |                                       | trx/rst_reg_n_0                       |                4 |             15 |         3.75 |
-|  clk_gen/inst/CLK_OUT1 | adjustable_clock/clk_out_reg_0        | signalgen/memory_idx[15]_i_1_n_0      |                3 |             16 |         5.33 |
+|  clk_gen/inst/CLK_OUT1 | adjustable_clock/O_DAC_I              | signalgen/memory_idx[15]_i_1_n_0      |                4 |             16 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | r_resetCounter                        | r_resetCounter[0]_i_1_n_0             |                6 |             21 |         3.50 |
-|  clk_gen/inst/CLK_OUT1 | PLL_SPI/r_address                     |                                       |                6 |             24 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | DAC_SPI/r_address                     |                                       |                4 |             24 |         6.00 |
+|  clk_gen/inst/CLK_OUT1 | PLL_SPI/r_address                     |                                       |                4 |             24 |         6.00 |
+|  clk_gen/inst/CLK_OUT1 | DAC_SPI/r_address                     |                                       |                6 |             24 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 |                                       | tenhz_mod/counter_reg[0]_i_1_n_0      |                7 |             25 |         3.57 |
 |  clk_gen/inst/CLK_OUT1 |                                       | adjustable_clock/clear                |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 |                                       |                                       |               62 |            110 |         1.77 |
+|  clk_gen/inst/CLK_OUT1 |                                       |                                       |               57 |            110 |         1.93 |
 +------------------------+---------------------------------------+---------------------------------------+------------------+----------------+--------------+
 
 

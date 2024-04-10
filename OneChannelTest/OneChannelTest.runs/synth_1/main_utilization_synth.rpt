@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-| Date         : Wed Apr 10 10:16:51 2024
+| Date         : Wed Apr 10 16:27:10 2024
 | Host         : eddard.hfe.rwth-aachen.de running 64-bit Rocky Linux release 8.8 (Green Obsidian)
 | Command      : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
 | Design       : main
@@ -31,11 +31,11 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             | 1068 |     0 |          0 |    303600 |  0.35 |
-|   LUT as Logic          | 1068 |     0 |          0 |    303600 |  0.35 |
+| Slice LUTs*             | 1069 |     0 |          0 |    303600 |  0.35 |
+|   LUT as Logic          | 1069 |     0 |          0 |    303600 |  0.35 |
 |   LUT as Memory         |    0 |     0 |          0 |    130800 |  0.00 |
-| Slice Registers         |  451 |     0 |          0 |    607200 |  0.07 |
-|   Register as Flip Flop |  451 |     0 |          0 |    607200 |  0.07 |
+| Slice Registers         |  458 |     0 |          0 |    607200 |  0.08 |
+|   Register as Flip Flop |  458 |     0 |          0 |    607200 |  0.08 |
 |   Register as Latch     |    0 |     0 |          0 |    607200 |  0.00 |
 | F7 Muxes                |    4 |     0 |          0 |    151800 | <0.01 |
 | F8 Muxes                |    0 |     0 |          0 |     75900 |  0.00 |
@@ -59,7 +59,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |          Yes |           - |          Set |
 | 15    |          Yes |           - |        Reset |
 | 49    |          Yes |         Set |            - |
-| 387   |          Yes |       Reset |            - |
+| 394   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -101,14 +101,15 @@ Warning! LUT value is adjusted to account for LUT combining.
 | PHASER_REF                  |    0 |     0 |          0 |        14 |  0.00 |
 | OUT_FIFO                    |    0 |     0 |          0 |        56 |  0.00 |
 | IN_FIFO                     |    0 |     0 |          0 |        56 |  0.00 |
-| IDELAYCTRL                  |    0 |     0 |          0 |        14 |  0.00 |
+| IDELAYCTRL                  |    1 |     0 |          0 |        14 |  7.14 |
 | IBUFDS                      |    1 |     0 |          0 |       672 |  0.15 |
 | GTXE2_COMMON                |    0 |     0 |          0 |         7 |  0.00 |
 | GTXE2_CHANNEL               |    0 |     0 |          0 |        28 |  0.00 |
 | PHASER_OUT/PHASER_OUT_PHY   |    0 |     0 |          0 |        56 |  0.00 |
 | PHASER_IN/PHASER_IN_PHY     |    0 |     0 |          0 |        56 |  0.00 |
 | IDELAYE2/IDELAYE2_FINEDELAY |    0 |     0 |          0 |       700 |  0.00 |
-| ODELAYE2/ODELAYE2_FINEDELAY |    0 |     0 |          0 |       700 |  0.00 |
+| ODELAYE2/ODELAYE2_FINEDELAY |    1 |     0 |          0 |       700 |  0.14 |
+|   ODELAYE2 only             |    1 |     0 |            |           |       |
 | IBUFDS_GTE2                 |    0 |     0 |          0 |        14 |  0.00 |
 | ILOGIC                      |    0 |     0 |          0 |       700 |  0.00 |
 | OLOGIC                      |   48 |     0 |          0 |       700 |  6.86 |
@@ -153,29 +154,31 @@ Warning! LUT value is adjusted to account for LUT combining.
 7. Primitives
 -------------
 
-+----------+------+---------------------+
-| Ref Name | Used | Functional Category |
-+----------+------+---------------------+
-| LUT3     |  595 |                 LUT |
-| FDRE     |  387 |        Flop & Latch |
-| CARRY4   |  246 |          CarryLogic |
-| OBUFDS   |  226 |                  IO |
-| LUT1     |  156 |                 LUT |
-| LUT2     |  143 |                 LUT |
-| LUT6     |  141 |                 LUT |
-| LUT4     |  130 |                 LUT |
-| INV      |  113 |                 LUT |
-| LUT5     |   76 |                 LUT |
-| FDSE     |   49 |        Flop & Latch |
-| ODDR     |   48 |                  IO |
-| OBUF     |   34 |                  IO |
-| FDCE     |   15 |        Flop & Latch |
-| RAMB36E1 |   12 |        Block Memory |
-| MUXF7    |    4 |               MuxFx |
-| IBUFDS   |    1 |                  IO |
-| IBUF     |    1 |                  IO |
-| DSP48E1  |    1 |    Block Arithmetic |
-+----------+------+---------------------+
++------------+------+---------------------+
+|  Ref Name  | Used | Functional Category |
++------------+------+---------------------+
+| LUT3       |  598 |                 LUT |
+| FDRE       |  394 |        Flop & Latch |
+| CARRY4     |  246 |          CarryLogic |
+| OBUFDS     |  226 |                  IO |
+| LUT1       |  156 |                 LUT |
+| LUT4       |  143 |                 LUT |
+| LUT2       |  142 |                 LUT |
+| LUT6       |  128 |                 LUT |
+| INV        |  113 |                 LUT |
+| LUT5       |   79 |                 LUT |
+| FDSE       |   49 |        Flop & Latch |
+| ODDR       |   48 |                  IO |
+| OBUF       |   34 |                  IO |
+| FDCE       |   15 |        Flop & Latch |
+| RAMB36E1   |   12 |        Block Memory |
+| MUXF7      |    4 |               MuxFx |
+| ODELAYE2   |    1 |                  IO |
+| IDELAYCTRL |    1 |                  IO |
+| IBUFDS     |    1 |                  IO |
+| IBUF       |    1 |                  IO |
+| DSP48E1    |    1 |    Block Arithmetic |
++------------+------+---------------------+
 
 
 8. Black Boxes
