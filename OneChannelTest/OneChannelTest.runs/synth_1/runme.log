@@ -11,7 +11,7 @@
     ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source main.tcl -notrace
-create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1522.848 ; gain = 48.828 ; free physical = 2451 ; free virtual = 14429
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1525.473 ; gain = 54.828 ; free physical = 1307 ; free virtual = 13863
 Command: read_checkpoint -auto_incremental -incremental /home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/utils_1/imports/synth_1/main.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from /home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/utils_1/imports/synth_1/main.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -24,9 +24,9 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 1435857
+INFO: [Synth 8-7075] Helper process launched with PID 1847925
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2439.832 ; gain = 403.746 ; free physical = 1343 ; free virtual = 13321
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2439.793 ; gain = 403.746 ; free physical = 190 ; free virtual = 12688
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-11241] undeclared symbol 'w_PLL_MISO', assumed default net type 'wire' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:352]
 INFO: [Synth 8-11241] undeclared symbol 'w_DAC_MISO', assumed default net type 'wire' [/home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v:356]
@@ -41,8 +41,8 @@ INFO: [Synth 8-6157] synthesizing module 'IBUFGDS' [/software/Xilinx/Vitis_2023.
 	Parameter IBUF_LOW_PWR bound to: TRUE - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
 INFO: [Synth 8-6155] done synthesizing module 'IBUFGDS' (0#1) [/software/Xilinx/Vitis_2023.2/Vivado/2023.2/scripts/rt/data/unisim_comp.v:74129]
-INFO: [Synth 8-6157] synthesizing module 'system_clk_creator' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.runs/synth_1/.Xil/Vivado-1435812-eddard.hfe.rwth-aachen.de/realtime/system_clk_creator_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_clk_creator' (0#1) [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.runs/synth_1/.Xil/Vivado-1435812-eddard.hfe.rwth-aachen.de/realtime/system_clk_creator_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_clk_creator' [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.runs/synth_1/.Xil/Vivado-1847733-eddard.hfe.rwth-aachen.de/realtime/system_clk_creator_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_clk_creator' (0#1) [/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.runs/synth_1/.Xil/Vivado-1847733-eddard.hfe.rwth-aachen.de/realtime/system_clk_creator_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'IBUF' [/software/Xilinx/Vitis_2023.2/Vivado/2023.2/scripts/rt/data/unisim_comp.v:73631]
 INFO: [Synth 8-6155] done synthesizing module 'IBUF' (0#1) [/software/Xilinx/Vitis_2023.2/Vivado/2023.2/scripts/rt/data/unisim_comp.v:73631]
 INFO: [Synth 8-6157] synthesizing module 'OBUF' [/software/Xilinx/Vitis_2023.2/Vivado/2023.2/scripts/rt/data/unisim_comp.v:93059]
@@ -134,18 +134,18 @@ WARNING: [Synth 8-7129] Port I_PLLSyncPulseShift[1] in module pll_sync_rqst is e
 WARNING: [Synth 8-7129] Port I_PLLSyncPulseShift[0] in module pll_sync_rqst is either unconnected or has no load
 WARNING: [Synth 8-7129] Port I_MUXout in module realSPI is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2547.801 ; gain = 511.715 ; free physical = 1241 ; free virtual = 13215
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2547.762 ; gain = 511.715 ; free physical = 191 ; free virtual = 12572
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2565.613 ; gain = 529.527 ; free physical = 1229 ; free virtual = 13203
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2565.574 ; gain = 529.527 ; free physical = 191 ; free virtual = 12572
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2565.613 ; gain = 529.527 ; free physical = 1229 ; free virtual = 13203
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2565.574 ; gain = 529.527 ; free physical = 191 ; free virtual = 12572
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2571.551 ; gain = 0.000 ; free physical = 1225 ; free virtual = 13199
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2571.512 ; gain = 0.000 ; free physical = 182 ; free virtual = 12563
 INFO: [Netlist 29-17] Analyzing 163 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -160,24 +160,24 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/main_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2712.332 ; gain = 0.000 ; free physical = 1173 ; free virtual = 13147
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2711.262 ; gain = 0.000 ; free physical = 194 ; free virtual = 12544
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 114 instances were transformed.
   IBUFGDS => IBUFDS: 1 instance 
   OBUFDS => OBUFDS: 113 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2712.367 ; gain = 0.000 ; free physical = 1172 ; free virtual = 13146
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2711.297 ; gain = 0.000 ; free physical = 194 ; free virtual = 12544
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2712.367 ; gain = 676.281 ; free physical = 1162 ; free virtual = 13138
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2711.297 ; gain = 675.250 ; free physical = 314 ; free virtual = 12664
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7vx485tffg1761-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2712.367 ; gain = 676.281 ; free physical = 1162 ; free virtual = 13138
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2711.297 ; gain = 675.250 ; free physical = 314 ; free virtual = 12664
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -186,7 +186,7 @@ Applied set_property IO_BUFFER_TYPE = NONE for USER_CLOCK. (constraint file  /ho
 Applied set_property CLOCK_BUFFER_TYPE = NONE for USER_CLOCK. (constraint file  /home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.gen/sources_1/ip/system_clk_creator/system_clk_creator/system_clk_creator_in_context.xdc, line 4).
 Applied set_property KEEP_HIERARCHY = SOFT for clk_gen. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2712.367 ; gain = 676.281 ; free physical = 1163 ; free virtual = 13139
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2711.297 ; gain = 675.250 ; free physical = 314 ; free virtual = 12664
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'r_state_reg' in module 'uart_rcv'
 INFO: [Synth 8-802] inferred FSM for state register 'r_case_reg' in module 'crc'
@@ -240,7 +240,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'r_state_reg' using encodin
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'r_state_reg' using encoding 'sequential' in module 'main'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 2712.367 ; gain = 676.281 ; free physical = 1158 ; free virtual = 13135
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 2711.297 ; gain = 675.250 ; free physical = 310 ; free virtual = 12660
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -272,6 +272,8 @@ Detailed RTL Component Info :
 	   4 Input   16 Bit        Muxes := 2     
 	   3 Input   16 Bit        Muxes := 2     
 	   2 Input   14 Bit        Muxes := 1     
+	   2 Input   12 Bit        Muxes := 2     
+	   3 Input   12 Bit        Muxes := 2     
 	  11 Input    8 Bit        Muxes := 2     
 	   2 Input    8 Bit        Muxes := 33    
 	   4 Input    8 Bit        Muxes := 6     
@@ -288,10 +290,10 @@ Detailed RTL Component Info :
 	   4 Input    3 Bit        Muxes := 1     
 	   4 Input    2 Bit        Muxes := 2     
 	   2 Input    2 Bit        Muxes := 2     
-	   2 Input    1 Bit        Muxes := 105   
+	   2 Input    1 Bit        Muxes := 103   
 	  11 Input    1 Bit        Muxes := 5     
 	   4 Input    1 Bit        Muxes := 24    
-	   3 Input    1 Bit        Muxes := 9     
+	   3 Input    1 Bit        Muxes := 7     
 	  35 Input    1 Bit        Muxes := 18    
 	   5 Input    1 Bit        Muxes := 23    
 ---------------------------------------------------------------------------------
@@ -330,7 +332,7 @@ WARNING: [Synth 8-3332] Sequential element (IBUF_PLL_MISO) is unused and will be
 WARNING: [Synth 8-3332] Sequential element (IBUF_DAC_MISO) is unused and will be removed from module main.
 WARNING: [Synth 8-3332] Sequential element (IBUF_ALARM) is unused and will be removed from module main.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2712.367 ; gain = 676.281 ; free physical = 686 ; free virtual = 12687
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2711.297 ; gain = 675.250 ; free physical = 398 ; free virtual = 12314
 ---------------------------------------------------------------------------------
  Sort Area is  counter3_0 : 0 0 : 282 282 : Used 1 time 0
 ---------------------------------------------------------------------------------
@@ -346,15 +348,15 @@ ROM: Preliminary Mapping Report
 +------------+------------+---------------+----------------+
 
 
-Block RAM: Preliminary Mapping Report (see note below)
-+------------+----------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Module Name | RTL Object     | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
-+------------+----------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|signalgen   | r_memory_I_reg | 8 K x 12(READ_FIRST)   | W |   | 8 K x 12(WRITE_FIRST)  |   | R | Port A and B     | 0      | 6      | 
-|signalgen   | r_memory_Q_reg | 8 K x 12(READ_FIRST)   | W |   | 8 K x 12(WRITE_FIRST)  |   | R | Port A and B     | 0      | 6      | 
-+------------+----------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+Distributed RAM: Preliminary Mapping Report (see note below)
++------------+----------------+-----------+----------------------+---------------+
+|Module Name | RTL Object     | Inference | Size (Depth x Width) | Primitives    | 
++------------+----------------+-----------+----------------------+---------------+
+|signalgen   | r_memory_I_reg | Implied   | 16 K x 12            | RAM64M x 524  | 
+|signalgen   | r_memory_Q_reg | Implied   | 16 K x 12            | RAM64M x 524  | 
++------------+----------------+-----------+----------------------+---------------+
 
-Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
 
 DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
 +------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
@@ -371,25 +373,25 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 2712.367 ; gain = 676.281 ; free physical = 723 ; free virtual = 12737
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 2711.297 ; gain = 675.250 ; free physical = 599 ; free virtual = 12516
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2712.367 ; gain = 676.281 ; free physical = 719 ; free virtual = 12733
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2711.297 ; gain = 675.250 ; free physical = 599 ; free virtual = 12516
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
-Block RAM: Final Mapping Report
-+------------+----------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Module Name | RTL Object     | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
-+------------+----------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|signalgen   | r_memory_I_reg | 8 K x 12(READ_FIRST)   | W |   | 8 K x 12(WRITE_FIRST)  |   | R | Port A and B     | 0      | 6      | 
-|signalgen   | r_memory_Q_reg | 8 K x 12(READ_FIRST)   | W |   | 8 K x 12(WRITE_FIRST)  |   | R | Port A and B     | 0      | 6      | 
-+------------+----------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+Distributed RAM: Final Mapping Report
++------------+----------------+-----------+----------------------+---------------+
+|Module Name | RTL Object     | Inference | Size (Depth x Width) | Primitives    | 
++------------+----------------+-----------+----------------------+---------------+
+|signalgen   | r_memory_I_reg | Implied   | 16 K x 12            | RAM64M x 524  | 
+|signalgen   | r_memory_Q_reg | Implied   | 16 K x 12            | RAM64M x 524  | 
++------------+----------------+-----------+----------------------+---------------+
 
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -397,20 +399,8 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-7052] The timing for the instance signalgen/r_memory_I_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance signalgen/r_memory_I_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance signalgen/r_memory_I_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance signalgen/r_memory_I_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance signalgen/r_memory_I_reg_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance signalgen/r_memory_I_reg_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance signalgen/r_memory_Q_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance signalgen/r_memory_Q_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance signalgen/r_memory_Q_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance signalgen/r_memory_Q_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance signalgen/r_memory_Q_reg_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance signalgen/r_memory_Q_reg_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 2712.367 ; gain = 676.281 ; free physical = 717 ; free virtual = 12732
+Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 2711.297 ; gain = 675.250 ; free physical = 590 ; free virtual = 12506
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -428,37 +418,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2712.367 ; gain = 676.281 ; free physical = 926 ; free virtual = 12941
+Finished IO Insertion : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 2711.297 ; gain = 675.250 ; free physical = 702 ; free virtual = 12619
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2712.367 ; gain = 676.281 ; free physical = 926 ; free virtual = 12941
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 2711.297 ; gain = 675.250 ; free physical = 702 ; free virtual = 12619
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2712.367 ; gain = 676.281 ; free physical = 926 ; free virtual = 12941
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 2711.297 ; gain = 675.250 ; free physical = 702 ; free virtual = 12619
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2712.367 ; gain = 676.281 ; free physical = 926 ; free virtual = 12941
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 2711.297 ; gain = 675.250 ; free physical = 702 ; free virtual = 12619
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2712.367 ; gain = 676.281 ; free physical = 926 ; free virtual = 12941
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 2711.297 ; gain = 675.250 ; free physical = 702 ; free virtual = 12619
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2712.367 ; gain = 676.281 ; free physical = 926 ; free virtual = 12941
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 2711.297 ; gain = 675.250 ; free physical = 702 ; free virtual = 12619
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -488,49 +478,51 @@ Report Cell Usage:
 |3     |DSP48E1            |     1|
 |4     |IDELAYCTRL         |     1|
 |5     |LUT1               |   156|
-|6     |LUT2               |   142|
-|7     |LUT3               |   598|
-|8     |LUT4               |   143|
-|9     |LUT5               |    79|
-|10    |LUT6               |   128|
-|11    |MUXF7              |     4|
-|12    |ODDR               |    48|
-|13    |ODELAYE2           |     1|
-|14    |RAMB36E1           |    12|
-|15    |FDCE               |    15|
-|16    |FDRE               |   394|
-|17    |FDSE               |    49|
-|18    |IBUF               |     1|
-|19    |IBUFGDS            |     1|
-|20    |OBUF               |    34|
-|21    |OBUFDS             |   113|
+|6     |LUT2               |   178|
+|7     |LUT3               |   652|
+|8     |LUT4               |   325|
+|9     |LUT5               |   127|
+|10    |LUT6               |  1099|
+|11    |MUXF7              |   412|
+|12    |MUXF8              |   192|
+|13    |ODDR               |    48|
+|14    |ODELAYE2           |     1|
+|15    |RAM64M             |  1048|
+|16    |FDCE               |    15|
+|17    |FDRE               |   644|
+|18    |FDSE               |    49|
+|19    |IBUF               |     1|
+|20    |IBUFGDS            |     1|
+|21    |OBUF               |    34|
+|22    |OBUFDS             |   113|
 +------+-------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2712.367 ; gain = 676.281 ; free physical = 926 ; free virtual = 12941
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 2711.297 ; gain = 675.250 ; free physical = 702 ; free virtual = 12619
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 21 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 2712.367 ; gain = 529.527 ; free physical = 926 ; free virtual = 12941
-Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 2712.367 ; gain = 676.281 ; free physical = 926 ; free virtual = 12941
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 2711.297 ; gain = 529.527 ; free physical = 700 ; free virtual = 12617
+Synthesis Optimization Complete : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 2711.297 ; gain = 675.250 ; free physical = 700 ; free virtual = 12617
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2712.367 ; gain = 0.000 ; free physical = 1206 ; free virtual = 13220
-INFO: [Netlist 29-17] Analyzing 426 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2711.297 ; gain = 0.000 ; free physical = 998 ; free virtual = 12915
+INFO: [Netlist 29-17] Analyzing 2062 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2712.367 ; gain = 0.000 ; free physical = 1206 ; free virtual = 13221
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2711.297 ; gain = 0.000 ; free physical = 990 ; free virtual = 12907
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 114 instances were transformed.
+  A total of 1162 instances were transformed.
   IBUFGDS => IBUFDS: 1 instance 
   OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS(x2)): 113 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 1048 instances
 
-Synth Design complete | Checksum: 7dd94a7
+Synth Design complete | Checksum: e4e8c981
 INFO: [Common 17-83] Releasing license: Synthesis
-93 Infos, 65 Warnings, 0 Critical Warnings and 0 Errors encountered.
+81 Infos, 65 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:43 ; elapsed = 00:00:43 . Memory (MB): peak = 2712.367 ; gain = 1171.707 ; free physical = 1206 ; free virtual = 13221
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2054.805; main = 1729.045; forked = 373.111
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 4293.746; main = 2712.336; forked = 1613.426
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2736.344 ; gain = 0.000 ; free physical = 1206 ; free virtual = 13221
+synth_design: Time (s): cpu = 00:00:52 ; elapsed = 00:00:51 . Memory (MB): peak = 2711.297 ; gain = 1170.980 ; free physical = 989 ; free virtual = 12906
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2014.104; main = 1691.444; forked = 371.107
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 4292.676; main = 2711.266; forked = 1613.426
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2735.273 ; gain = 0.000 ; free physical = 987 ; free virtual = 12906
 INFO: [Common 17-1381] The checkpoint '/home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.runs/synth_1/main.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Apr 10 16:27:10 2024...
+INFO: [Common 17-206] Exiting Vivado at Thu Apr 11 15:42:49 2024...

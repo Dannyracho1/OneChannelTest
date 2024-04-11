@@ -142,9 +142,9 @@ module signalgen_DDR(
 				end
 				default:		// else-mode: reset both counters
 				begin
-					O_DAC_I <= r_memory_I[memory_idx];
-					O_DAC_Q <= r_memory_Q[memory_idx];
-					O_SYNC  <= 1'b1;
+					O_DAC_I <= 12'b0;
+					O_DAC_Q <= 12'b0;
+					O_SYNC  <= 1'b0;
 					uart_data_count <= 0;
 					memory_idx <= 0;
 				end

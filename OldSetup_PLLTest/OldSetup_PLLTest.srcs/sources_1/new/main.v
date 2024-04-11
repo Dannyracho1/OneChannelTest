@@ -1126,7 +1126,7 @@ module main(
 	
 	
 	// Assign DAC_CONFIG: Bit0 -> Resetb, Bit1 -> Alarm, Bit2 -> Ex_ENA, Bit3 -> Sleep
-	assign 		w_RESETB 		= r_dacconfig[0];
+	assign 		w_RESETB 	= r_dacconfig[0];
 	assign 		w_TXENABLE 	= r_dacconfig[2];
 	assign		w_SLEEP		= r_dacconfig[3];
 		
