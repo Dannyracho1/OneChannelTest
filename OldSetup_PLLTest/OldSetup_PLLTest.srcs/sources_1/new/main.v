@@ -408,7 +408,7 @@ module main(
 	// DAC Clocks
 	
 	OBUFDS OBUFDS_DACCLK[7:0] (
-    	.I(w_adjustable_clock), 
+    	.I(clk), 
     	.O(DACCLK_P), 
     	.OB(DACCLK_N)
     );
