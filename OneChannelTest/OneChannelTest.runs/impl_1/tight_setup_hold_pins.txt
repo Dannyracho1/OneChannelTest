@@ -1,0 +1,36 @@
++=============================+=============================+======================+
+| Launch Setup Clock          | Launch Hold Clock           | Pin                  |
++=============================+=============================+======================+
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[10]/CE |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[9]/CE  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[11]/CE |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[5]/CE  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[6]/CE  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[8]/CE  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[10]/D2 |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[10]/D1 |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[9]/D1  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[9]/D2  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[11]/D2 |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[11]/D1 |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[5]/D1  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[5]/D2  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[6]/D2  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[8]/D1  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[8]/D2  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[6]/D1  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[2]/CE  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[7]/CE  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[1]/CE  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[4]/CE  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[2]/D1  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[7]/D2  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[0]/CE  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[3]/CE  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[2]/D2  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[7]/D1  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[4]/D1  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[4]/D2  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[1]/D1  |
+| CLK_OUT1_system_clk_creator | CLK_OUT1_system_clk_creator | ODDR_DACData8[1]/D2  |
++-----------------------------+-----------------------------+----------------------+

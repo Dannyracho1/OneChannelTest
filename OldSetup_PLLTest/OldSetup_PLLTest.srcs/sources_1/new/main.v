@@ -29,8 +29,8 @@ module main(
 	input			USER_CLOCK,
 	
 	// Systemclock 200MHz - will be connected to a buffer with single ended output "clk"
-    input			SYSCLK_P,
-    input			SYSCLK_N,
+	input			SYSCLK_P,
+	input			SYSCLK_N,
 
 	// LEDs on the VC707_FPGA Board itself
 	output [7:0]	GPIO_LED,		// LED0..7
@@ -55,9 +55,9 @@ module main(
 	output [11:0] 	DACData6_P,			// ...
 	output [11:0] 	DACData6_N,			// ...
 	output [11:0] 	DACData7_P,			// ...
-    output [11:0] 	DACData7_N,			// ...
-    output [11:0] 	DACData8_P,			// ...
-    output [11:0] 	DACData8_N,			// ...
+	output [11:0] 	DACData7_N,			// ...
+	output [11:0] 	DACData8_P,			// ...
+	output [11:0] 	DACData8_N,			// ...
 
 	
 
@@ -136,7 +136,7 @@ module main(
 	// DAC CONFIG
 	wire            w_ALARM;
 	wire            w_RESETB; 
-    wire            w_TXENABLE;
+	wire            w_TXENABLE;
 	wire            w_SLEEP;	
 	
 	//Signal generator
@@ -151,10 +151,9 @@ module main(
 	wire [11:0]     w_DACData_I;			// DAC Data In-Phase:   from RAM to ODDR (Double-Data Rate)
 	wire [11:0]     w_DACData_Q;			// DAC Data Quadrature: from RAM to ODDR (Double-Data Rate)
 
-    wire [11:0]	    w_DACData1_toDIFF;		// DAC Data 1 over ODDR to OBUFDS
+	wire [11:0]	    w_DACData1_toDIFF;		// DAC Data 1 over ODDR to OBUFDS
 	wire [11:0]	    w_DACData2_toDIFF;		// DAC Data 1 over ODDR to OBUFDS
-	wire [11:0]		w_DACData7_toDIFF;		// DAC Data 7 over ODDR to OBUFDS
-    wire [11:0]	    w_DACData8_toDIFF;		// DAC Data 8 over ODDR to OBUFDS
+	wire [11:0]	    w_DACData8_toDIFF;		// DAC Data 8 over ODDR to OBUFDS
 	
 	// SYNC Signal!!
 	wire            w_DAC_SYNC;
@@ -210,7 +209,7 @@ module main(
 	parameter DAC_Q_MSB			= 8'h0E;
 	parameter DACCLOCK			= 8'h0F;
 
-	parameter REALSPI			= 8'h10;			// Trigger for the unique PLLs
+	parameter REALSPIPLL		= 8'h10;			// Trigger for the unique PLLs
 	parameter SPITXMSB			= 8'h11;			// 16 bit data register to transmit
 	parameter SPITXLSB			= 8'h12;			// ...
 	parameter SPIREGADDR		= 8'h13;			// PLL register address
@@ -240,6 +239,7 @@ module main(
 	parameter DAC_CONFIG		= 8'h2D;			// New (Danny): Resetb, Alarm, Ex_ENA, Sleep directly to PINS (41, 47, 48, 49) on each DAC
 	parameter SPIACTDAC			= 8'h2E;			// New (Danny): Controls the SPI_CSB pins on DAC
 	parameter ODDR_Settings		= 8'h2F;			// New (Danny): Testing settings for ODDR on DACData7
+	parameter REALSPIDAC		= 8'h3A;			// New (Danny): Controls the sending to DAC or PLL (see REALSPIPLL)
 	
 	// Internal constant parameters
 	parameter RESETTIME 		= 2_000_000; 		// Whenever reset is triggered, this number of clock cycles does the reset takes time (in case of 2_000_000 this is 10 ms)
@@ -254,35 +254,35 @@ module main(
 /*---------------------------------------------------------------------------------------*/
 
 	// external register for PC-access
-	reg	[7:0] 	r_idval 		= 8'h4E;			// "Unique" Device ID
-	reg [7:0] 	r_ledval 		= 8'h00; 			// Set LEDs on and off
-	reg [7:0] 	r_uarttx		= 8'h00;			// Data to send over UART
-	reg [7:0]	r_uartset		= 8'b0;				// Settings for UART (MSB -> reset UART) 
+	reg	[7:0] 	r_idval 			= 8'h4E;		// "Unique" Device ID
+	reg [7:0] 	r_ledval 			= 8'h00; 		// Set LEDs on and off
+	reg [7:0] 	r_uarttx			= 8'h00;		// Data to send over UART
+	reg [7:0]	r_uartset			= 8'b0;			// Settings for UART (MSB -> reset UART) 
 
-	reg [7:0] 	r_regaddr		= 8'b0;
+	reg [7:0] 	r_regaddr			= 8'b0;
 	
-	reg [7:0] 	r_dacSet		= 8'h00;			// Settings for DAC connection (Bit 6: Pause dac stream; Bit 0: DAC output cycle shift trigger )
-	reg [7:0] 	r_dac_I_lsb		= 8'h00;			// Data for DAC Channel A
-	reg [7:0] 	r_dac_I_msb		= 8'h00;			// |0000 MSB MSB MSB MSB||LSB ... LSB| since we only need 12 bit per sample for the DAC
-	reg [7:0] 	r_dac_Q_lsb		= 8'h00;			// Data for DAC Channel B
-	reg [7:0] 	r_dac_Q_msb		= 8'h00;			// MSB and data ready to save to memory flag in one byte: Bit 0 and 1 ->
-	reg [7:0] 	r_dacCLOCK		= 8'h09;			// Might be used for debug (output clock division)
+	reg [7:0] 	r_dacSet			= 8'h00;		// Settings for DAC connection (Bit 6: Pause dac stream; Bit 0: DAC output cycle shift trigger )
+	reg [7:0] 	r_dac_I_lsb			= 8'h00;		// Data for DAC Channel A
+	reg [7:0] 	r_dac_I_msb			= 8'h00;		// |0000 MSB MSB MSB MSB||LSB ... LSB| since we only need 12 bit per sample for the DAC
+	reg [7:0] 	r_dac_Q_lsb			= 8'h00;		// Data for DAC Channel B
+	reg [7:0] 	r_dac_Q_msb			= 8'h00;		// MSB and data ready to save to memory flag in one byte: Bit 0 and 1 ->
+	reg [7:0] 	r_dacCLOCK			= 8'h09;		// Might be used for debug (output clock division)
 	
-	reg [7:0]	r_dacWRTConfig	= 8'h00;			// Write configuration (bit 0: 1->Memory Write State , 0->normal output operation ; bit 4,3,2 and 1: PCB memory index (which PCBs data should be overwritten))
-	reg [7:0]	r_dacDataLength_lsb	= 8'hDB;			// Length of expected data, which comes from PC.
-	reg [7:0]	r_dacDataLength_msb	= 8'h05;			// Length of expected data, which comes from PC.
+	reg [7:0]	r_dacWRTConfig		= 8'h00;		// Write configuration (bit 0: 1->Memory Write State , 0->normal output operation ; bit 4,3,2 and 1: PCB memory index (which PCBs data should be overwritten))
+	reg [7:0]	r_dacDataLength_lsb	= 8'hDB;		// Length of expected data, which comes from PC.
+	reg [7:0]	r_dacDataLength_msb	= 8'h05;		// Length of expected data, which comes from PC.
 	
-	reg [7:0] 	r_realspi		= 8'h00;			// Trigger for the unique PLLs
-	reg [7:0] 	r_spiTXMSB		= 8'h00;			// 16 bit data register to transmit
-	reg [7:0] 	r_spiTXLSB		= 8'h00;			// ...
-	reg [7:0] 	r_spiREGADDR	= 8'h00;			// PLL register address
-	reg [7:0] 	r_spiRXMSB		= 8'h00;			// Received data. Not implemented yet.
-	reg [7:0] 	r_spiRXLSB		= 8'h00;			// ...
-	reg [7:0] 	r_spiACTPLL		= 8'h00;			// Controls the SPI_CSB pins, since we need to talk to 8 different PLLs
-	reg [7:0]	r_dacActiveCore	= 8'hFF;			// Each bit controls the active state of one DAC Core.
-	reg [7:0]	r_dacMode		= 8'h00;			// DAC Mode select
-	reg [7:0]	r_pll_sync		= 8'h00;			// Controls the PLLs sync pulse
-	reg [7:0]	r_syncPulseShift = 8'h00;			// This register Shifts the output of the PLL Sync Pulse relative to the DAC update clock. (Actually just delays it by a number of reference clock cycles)
+	reg [7:0] 	r_realspipll		= 8'h00;		// Trigger for the unique PLLs
+	reg [7:0] 	r_spiTXMSB			= 8'h00;		// 16 bit data register to transmit
+	reg [7:0] 	r_spiTXLSB			= 8'h00;		// ...
+	reg [7:0] 	r_spiREGADDR		= 8'h00;		// PLL register address
+	reg [7:0] 	r_spiRXMSB			= 8'h00;		// Received data. Not implemented yet.
+	reg [7:0] 	r_spiRXLSB			= 8'h00;		// ...
+	reg [7:0] 	r_spiACTPLL			= 8'h00;		// Controls the SPI_CSB pins, since we need to talk to 8 different PLLs
+	reg [7:0]	r_dacActiveCore		= 8'hFF;		// Each bit controls the active state of one DAC Core.
+	reg [7:0]	r_dacMode			= 8'h00;		// DAC Mode select
+	reg [7:0]	r_pll_sync			= 8'h00;		// Controls the PLLs sync pulse
+	reg [7:0]	r_syncPulseShift	= 8'h00;		// This register Shifts the output of the PLL Sync Pulse relative to the DAC update clock. (Actually just delays it by a number of reference clock cycles)
 	
 	reg	[7:0]	r_delayValue_CLK1	= 8'h00;		// DAC1 Clk_Delay, Bit [3:0] -> Delay Value (~75 picoseconds per step); Bit 4: if set to one, the new value will be set (autoreset implemented) 
 	reg	[7:0]	r_delayValue_CLK2	= 8'h00;		// DAC2 Clk_Delay, Bit [3:0] -> Delay Value (~75 picoseconds per step); Bit 4: if set to one, the new value will be set (autoreset implemented) 
@@ -293,10 +293,11 @@ module main(
 	reg	[7:0]	r_delayValue_CLK7	= 8'h00;		// DAC7 Clk_Delay, Bit [3:0] -> Delay Value (~75 picoseconds per step); Bit 4: if set to one, the new value will be set (autoreset implemented) 
 	reg	[7:0]	r_delayValue_CLK8	= 8'h00;		// DAC8 Clk_Delay, Bit [3:0] -> Delay Value (~75 picoseconds per step); Bit 4: if set to one, the new value will be set (autoreset implemented) 
 	
-	reg [7:0]	r_BB_Settings	= 8'h00;			// Bit 0 -> 16QAM; Bit 1 -> 4QAM reduced; Bit 2 -> shift output data by one cycle; Bit 3 -> IQ interchange; Bit 4 -> invert DAC ResetIQ ; Bit 5 -> noInterleavedFFT
-	reg [7:0]	r_dacconfig		= 8'h00;			// New (Danny): Bit0 -> Resetb, Bit1 -> Alarm, Bit2 -> Ex_ENA, Bit3 -> Sleep
-	reg [7:0]	r_spiACTDAC		= 8'h00;			// New (Danny): 8 different latches on 8 DACs
-	reg [7:0]	r_oddrsettings	= 8'h01;			// New (Danny): Check ODDR instance for documentation about register values
+	reg [7:0]	r_BB_Settings		= 8'h00;		// Bit 0 -> 16QAM; Bit 1 -> 4QAM reduced; Bit 2 -> shift output data by one cycle; Bit 3 -> IQ interchange; Bit 4 -> invert DAC ResetIQ ; Bit 5 -> noInterleavedFFT
+	reg [7:0]	r_dacconfig			= 8'h00;		// New (Danny): Bit0 -> Resetb, Bit1 -> Alarm, Bit2 -> Ex_ENA, Bit3 -> Sleep
+	reg [7:0]	r_spiACTDAC			= 8'h00;		// New (Danny): 8 different latches on 8 DACs
+	reg [7:0] 	r_realspidac		= 8'h00;		// Trigger for the unique PLLs
+	reg [7:0]	r_oddrsettings		= 8'h01;		// New (Danny): Check ODDR instance for documentation about register values
 
 	
 	// Internal register (state machine etc.)
@@ -408,7 +409,7 @@ module main(
 	// DAC Clocks
 	
 	OBUFDS OBUFDS_DACCLK[7:0] (
-    	.I(clk), 
+    	.I((r_oddrsettings[2]) ? clk : w_adjustable_clock), 
     	.O(DACCLK_P), 
     	.OB(DACCLK_N)
     );
@@ -534,22 +535,6 @@ module main(
        .R((r_oddrsettings[3]) ? 12'b1 : 12'b0),   // 1-bit reset
        .S(12'b0)    // 1-bit set
     );
-
-
-    ODDR #(
-       .DDR_CLK_EDGE("SAME_EDGE"), // "OPPOSITE_EDGE" or "SAME_EDGE"
-       .INIT(1'b0),    // Initial value of Q: 1'b0 or 1'b1
-       .SRTYPE("SYNC") // Set/Reset type: "SYNC" or "ASYNC"
-    ) ODDR_DACData7[11:0] (
-       .Q(w_DACData7_toDIFF),   // 1-bit DDR output
-       .C((r_oddrsettings[2]) ? clk : w_adjustable_clock),   // 1-bit clock input
-       .CE(r_oddrsettings[0]), // 1-bit clock enable input
-       .D1(w_adjustable_clock), // 1-bit data input (positive edge)
-       .D2(w_adjustable_clock), // 1-bit data input (negative edge)
-       .R((r_oddrsettings[3]) ? 12'b1 : 12'b0),   // 1-bit reset
-       .S(12'b0)    // 1-bit set
-    );
-    
     
     ODDR #(
        .DDR_CLK_EDGE("SAME_EDGE"), // "OPPOSITE_EDGE" or "SAME_EDGE"
@@ -607,7 +592,7 @@ module main(
     );
     
     OBUFDS OBUFDS_DACData7[11:0] (
-    	.I(w_DACData7_toDIFF), 
+    	.I(w_adjustable_clock), 
     	.O(DACData7_P), 
     	.OB(DACData7_N)
     );
@@ -787,9 +772,9 @@ module main(
 	realSPI PLL_SPI(
 		.I_clk(clk),
 		.I_regAdress(r_spiREGADDR),
-		.I_newDataFlag(r_realspi[7]),
+		.I_newDataFlag(r_realspipll[7]),
 		.I_data({r_spiTXMSB, r_spiTXLSB}),
-		.I_reset(r_realspi[6]),
+		.I_reset(r_realspipll[6]),
 		.I_MUXout(w_PLL_MISO),
 		.I_actMOD(r_spiACTPLL),
 		.O_SCK(w_PLL_SCK),
@@ -802,9 +787,9 @@ module main(
 	realSPI DAC_SPI(
 		.I_clk(clk),
 		.I_regAdress(r_spiREGADDR),
-		.I_newDataFlag(r_realspi[7]),
+		.I_newDataFlag(r_realspidac[7]),
 		.I_data({r_spiTXMSB, r_spiTXLSB}),
-		.I_reset(r_realspi[6]),
+		.I_reset(r_realspidac[6]),
 		.I_MUXout(w_DAC_MISO),
 		.I_actMOD(r_spiACTDAC),
 		.O_SCK(w_DAC_SCLK),
@@ -936,7 +921,8 @@ module main(
 				r_dac_Q_lsb		<= 8'h00;
 				r_dac_Q_msb		<= 8'h00;
 				r_dacCLOCK		<= 8'h08;
-				r_realspi		<= 8'h00;
+				r_realspipll	<= 8'h00;
+				r_realspidac	<= 8'h00;
 				r_spiTXMSB		<= 8'h00;
 				r_spiTXLSB		<= 8'h00;
 				r_spiREGADDR	<= 8'h00;
@@ -1065,7 +1051,7 @@ module main(
 					DAC_Q_MSB: 		r_dac_Q_msb 	<= r_tempRegVal;
 					DACCLOCK:		r_dacCLOCK 		<= r_tempRegVal;
 					
-					REALSPI:		r_realspi		<= r_tempRegVal;
+					REALSPIPLL:		r_realspipll	<= r_tempRegVal;
 					SPITXMSB:		r_spiTXMSB		<= r_tempRegVal;
 					SPITXLSB:		r_spiTXLSB		<= r_tempRegVal;
 					SPIREGADDR:		r_spiREGADDR	<= r_tempRegVal;	
@@ -1073,6 +1059,7 @@ module main(
 					SPIRXLSB:		r_spiRXLSB		<= r_tempRegVal;
 					SPIACTPLL:		r_spiACTPLL		<= r_tempRegVal;
 					SPIACTDAC:		r_spiACTDAC		<= r_tempRegVal;
+					REALSPIDAC:		r_realspidac	<= r_tempRegVal;
 					
 					DACDATALENGTH_LSB: 	r_dacDataLength_lsb <= r_tempRegVal;
 					DACDATALENGTH_MSB: 	r_dacDataLength_msb <= r_tempRegVal;
@@ -1108,12 +1095,20 @@ module main(
 		if(r_uartset[6]) 	r_uartset[6] 	<= 1'b0;
 		if(r_crcNewData) 	r_crcNewData 	<= 1'b0;
 		if(r_crcRst) 		r_crcRst 		<= 1'b0;
-		if(r_realspi[7]) begin 
+		if(r_realspipll[7]) begin 
 			//DEBUG
-			r_realspi[7]	<= 1'b0;
+			r_realspipll[7]	<= 1'b0;
 		end
 		
-		if(r_realspi[6]) 	r_realspi[6]	<= 1'b0;
+		if(r_realspipll[6]) 	r_realspipll[6]	<= 1'b0;
+
+		// New (Danny): added at '3A' in MATLAB GUI REALSPIDAC
+		if(r_realspidac[7]) begin 
+			//DEBUG
+			r_realspidac[7]	<= 1'b0;
+		end
+		
+		if(r_realspidac[6]) 	r_realspidac[6]	<= 1'b0;
 	end
 	
 	
