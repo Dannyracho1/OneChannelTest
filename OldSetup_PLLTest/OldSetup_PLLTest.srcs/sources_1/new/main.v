@@ -148,13 +148,22 @@ module main(
 
 	// IMPORTANT: For ODDR & OBUFDS wires needed
 	
-	wire [11:0]     w_DACData_I;			// DAC Data In-Phase:   from RAM to ODDR (Double-Data Rate)
-	wire [11:0]     w_DACData_Q;			// DAC Data Quadrature: from RAM to ODDR (Double-Data Rate)
-
-	wire [11:0]	    w_DACData1_toDIFF;		// DAC Data 1 over ODDR to OBUFDS
-	wire [11:0]	    w_DACData2_toDIFF;		// DAC Data 1 over ODDR to OBUFDS
-	wire [11:0]	    w_DACData8_toDIFF;		// DAC Data 8 over ODDR to OBUFDS
+	wire [11:0]     w_DACData1_I;			// DAC Data 1 In-Phase:   from RAM to ODDR (Double-Data Rate)
+	wire [11:0]     w_DACData1_Q;			// DAC Data 1 Quadrature: from RAM to ODDR (Double-Data Rate)
+	wire [11:0]     w_DACData2_I;			// DAC Data 2 In-Phase:   from RAM to ODDR (Double-Data Rate)
+	wire [11:0]     w_DACData2_Q;			// DAC Data 2 Quadrature: from RAM to ODDR (Double-Data Rate)
+	wire [11:0]     w_DACData8_I;			// DAC Data 2 In-Phase:   from RAM to ODDR (Double-Data Rate)
+	wire [11:0]     w_DACData8_Q;			// DAC Data 2 Quadrature: from RAM to ODDR (Double-Data Rate)
 	
+	wire [11:0]	    w_DACData1_toDIFF;		// DAC Data 1 over ODDR to OBUFDS	
+	wire [11:0]	    w_DACData2_toDIFF;		// DAC Data 2 over ODDR to OBUFDS
+	wire [11:0]	    w_DACData3_toDIFF;		// DAC Data 3 over ODDR to OBUFDS
+	wire [11:0]	    w_DACData4_toDIFF;		// DAC Data 4 over ODDR to OBUFDS	
+	wire [11:0]	    w_DACData5_toDIFF;		// DAC Data 5 over ODDR to OBUFDS
+	wire [11:0]	    w_DACData6_toDIFF;		// DAC Data 6 over ODDR to OBUFDS
+	wire [11:0]	    w_DACData7_toDIFF;		// DAC Data 7 over ODDR to OBUFDS	
+	wire [11:0]	    w_DACData8_toDIFF;		// DAC Data 8 over ODDR to OBUFDS
+
 	// SYNC Signal!!
 	wire            w_DAC_SYNC;
 	
@@ -164,8 +173,9 @@ module main(
 	// DACData Protection: 10Hz from tenhz_mod
 	wire            w_adjustable_clock;
 	
-	// DACData2: delayed to meet the setup+hold constraints of the DAC
-	wire			DATACLK_delayed;
+	// DACData1 & DACData2: delayed to meet the setup+hold constraints of the DAC	
+	wire			DATACLK1_delayed;
+	wire			DATACLK2_delayed;
 	
 	// Daniel suggestion:                      --> ODELAY2 ODATAIN not connected (error)
 	// [DRC REQP-131] enum_DELAY_SRC_ODATAIN_connects_ODATAIN_connects_ODATAIN_ACTIVE: ODELAY2_DAC_CLK1: 
@@ -240,7 +250,9 @@ module main(
 	parameter SPIACTDAC			= 8'h2E;			// New (Danny): Controls the SPI_CSB pins on DAC
 	parameter ODDR_Settings		= 8'h2F;			// New (Danny): Testing settings for ODDR on DACData7
 	parameter REALSPIDAC		= 8'h3A;			// New (Danny): Controls the sending to DAC or PLL (see REALSPIPLL)
-	
+	parameter DIVISOR1			= 8'h3B;			// New (Danny): First part of the adjustable clock
+	parameter DIVISOR2			= 8'h3C;			// New (Danny): Second part of the adjustable clock
+
 	// Internal constant parameters
 	parameter RESETTIME 		= 2_000_000; 		// Whenever reset is triggered, this number of clock cycles does the reset takes time (in case of 2_000_000 this is 10 ms)
 	
@@ -299,6 +311,8 @@ module main(
 	reg [7:0] 	r_realspidac		= 8'h00;		// Trigger for the unique PLLs
 	reg [7:0]	r_oddrsettings		= 8'h01;		// New (Danny): Check ODDR instance for documentation about register values
 
+	reg [7:0]	r_divisor1			= 8'h00;
+	reg [7:0]	r_divisor2			= 8'h00;
 	
 	// Internal register (state machine etc.)
 	reg [3:0]	r_state 		= 4'b0000; 			// State of the state machine. Initialized with the IDLE state
@@ -415,7 +429,23 @@ module main(
     );
 	
 	// Danny: Refactor the ODELAY2 again!!! NOT FINAL
-	// DAC2 Clk_Delay, Bit [3:0] -> Delay Value (~75 picoseconds per step); Bit 4: if set to one, the new value will be set (autoreset implemented)
+	// DAC1 & DAC2 Clk_Delay, Bit [3:0] -> Delay Value (~75 picoseconds per step); Bit 4: if set to one, the new value will be set (autoreset implemented)
+
+
+	ODELAYE2 #(
+		.DELAY_SRC("ODATAIN"),			// default
+		.HIGH_PERFORMANCE_MODE("TRUE"), // reduced jitter
+		.ODELAY_TYPE("VAR_LOAD"), 		// CNTVALUEIN determines the delay, LD = 1 sets a new value (round about 75 ps delay per step)
+		.SIGNAL_PATTERN("DATA")			// input type: data
+	)	ODELAY2_DATACLK1 (
+		.DATAOUT(DATACLK1_delayed),
+		.C(clk),
+		.CE(1'b0),
+		.CNTVALUEIN(r_delayValue_CLK1[4:0]),
+		.LD(r_delayValue_CLK1[5]),
+		.ODATAIN(w_adjustable_clock),
+		.REGRST(1'b0)
+	);
 
 	ODELAYE2 #(
 		.DELAY_SRC("ODATAIN"),			// default
@@ -423,7 +453,7 @@ module main(
 		.ODELAY_TYPE("VAR_LOAD"), 		// CNTVALUEIN determines the delay, LD = 1 sets a new value (round about 75 ps delay per step)
 		.SIGNAL_PATTERN("DATA")			// input type: data
 	)	ODELAY2_DATACLK2 (
-		.DATAOUT(DATACLK_delayed),
+		.DATAOUT(DATACLK2_delayed),
 		.C(clk),
 		.CE(1'b0),
 		.CNTVALUEIN(r_delayValue_CLK2[4:0]),
@@ -434,13 +464,13 @@ module main(
 
 
 	OBUFDS OBUFDS_DATACLK0 (
-    	.I(w_adjustable_clock), 
+    	.I(DATACLK1_delayed), 
     	.O(DATACLK_P[0]),
     	.OB(DATACLK_N[0])
     );
 
 	OBUFDS OBUFDS_DATACLK1 (
-    	.I(DATACLK_delayed), 
+    	.I(DATACLK2_delayed), 
     	.O(DATACLK_P[1]),
     	.OB(DATACLK_N[1])
     );
@@ -497,21 +527,19 @@ module main(
 	// Check the documentation of Xilinx (UG953): https://docs.xilinx.com/r/en-US/ug953-vivado-7series-libraries/ODDR
 	// Also the SelectIO document (UG471) (Page 128): https://docs.xilinx.com/v/u/en-US/ug471_7Series_SelectIO  
 	
-  
     ODDR #(
        .DDR_CLK_EDGE("SAME_EDGE"), // "OPPOSITE_EDGE" or "SAME_EDGE"
        .INIT(1'b0),    // Initial value of Q: 1'b0 or 1'b1
        .SRTYPE("SYNC") // Set/Reset type: "SYNC" or "ASYNC"
     ) ODDR_DACData1[11:0] (
        .Q(w_DACData1_toDIFF),   // 1-bit DDR output
-       .C(w_adjustable_clock),   // 1-bit clock input
-       .CE(I_mode == 8'b1111_1111), // 1-bit clock enable input
-       .D1(w_DACData_I), // 1-bit data input (positive edge)
-       .D2(w_DACData_Q), // 1-bit data input (negative edge)
-       .R(12'b0),   // 1-bit reset
-       .S(12'b1)    // 1-bit set
+       .C((r_oddrsettings[2]) ? clk : w_adjustable_clock),   // 1-bit clock input
+       .CE((r_oddrsettings[0]) || (I_mode == 8'b1111_1111)), // 1-bit clock enable input
+       .D1(w_DACData1_I), // 1-bit data input (positive edge)
+       .D2(w_DACData1_Q), // 1-bit data input (negative edge)
+       .R((r_oddrsettings[3]) ? 12'b1 : 12'b0),   // 1-bit reset
+       .S(12'b0)    // 1-bit set
     );
-    
 
 	/************** r_oddrsettings for ODDR test on DACData7 **************/
 	/************** 	Add r_oddrsettings to MATLAB!!		 **************/
@@ -530,8 +558,8 @@ module main(
        .Q(w_DACData2_toDIFF),   // 1-bit DDR output
        .C((r_oddrsettings[2]) ? clk : w_adjustable_clock),   // 1-bit clock input
        .CE((r_oddrsettings[0]) || (I_mode == 8'b1111_1111)), // 1-bit clock enable input
-       .D1(w_DACData_I), // 1-bit data input (positive edge)
-       .D2(w_DACData_Q), // 1-bit data input (negative edge)
+       .D1(w_DACData2_I), // 1-bit data input (positive edge)
+       .D2(w_DACData2_Q), // 1-bit data input (negative edge)
        .R((r_oddrsettings[3]) ? 12'b1 : 12'b0),   // 1-bit reset
        .S(12'b0)    // 1-bit set
     );
@@ -544,8 +572,8 @@ module main(
        .Q(w_DACData8_toDIFF),   // 1-bit DDR output
        .C((r_oddrsettings[2]) ? clk : w_adjustable_clock),   // 1-bit clock input
        .CE((r_oddrsettings[0]) || (I_mode == 8'b1111_1111)), // 1-bit clock enable input
-       .D1(w_DACData_I), // 1-bit data input (positive edge)
-       .D2(w_DACData_Q), // 1-bit data input (negative edge)
+       .D1(w_DACData8_I), // 1-bit data input (positive edge)
+       .D2(w_DACData8_Q), // 1-bit data input (negative edge)
        .R((r_oddrsettings[3]) ? 12'b1 : 12'b0),   // 1-bit reset
        .S(12'b0)    // 1-bit set
     );
@@ -820,7 +848,7 @@ module main(
 	
 	clock_1khz_100khz adjustable_clock(
         .clk(clk),
-        .divisor({r_dacActiveCore,r_dacWRTConfig}),  //actually only 10-bits needed to represent (1-1000)
+        .divisor({divisor2,divisor1}),	// actually only 10-bits needed to represent (1-1000)
         .clk_out(w_adjustable_clock)
     );
 	
@@ -829,8 +857,10 @@ module main(
 	signalgen_DDR signalgen(
 		.I_clk(clk),
 		.I_adjustable_clk(w_adjustable_clock),
-		.O_DAC_I(w_DACData_I),
-		.O_DAC_Q(w_DACData_Q),
+		.O_DAC1_I(w_DACData1_I),
+		.O_DAC1_Q(w_DACData1_Q),
+		.O_DAC2_I(w_DACData2_I),
+		.O_DAC2_Q(w_DACData2_Q),
 		.O_SYNC(w_DAC_SYNC),
 	
 		// .I_speedDiv(r_dacCLOCK[7:0]),
@@ -838,8 +868,8 @@ module main(
 		// .I_activeCore(r_dacActiveCore),
 		.I_mode(r_dacMode),
 
-		// .I_wrtNewDataFlag(r_dacWRTConfig[0]),
-		// .I_channelIndex(r_dacWRTConfig[4:1]),
+		.I_wrtNewDataFlag(r_dacWRTConfig[0]),
+		.I_channelIndex(r_dacWRTConfig[4:1]),
 		
 		.I_IQdataReady(r_dac_Q_msb[7]),
 
@@ -932,6 +962,8 @@ module main(
 				r_dacDataLength_msb	<= 8'hFF;
 				r_dacWRTConfig	<= 8'h00;
 				r_dacActiveCore	<= 8'hFF;
+				r_divisor1		<= 8'h00;
+				r_divisor2		<= 8'h00;
 				r_pll_sync		<= 8'h00;
 				r_dacMode		<= 8'h00;
 				r_syncPulseShift <= 8'h00;
@@ -1063,13 +1095,15 @@ module main(
 					
 					DACDATALENGTH_LSB: 	r_dacDataLength_lsb <= r_tempRegVal;
 					DACDATALENGTH_MSB: 	r_dacDataLength_msb <= r_tempRegVal;
-					DACWRTCONFIG:	r_dacWRTConfig	<= r_tempRegVal;
-					DACACTIVECORE: 	r_dacActiveCore <= r_tempRegVal;
-					DAC_MODE:		r_dacMode		<= r_tempRegVal;
-					DAC_CONFIG:		r_dacconfig		<= r_tempRegVal;
-					ODDR_Settings:	r_oddrsettings	<= r_tempRegVal;
+					DACWRTCONFIG:		r_dacWRTConfig		<= r_tempRegVal;
+					DACACTIVECORE: 		r_dacActiveCore 	<= r_tempRegVal;
+					DAC_MODE:			r_dacMode			<= r_tempRegVal;
+					DAC_CONFIG:			r_dacconfig			<= r_tempRegVal;
+					ODDR_Settings:		r_oddrsettings		<= r_tempRegVal;
+					DIVISOR1:			r_divisor1			<= r_tempRegVal;
+					DIVISOR2:			r_divisor2			<= r_tempRegVal;
 					
-					PLLSYNC: 		r_pll_sync		<= r_tempRegVal;
+					PLLSYNC: 				r_pll_sync				<= r_tempRegVal;
 					PLLSYNCPULSESHIFT: 		r_syncPulseShift		<= r_tempRegVal;
 					
 					CLKDELAY_CLK1:		r_delayValue_CLK1	<= r_tempRegVal;

@@ -26,8 +26,11 @@ module signalgen_DDR(
 		input 				I_clk,			   // Main clk 200MHz
 		input               I_adjustable_clk,  // Trying to slow down data rate
 		
-		output reg 	[11:0] 	O_DAC_I,		// DAC Data Output CHA --> 12-bits
-		output reg 	[11:0] 	O_DAC_Q,		// DAC Data Output CHB --> 12-bits
+		output reg 	[11:0] 	O_DAC1_I,		// DAC Data 1 Output CHA --> 12-bits
+		output reg 	[11:0] 	O_DAC1_Q,		// DAC Data 1 Output CHB --> 12-bits
+		output reg 	[11:0] 	O_DAC2_I,		// DAC Data 2 Output CHA --> 12-bits
+		output reg 	[11:0] 	O_DAC2_Q,		// DAC Data 2 Output CHB --> 12-bits
+		
 		output reg  		O_SYNC,			// DAC SYNC (DDR --> Set on rising edge)
 		
 		//Main clock divider (for DAC update rate reduction)
@@ -44,8 +47,10 @@ module signalgen_DDR(
 		
 		input [7:0]	      	I_mode,
 
-		// .I_wrtNewDataFlag(r_dacWRTConfig[0]),
-		// .I_channelIndex(r_dacWRTConfig[4:1]),
+		// I_wrtNewDataFlag is only 1-bit: r_dacWRTConfig[0]
+		// I_channelIndex choosing one of 8 channels or all of them 4-bits: r_dacWRTConfig[4:1]
+		input				I_wrtNewDataFlag,
+		input		[ 3:0]	I_channelIndex,
 		input 		[11:0]	I_dataLength,
 		input 		[11:0]	I_Idata,
 		input 		[11:0]	I_Qdata,
@@ -74,19 +79,29 @@ module signalgen_DDR(
 	parameter MEM_SIZE_FROM_ZERO  = MEM_SIZE-1;
 	
 	// Defining RAM: 12-bits of RAM for certain length: Ideally identical length
-	reg [11:0] r_memory_I [0:MEM_SIZE_FROM_ZERO];
-	reg [11:0] r_memory_Q [0:MEM_SIZE_FROM_ZERO];
+	reg [11:0] r_memory_I_1 [0:MEM_SIZE_FROM_ZERO];
+	reg [11:0] r_memory_Q_1 [0:MEM_SIZE_FROM_ZERO];
+
+	reg [11:0] r_memory_I_2 [0:MEM_SIZE_FROM_ZERO];
+	reg [11:0] r_memory_Q_2 [0:MEM_SIZE_FROM_ZERO];
 
     integer i;
 
 	initial begin
 		// Set everything to zero
-		O_DAC_I <= 0;
-		O_DAC_Q <= 0;
+		O_DAC1_I <= 0;
+		O_DAC1_Q <= 0;
 		
-		for (i = 0; i < 8348; i = i + 1) begin
-		  r_memory_I[i] <= 12'b0;
-		  r_memory_Q[i] <= 12'b0;
+		O_DAC2_I <= 0;
+		O_DAC2_Q <= 0;
+		
+		for (i = 0; i < MEM_SIZE; i = i + 1) begin
+			r_memory_I_1[i] <= 12'b0;
+			r_memory_Q_1[i] <= 12'b0;
+
+			r_memory_I_2[i] <= 12'b0;
+			r_memory_Q_2[i] <= 12'b0;
+
 		 end
 	end
 	
@@ -118,8 +133,12 @@ module signalgen_DDR(
 				    
 				    if(I_adjustable_clk && adjustable_flag) 
 				    begin
-                        O_DAC_I <= r_memory_I[memory_idx];
-                        O_DAC_Q <= r_memory_Q[memory_idx];
+                        O_DAC1_I <= r_memory_I_1[memory_idx];
+                        O_DAC1_Q <= r_memory_Q_1[memory_idx];
+
+                        O_DAC2_I <= r_memory_I_2[memory_idx];
+                        O_DAC2_Q <= r_memory_Q_2[memory_idx];
+						
 						O_SYNC  <= 1'b1;
                         if (memory_idx >= (I_dataLength-1))
                             memory_idx <= 0;
@@ -135,8 +154,24 @@ module signalgen_DDR(
 				begin
 					if(I_IQdataReady)
 					begin
-						r_memory_I[uart_data_count] <= I_Idata;
-						r_memory_Q[uart_data_count] <= I_Qdata;
+						case(I_channelIndex)
+							0:
+							begin
+								r_memory_I_1[uart_data_count] <= I_Idata;
+								r_memory_Q_1[uart_data_count] <= I_Qdata;
+							end
+							1:
+							begin
+								r_memory_I_2[uart_data_count] <= I_Idata;
+								r_memory_Q_2[uart_data_count] <= I_Qdata;
+							end
+							8:
+							begin
+								r_memory_I_1[uart_data_count] <= I_Idata;
+								r_memory_Q_1[uart_data_count] <= I_Qdata;
+								r_memory_I_2[uart_data_count] <= I_Idata;
+								r_memory_Q_2[uart_data_count] <= I_Qdata;
+							end
 						uart_data_count <= uart_data_count + 1;
 					end
 				end

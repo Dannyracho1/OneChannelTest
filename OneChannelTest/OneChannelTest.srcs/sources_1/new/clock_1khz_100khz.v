@@ -32,13 +32,17 @@ module clock_1khz_100khz(
 
 integer counter = 0;
 localparam clk_div = 20_000_000;    // Don't change!! This is the global clock 200MHz
+reg temp_adjusted = 0;
 
+// New option: If divisor is zero, don't change the clock 
+// (adjusted clock is equal to global clock)
+assign clk_out = (divisor == 16'b0) ? clk : temp_adjusted;
 
 always @ (posedge clk) begin
     counter <= counter + 1;
     if(counter >= ((clk_div/(divisor*100))-1))
         counter <= 0;
-    clk_out <= (counter < ((clk_div/(divisor*100))/2)) ? 1 : 0;
+    temp_adjusted <= (counter < ((clk_div/(divisor*100))/2)) ? 1 : 0;
 end
 
 endmodule
