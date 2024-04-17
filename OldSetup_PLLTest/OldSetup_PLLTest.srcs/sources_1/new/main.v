@@ -848,7 +848,7 @@ module main(
 	
 	clock_1khz_100khz adjustable_clock(
         .clk(clk),
-        .divisor({divisor2,divisor1}),	// actually only 10-bits needed to represent (1-1000)
+        .divisor({r_divisor2,r_divisor1}),	// actually only 10-bits needed to represent (1-1000)
         .clk_out(w_adjustable_clock)
     );
 	
