@@ -172,13 +172,16 @@ module signalgen_DDR(
 								r_memory_I_2[uart_data_count] <= I_Idata;
 								r_memory_Q_2[uart_data_count] <= I_Qdata;
 							end
+						endcase
 						uart_data_count <= uart_data_count + 1;
 					end
 				end
 				default:		// else-mode: reset both counters
 				begin
-					O_DAC_I <= 12'b0;
-					O_DAC_Q <= 12'b0;
+					O_DAC1_I <= 12'b0;
+					O_DAC1_Q <= 12'b0;
+					O_DAC2_I <= 12'b0;
+					O_DAC2_Q <= 12'b0;
 					O_SYNC  <= 1'b0;
 					uart_data_count <= 0;
 					memory_idx <= 0;
