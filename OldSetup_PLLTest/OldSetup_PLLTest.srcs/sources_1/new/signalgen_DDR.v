@@ -30,6 +30,8 @@ module signalgen_DDR(
 		output reg 	[11:0] 	O_DAC1_Q,		// DAC Data 1 Output CHB --> 12-bits
 		output reg 	[11:0] 	O_DAC2_I,		// DAC Data 2 Output CHA --> 12-bits
 		output reg 	[11:0] 	O_DAC2_Q,		// DAC Data 2 Output CHB --> 12-bits
+		output reg 	[11:0] 	O_DAC3_I,		// DAC Data 2 Output CHA --> 12-bits
+		output reg 	[11:0] 	O_DAC3_Q,		// DAC Data 2 Output CHB --> 12-bits
 		
 		output reg  		O_SYNC,			// DAC SYNC (DDR --> Set on rising edge)
 		
@@ -85,6 +87,9 @@ module signalgen_DDR(
 	reg [11:0] r_memory_I_2 [0:MEM_SIZE_FROM_ZERO];
 	reg [11:0] r_memory_Q_2 [0:MEM_SIZE_FROM_ZERO];
 
+	reg [11:0] r_memory_I_3 [0:MEM_SIZE_FROM_ZERO];
+	reg [11:0] r_memory_Q_3 [0:MEM_SIZE_FROM_ZERO];
+
     integer i;
 
 	initial begin
@@ -94,6 +99,9 @@ module signalgen_DDR(
 		
 		O_DAC2_I <= 0;
 		O_DAC2_Q <= 0;
+
+		O_DAC3_I <= 0;
+		O_DAC3_Q <= 0;
 		
 		for (i = 0; i < MEM_SIZE; i = i + 1) begin
 			r_memory_I_1[i] <= 12'b0;
@@ -101,6 +109,9 @@ module signalgen_DDR(
 
 			r_memory_I_2[i] <= 12'b0;
 			r_memory_Q_2[i] <= 12'b0;
+
+			r_memory_I_3[i] <= 12'b0;
+			r_memory_Q_3[i] <= 12'b0;
 
 		 end
 	end
@@ -138,6 +149,9 @@ module signalgen_DDR(
 
                         O_DAC2_I <= r_memory_I_2[memory_idx];
                         O_DAC2_Q <= r_memory_Q_2[memory_idx];
+
+                        O_DAC3_I <= r_memory_I_3[memory_idx];
+                        O_DAC3_Q <= r_memory_Q_3[memory_idx];
 						
 						O_SYNC  <= 1'b1;
                         if (memory_idx >= (I_dataLength-1))
@@ -165,12 +179,19 @@ module signalgen_DDR(
 								r_memory_I_2[uart_data_count] <= I_Idata;
 								r_memory_Q_2[uart_data_count] <= I_Qdata;
 							end
+							2:
+							begin
+								r_memory_I_3[uart_data_count] <= I_Idata;
+								r_memory_Q_3[uart_data_count] <= I_Qdata;
+							end
 							8:
 							begin
 								r_memory_I_1[uart_data_count] <= I_Idata;
 								r_memory_Q_1[uart_data_count] <= I_Qdata;
 								r_memory_I_2[uart_data_count] <= I_Idata;
 								r_memory_Q_2[uart_data_count] <= I_Qdata;
+								r_memory_I_3[uart_data_count] <= I_Idata;
+								r_memory_Q_3[uart_data_count] <= I_Qdata;
 							end
 						endcase
 						uart_data_count <= uart_data_count + 1;
@@ -182,6 +203,8 @@ module signalgen_DDR(
 					O_DAC1_Q <= 12'b0;
 					O_DAC2_I <= 12'b0;
 					O_DAC2_Q <= 12'b0;
+					O_DAC3_I <= 12'b0;
+					O_DAC3_Q <= 12'b0;
 					O_SYNC  <= 1'b0;
 					uart_data_count <= 0;
 					memory_idx <= 0;

@@ -152,6 +152,8 @@ module main(
 	wire [11:0]     w_DACData1_Q;			// DAC Data 1 Quadrature: from RAM to ODDR (Double-Data Rate)
 	wire [11:0]     w_DACData2_I;			// DAC Data 2 In-Phase:   from RAM to ODDR (Double-Data Rate)
 	wire [11:0]     w_DACData2_Q;			// DAC Data 2 Quadrature: from RAM to ODDR (Double-Data Rate)
+	wire [11:0]     w_DACData3_I;			// DAC Data 2 In-Phase:   from RAM to ODDR (Double-Data Rate)
+	wire [11:0]     w_DACData3_Q;			// DAC Data 2 Quadrature: from RAM to ODDR (Double-Data Rate)
 	wire [11:0]     w_DACData8_I;			// DAC Data 2 In-Phase:   from RAM to ODDR (Double-Data Rate)
 	wire [11:0]     w_DACData8_Q;			// DAC Data 2 Quadrature: from RAM to ODDR (Double-Data Rate)
 	
@@ -176,6 +178,7 @@ module main(
 	// DACData1 & DACData2: delayed to meet the setup+hold constraints of the DAC	
 	wire			DATACLK1_delayed;
 	wire			DATACLK2_delayed;
+	wire			DATACLK3_delayed;
 	
 	// Daniel suggestion:                      --> ODELAY2 ODATAIN not connected (error)
 	// [DRC REQP-131] enum_DELAY_SRC_ODATAIN_connects_ODATAIN_connects_ODATAIN_ACTIVE: ODELAY2_DAC_CLK1: 
@@ -462,6 +465,21 @@ module main(
 		.REGRST(1'b0)
 	);
 
+	ODELAYE2 #(
+		.DELAY_SRC("ODATAIN"),			// default
+		.HIGH_PERFORMANCE_MODE("TRUE"), // reduced jitter
+		.ODELAY_TYPE("VAR_LOAD"), 		// CNTVALUEIN determines the delay, LD = 1 sets a new value (round about 75 ps delay per step)
+		.SIGNAL_PATTERN("DATA")			// input type: data
+	)	ODELAY2_DATACLK3 (
+		.DATAOUT(DATACLK3_delayed),
+		.C(clk),
+		.CE(1'b0),
+		.CNTVALUEIN(r_delayValue_CLK3[4:0]),
+		.LD(r_delayValue_CLK3[5]),
+		.ODATAIN(w_adjustable_clock),
+		.REGRST(1'b0)
+	);
+
 
 	OBUFDS OBUFDS_DATACLK0 (
     	.I(DATACLK1_delayed), 
@@ -476,7 +494,7 @@ module main(
     );
 	
 	OBUFDS OBUFDS_DATACLK2 (
-    	.I(w_adjustable_clock), 
+    	.I(DATACLK3_delayed), 
     	.O(DATACLK_P[2]),
     	.OB(DATACLK_N[2])
     );
@@ -564,6 +582,20 @@ module main(
        .S(12'b0)    // 1-bit set
     );
     
+	ODDR #(
+       .DDR_CLK_EDGE("SAME_EDGE"), // "OPPOSITE_EDGE" or "SAME_EDGE"
+       .INIT(1'b0),    // Initial value of Q: 1'b0 or 1'b1
+       .SRTYPE("SYNC") // Set/Reset type: "SYNC" or "ASYNC"
+    ) ODDR_DACData3[11:0] (
+       .Q(w_DACData3_toDIFF),   // 1-bit DDR output
+       .C((r_oddrsettings[2]) ? clk : w_adjustable_clock),   // 1-bit clock input
+       .CE((r_oddrsettings[0]) || (I_mode == 8'b1111_1111)), // 1-bit clock enable input
+       .D1(w_DACData3_I), // 1-bit data input (positive edge)
+       .D2(w_DACData3_Q), // 1-bit data input (negative edge)
+       .R((r_oddrsettings[3]) ? 12'b1 : 12'b0),   // 1-bit reset
+       .S(12'b0)    // 1-bit set
+    );
+
     ODDR #(
        .DDR_CLK_EDGE("SAME_EDGE"), // "OPPOSITE_EDGE" or "SAME_EDGE"
        .INIT(1'b0),    // Initial value of Q: 1'b0 or 1'b1
@@ -586,9 +618,6 @@ module main(
     	.OB(DACData1_N)
     );
     
-    
-    // Unused BUT buffered for protection
-    
     OBUFDS OBUFDS_DACData2[11:0] (
     	.I(w_DACData2_toDIFF), 
     	.O(DACData2_P), 
@@ -596,10 +625,12 @@ module main(
     );
 
     OBUFDS OBUFDS_DACData3[11:0] (
-    	.I(w_10hz_clock), 
+    	.I(w_DACData3_toDIFF), 
     	.O(DACData3_P), 
     	.OB(DACData3_N)
     );
+	    
+    // Unused BUT buffered for protection
     
     OBUFDS OBUFDS_DACData4[11:0] (
     	.I(w_10hz_clock), 
@@ -861,6 +892,8 @@ module main(
 		.O_DAC1_Q(w_DACData1_Q),
 		.O_DAC2_I(w_DACData2_I),
 		.O_DAC2_Q(w_DACData2_Q),
+		.O_DAC3_I(w_DACData3_I),
+		.O_DAC3_Q(w_DACData3_Q),
 		.O_SYNC(w_DAC_SYNC),
 	
 		// .I_speedDiv(r_dacCLOCK[7:0]),
