@@ -128,3 +128,13 @@
     <Process Command="vivado" Owner="dracho" Host="eddard.hfe.rwth-aachen.de" Pid="554366" HostCore="8" HostMemory="16280016">
     </Process>
 </ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="dracho" Host="eddard.hfe.rwth-aachen.de" Pid="627669" HostCore="8" HostMemory="16280016">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="dracho" Host="eddard.hfe.rwth-aachen.de" Pid="643227" HostCore="8" HostMemory="16280016">
+    </Process>
+</ProcessHandle>

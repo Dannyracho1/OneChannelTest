@@ -1,0 +1,4 @@
+xpm_cdc.sv,systemverilog,xpm,../../../../../software/Xilinx/Vitis_2023.2/Vivado/2023.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv,incdir="../../../../OneChannelTest.gen/sources_1/ip/ila_test/hdl/verilog"
+xpm_VCOMP.vhd,vhdl,xpm,../../../../../software/Xilinx/Vitis_2023.2/Vivado/2023.2/data/ip/xpm/xpm_VCOMP.vhd,incdir="../../../../OneChannelTest.gen/sources_1/ip/ila_test/hdl/verilog"
+ila_test.v,verilog,xil_defaultlib,../../../../OneChannelTest.gen/sources_1/ip/ila_test/sim/ila_test.v,incdir="../../../../OneChannelTest.gen/sources_1/ip/ila_test/hdl/verilog"
+glbl.v,Verilog,xil_defaultlib,glbl.v

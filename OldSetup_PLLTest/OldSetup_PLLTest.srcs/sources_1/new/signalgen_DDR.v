@@ -77,7 +77,7 @@ module signalgen_DDR(
 	
 	
     // Constants --> Implemented before
-	parameter MEM_SIZE = 8348;			// Size of loop-memory for each DAC (Number of 10 bit words) (Bigger than 2^15 should not be implemented)
+	parameter MEM_SIZE = 4096;			// Size of loop-memory for each DAC (Number of 10 bit words) (Bigger than 2^15 should not be implemented)
 	parameter MEM_SIZE_FROM_ZERO  = MEM_SIZE-1;
 	
 	// Defining RAM: 12-bits of RAM for certain length: Ideally identical length
