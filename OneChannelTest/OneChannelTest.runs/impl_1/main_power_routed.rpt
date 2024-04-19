@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-| Date             : Thu Apr 18 14:49:10 2024
+| Date             : Fri Apr 19 15:47:46 2024
 | Host             : eddard.hfe.rwth-aachen.de running 64-bit Rocky Linux release 8.8 (Green Obsidian)
 | Command          : report_power -file main_power_routed.rpt -pb main_power_summary_routed.pb -rpx main_power_routed.rpx
 | Design           : main
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 2.220        |
+| Total On-Chip Power (W)  | 2.219        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.963        |
+| Dynamic (W)              | 1.962        |
 | Device Static (W)        | 0.257        |
 | Effective TJA (C/W)      | 1.1          |
 | Max Ambient (C)          | 82.5         |
@@ -52,20 +52,19 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.045 |        6 |       --- |             --- |
-| Slice Logic              |     0.014 |    11098 |       --- |             --- |
-|   Others                 |     0.011 |       29 |       --- |             --- |
-|   LUT as Logic           |     0.002 |     2600 |    303600 |            0.86 |
-|   CARRY4                 |    <0.001 |      245 |     75900 |            0.32 |
-|   Register               |    <0.001 |      920 |    607200 |            0.15 |
+| Clocks                   |     0.044 |        6 |       --- |             --- |
+| Slice Logic              |     0.014 |    10238 |       --- |             --- |
+|   Others                 |     0.011 |       27 |       --- |             --- |
+|   LUT as Logic           |     0.002 |     1979 |    303600 |            0.65 |
+|   CARRY4                 |    <0.001 |       65 |     75900 |            0.09 |
+|   Register               |    <0.001 |      909 |    607200 |            0.15 |
 |   F7/F8 Muxes            |    <0.001 |      868 |    303600 |            0.29 |
 |   LUT as Distributed RAM |     0.000 |     6144 |    130800 |            4.70 |
-| Signals                  |     0.003 |     7510 |       --- |             --- |
+| Signals                  |     0.003 |     6700 |       --- |             --- |
 | PLL                      |     0.109 |        1 |        14 |            7.14 |
-| DSPs                     |     0.000 |        1 |      2800 |            0.04 |
 | I/O                      |     1.791 |      262 |       700 |           37.43 |
 | Static Power             |     0.257 |          |           |                 |
-| Total                    |     2.220 |          |           |                 |
+| Total                    |     2.219 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -147,18 +146,17 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+--------------------+-----------+
-| Name               | Power (W) |
-+--------------------+-----------+
-| main               |     1.963 |
-|   DAC_SPI          |     0.001 |
-|   PLL_SPI          |     0.001 |
-|   adjustable_clock |     0.001 |
-|   clk_gen          |     0.111 |
-|     inst           |     0.111 |
-|   rcv              |     0.001 |
-|   signalgen        |     0.032 |
-|   tenhz_mod        |     0.001 |
-+--------------------+-----------+
++-------------+-----------+
+| Name        | Power (W) |
++-------------+-----------+
+| main        |     1.962 |
+|   DAC_SPI   |     0.001 |
+|   PLL_SPI   |     0.001 |
+|   clk_gen   |     0.111 |
+|     inst    |     0.111 |
+|   rcv       |     0.001 |
+|   signalgen |     0.032 |
+|   tenhz_mod |     0.001 |
++-------------+-----------+
 
 

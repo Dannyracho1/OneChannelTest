@@ -24,20 +24,22 @@
 // TODO: Rename to something like adjustable clock (1kHz - 100kHz)
 
 module clock_1khz_100khz(
-    input clk,
-    input [15:0] divisor,
-    output reg clk_out
-
+    input  wire         clk,
+    input  wire [7:0]   divisor,
+    output reg          clk_out
     );
 
 integer counter = 0;
-localparam clk_div = 20_000_000;    // Don't change!! This is the global clock 200MHz
 
 always @ (posedge clk) begin
+   
     counter <= counter + 1;
-    if(counter >= ((clk_div/(divisor*100))-1))
+    
+    if (counter >= divisor - 1) begin
         counter <= 0;
-    clk_out <= (counter < ((clk_div/(divisor*100))/2)) ? 1 : 0;
+    end
+    
+    clk_out <= (counter < (divisor/2)) ? 1 : 0;
 end
 
 endmodule

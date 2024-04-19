@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-| Date         : Thu Apr 18 14:47:15 2024
+| Date         : Fri Apr 19 15:46:22 2024
 | Host         : eddard.hfe.rwth-aachen.de running 64-bit Rocky Linux release 8.8 (Green Obsidian)
 | Command      : report_control_sets -verbose -file main_control_sets_placed.rpt
 | Design       : main
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |   241 |
-|    Minimum number of control sets                        |   241 |
+| Total control sets                                       |   240 |
+|    Minimum number of control sets                        |   240 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |   120 |
+| Unused register locations in slices containing registers |   115 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,11 +39,11 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |   241 |
+| Total control sets |   240 |
 | >= 0 to < 4        |     3 |
 | >= 4 to < 6        |    10 |
 | >= 6 to < 8        |     4 |
-| >= 8 to < 10       |    18 |
+| >= 8 to < 10       |    17 |
 | >= 10 to < 12      |     1 |
 | >= 12 to < 14      |     2 |
 | >= 14 to < 16      |     1 |
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             106 |           57 |
-| No           | No                    | Yes                    |              15 |            5 |
+| No           | No                    | No                     |             106 |           53 |
+| No           | No                    | Yes                    |              15 |            4 |
 | No           | Yes                   | No                     |              57 |           15 |
-| Yes          | No                    | No                     |             129 |           42 |
+| Yes          | No                    | No                     |             129 |           43 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             613 |          315 |
+| Yes          | Yes                   | No                     |             602 |          295 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -76,244 +76,243 @@ Table of Contents
 |  clk_gen/inst/CLK_OUT1 | trx/div/counter_reg_2_sn_1                       | trx/div/dataSend4_out                 |                1 |              1 |         1.00 |
 |  clk_gen/inst/CLK_OUT1 | SYNCING/PLLSync/O_PLL_sync_i_1_n_0               | SYNCING/r_syncTrigger                 |                1 |              1 |         1.00 |
 |  clk_gen/inst/CLK_OUT1 | r_dacconfig                                      |                                       |                2 |              3 |         1.50 |
-|  clk_gen/inst/CLK_OUT1 | r_dacDataLength_msb                              | r_dacDataLength_msb[3]_i_1_n_0        |                2 |              4 |         2.00 |
-|  clk_gen/inst/CLK_OUT1 | r_dacWRTConfig                                   | r_dacWRTConfig[4]_i_1_n_0             |                3 |              4 |         1.33 |
+|  clk_gen/inst/CLK_OUT1 | PLL_SPI/r_bitCount[4]_i_1_n_0                    | PLL_SPI/r_bitCount[7]_i_1_n_0         |                1 |              4 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | r_dacWRTConfig                                   | r_dacWRTConfig[4]_i_1_n_0             |                2 |              4 |         2.00 |
+|  clk_gen/inst/CLK_OUT1 | r_dacDataLength_msb                              | r_dacDataLength_msb[3]_i_1_n_0        |                1 |              4 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | rcv/FSM_sequential_r_state[3]_i_1_n_0            |                                       |                1 |              4 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | DAC_SPI/r_bitCount[4]_i_1__0_n_0                 | DAC_SPI/r_bitCount[7]_i_1__0_n_0      |                1 |              4 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | PLL_SPI/r_bitCount[4]_i_1_n_0                    | PLL_SPI/r_bitCount[7]_i_1_n_0         |                2 |              4 |         2.00 |
+|  clk_gen/inst/CLK_OUT1 | PLL_SPI/r_bitCount[4]_i_1_n_0                    |                                       |                2 |              4 |         2.00 |
+|  clk_gen/inst/CLK_OUT1 | DAC_SPI/r_bitCount[4]_i_1__0_n_0                 | DAC_SPI/r_bitCount[7]_i_1__0_n_0      |                2 |              4 |         2.00 |
 |  clk_gen/inst/CLK_OUT1 | DAC_SPI/r_bitCount[4]_i_1__0_n_0                 |                                       |                2 |              4 |         2.00 |
-|  clk_gen/inst/CLK_OUT1 | PLL_SPI/r_bitCount[4]_i_1_n_0                    |                                       |                1 |              4 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | r_delayValue_CLK1[4]_i_2_n_0                     | r_delayValue_CLK1[4]_i_1_n_0          |                1 |              5 |         5.00 |
+|  clk_gen/inst/CLK_OUT1 | r_delayValue_CLK1[4]_i_2_n_0                     | r_delayValue_CLK1[4]_i_1_n_0          |                2 |              5 |         2.50 |
 |  clk_gen/inst/CLK_OUT1 | r_delayValue_CLK2[4]_i_2_n_0                     | r_delayValue_CLK2[4]_i_1_n_0          |                1 |              5 |         5.00 |
-|  clk_gen/inst/CLK_OUT1 | r_delayValue_CLK3[4]_i_2_n_0                     | r_delayValue_CLK3[4]_i_1_n_0          |                1 |              5 |         5.00 |
-|  clk_gen/inst/CLK_OUT1 | rcv/r_count                                      |                                       |                2 |              6 |         3.00 |
-|  clk_gen/inst/CLK_OUT1 | SYNCING/PLLSync/r_counter[5]_i_1_n_0             | SYNCING/r_syncTrigger                 |                1 |              6 |         6.00 |
+|  clk_gen/inst/CLK_OUT1 | r_delayValue_CLK3[4]_i_2_n_0                     | r_delayValue_CLK3[4]_i_1_n_0          |                2 |              5 |         2.50 |
+|  clk_gen/inst/CLK_OUT1 | rcv/r_count                                      |                                       |                3 |              6 |         2.00 |
+|  clk_gen/inst/CLK_OUT1 | SYNCING/PLLSync/r_counter[5]_i_1_n_0             | SYNCING/r_syncTrigger                 |                2 |              6 |         3.00 |
 |  clk_gen/inst/CLK_OUT1 | DAC_SPI/r_counter[15]_i_2__0_n_0                 |                                       |                3 |              6 |         2.00 |
 |  clk_gen/inst/CLK_OUT1 | PLL_SPI/r_counter[15]_i_2_n_0                    |                                       |                3 |              6 |         2.00 |
-|  clk_gen/inst/CLK_OUT1 | r_dacMode                                        | r_dacMode[7]_i_1_n_0                  |                4 |              8 |         2.00 |
-|  clk_gen/inst/CLK_OUT1 | rcv/data_recv[7]_i_1_n_0                         |                                       |                2 |              8 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | rcv/r_ledval                                     | rcv/r_regaddr_reg[4]                  |                2 |              8 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | rcv/r_regaddr__0                                 | rcv/FSM_sequential_r_state_reg[1]_2   |                3 |              8 |         2.67 |
-|  clk_gen/inst/CLK_OUT1 | rcv/r_tempRegVal                                 |                                       |                3 |              8 |         2.67 |
-|  clk_gen/inst/CLK_OUT1 | trx/div/counter                                  | trx/div/clkBTemp_reg                  |                3 |              8 |         2.67 |
-|  clk_gen/inst/CLK_OUT1 | r_spiTXMSB                                       | r_spiTXMSB[7]_i_1_n_0                 |                3 |              8 |         2.67 |
-|  clk_gen/inst/CLK_OUT1 | r_dacDataLength_lsb                              | r_dacDataLength_lsb[7]_i_1_n_0        |                3 |              8 |         2.67 |
-|  clk_gen/inst/CLK_OUT1 | r_spiTXLSB                                       | r_spiTXLSB[7]_i_1_n_0                 |                1 |              8 |         8.00 |
-|  clk_gen/inst/CLK_OUT1 | r_divisor1                                       | r_divisor1[7]_i_1_n_0                 |                2 |              8 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | r_dacDataLength_lsb                              | r_dacDataLength_lsb[7]_i_1_n_0        |                2 |              8 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | trx/div/counter                                  | trx/div/clkBTemp_reg                  |                2 |              8 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | rcv/r_tempRegVal                                 |                                       |                2 |              8 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | PLL_SPI/O_CSB[7]_i_1_n_0                         |                                       |                3 |              8 |         2.67 |
 |  clk_gen/inst/CLK_OUT1 | DAC_SPI/O_CSB[7]_i_1__0_n_0                      |                                       |                3 |              8 |         2.67 |
-|  clk_gen/inst/CLK_OUT1 | r_spiREGADDR                                     | r_spiREGADDR[7]_i_1_n_0               |                1 |              8 |         8.00 |
-|  clk_gen/inst/CLK_OUT1 | PLL_SPI/O_CSB[7]_i_1_n_0                         |                                       |                4 |              8 |         2.00 |
+|  clk_gen/inst/CLK_OUT1 | r_dacMode                                        | r_dacMode[7]_i_1_n_0                  |                4 |              8 |         2.00 |
+|  clk_gen/inst/CLK_OUT1 | rcv/r_regaddr__0                                 | rcv/FSM_sequential_r_state_reg[1]_2   |                4 |              8 |         2.00 |
+|  clk_gen/inst/CLK_OUT1 | rcv/r_ledval                                     | rcv/r_regaddr_reg[4]                  |                2 |              8 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | rcv/data_recv[7]_i_1_n_0                         |                                       |                4 |              8 |         2.00 |
+|  clk_gen/inst/CLK_OUT1 | r_divisor                                        | r_divisor[7]_i_1_n_0                  |                3 |              8 |         2.67 |
+|  clk_gen/inst/CLK_OUT1 | r_spiTXMSB                                       | r_spiTXMSB[7]_i_1_n_0                 |                2 |              8 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | r_spiACTDAC                                      |                                       |                3 |              8 |         2.67 |
 |  clk_gen/inst/CLK_OUT1 | r_spiACTPLL                                      |                                       |                3 |              8 |         2.67 |
-|  clk_gen/inst/CLK_OUT1 | r_spiACTDAC                                      |                                       |                2 |              8 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | r_divisor2                                       | r_divisor2[7]_i_1_n_0                 |                4 |              8 |         2.00 |
-|  clk_gen/inst/CLK_OUT1 | PLL_SPI/r_counter[15]_i_2_n_0                    | PLL_SPI/r_counter[15]_i_1_n_0         |                4 |              9 |         2.25 |
+|  clk_gen/inst/CLK_OUT1 | r_spiREGADDR                                     | r_spiREGADDR[7]_i_1_n_0               |                2 |              8 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | r_spiTXLSB                                       | r_spiTXLSB[7]_i_1_n_0                 |                1 |              8 |         8.00 |
 |  clk_gen/inst/CLK_OUT1 | DAC_SPI/r_counter[15]_i_2__0_n_0                 | DAC_SPI/r_counter[15]_i_1__0_n_0      |                4 |              9 |         2.25 |
-|  clk_gen/inst/CLK_OUT1 | rcv/r_count                                      | rcv/r_count[15]_i_1_n_0               |                3 |             10 |         3.33 |
-|  clk_gen/inst/CLK_OUT1 | r_dac_I_msb                                      | r_dac_I_msb[3]_i_1_n_0                |                8 |             12 |         1.50 |
-|  clk_gen/inst/CLK_OUT1 | r_dac_Q_msb[3]_i_2_n_0                           | r_dac_Q_msb[3]_i_1_n_0                |                6 |             12 |         2.00 |
-|  clk_gen/inst/CLK_OUT1 |                                                  | trx/rst_reg_n_0                       |                5 |             15 |         3.00 |
+|  clk_gen/inst/CLK_OUT1 | PLL_SPI/r_counter[15]_i_2_n_0                    | PLL_SPI/r_counter[15]_i_1_n_0         |                4 |              9 |         2.25 |
+|  clk_gen/inst/CLK_OUT1 | rcv/r_count                                      | rcv/r_count[15]_i_1_n_0               |                5 |             10 |         2.00 |
+|  clk_gen/inst/CLK_OUT1 | r_dac_I_msb                                      | r_dac_I_msb[3]_i_1_n_0                |                6 |             12 |         2.00 |
+|  clk_gen/inst/CLK_OUT1 | r_dac_Q_msb[3]_i_2_n_0                           | r_dac_Q_msb[3]_i_1_n_0                |                7 |             12 |         1.71 |
+|  clk_gen/inst/CLK_OUT1 |                                                  | trx/rst_reg_n_0                       |                4 |             15 |         3.75 |
 |  clk_gen/inst/CLK_OUT1 | r_resetCounter                                   | r_resetCounter[0]_i_1_n_0             |                6 |             21 |         3.50 |
+|  clk_gen/inst/CLK_OUT1 | PLL_SPI/r_address                                |                                       |                4 |             24 |         6.00 |
 |  clk_gen/inst/CLK_OUT1 | DAC_SPI/r_address                                |                                       |                5 |             24 |         4.80 |
-|  clk_gen/inst/CLK_OUT1 | r_dac_I_lsb                                      | r_dac_I_lsb[7]_i_1_n_0                |               17 |             24 |         1.41 |
-|  clk_gen/inst/CLK_OUT1 | r_dac_Q_lsb                                      | r_dac_Q_lsb[7]_i_1_n_0                |               19 |             24 |         1.26 |
-|  clk_gen/inst/CLK_OUT1 | PLL_SPI/r_address                                |                                       |                6 |             24 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | r_dac_Q_lsb                                      | r_dac_Q_lsb[7]_i_1_n_0                |               15 |             24 |         1.60 |
+|  clk_gen/inst/CLK_OUT1 | r_dac_I_lsb                                      | r_dac_I_lsb[7]_i_1_n_0                |               14 |             24 |         1.71 |
 |  clk_gen/inst/CLK_OUT1 |                                                  | tenhz_mod/counter_reg[0]_i_1_n_0      |                7 |             25 |         3.57 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2752_2815_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2048_2111_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2112_2175_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2176_2239_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2240_2303_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2304_2367_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2368_2431_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2432_2495_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2496_2559_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2560_2623_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_256_319_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2624_2687_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2688_2751_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1984_2047_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2816_2879_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2880_2943_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2944_3007_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3008_3071_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3072_3135_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3136_3199_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3200_3263_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_320_383_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1600_1663_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1920_1983_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_192_255_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3008_3071_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3136_3199_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1792_1855_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3200_3263_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3328_3391_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3840_3903_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3968_4031_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_512_575_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_4032_4095_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1216_1279_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1344_1407_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1408_1471_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1536_1599_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_512_575_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3264_3327_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_384_447_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_640_703_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1408_1471_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1472_1535_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1664_1727_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1856_1919_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2048_2111_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1984_2047_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2176_2239_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2944_3007_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1600_1663_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3328_3391_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3392_3455_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_128_191_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_704_767_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_768_831_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_832_895_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_896_959_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_960_1023_0_2_i_1_n_0  |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_0_63_0_2_i_1_n_0      |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3200_3263_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3136_3199_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_320_383_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3072_3135_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2880_2943_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1536_1599_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1728_1791_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1024_1087_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1088_1151_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1152_1215_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1216_1279_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1280_1343_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3456_3519_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1344_1407_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1408_1471_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1472_1535_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_512_575_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_576_639_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_960_1023_0_2_i_1_n_0  |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1536_1599_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3584_3647_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3840_3903_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3904_3967_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1408_1471_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1344_1407_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1216_1279_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1600_1663_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1664_1727_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1728_1791_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1280_1343_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1088_1151_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_4032_4095_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_640_703_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_448_511_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_128_191_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1792_1855_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1856_1919_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1920_1983_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_192_255_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_192_255_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2432_2495_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2624_2687_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3200_3263_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3136_3199_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1920_1983_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1664_1727_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1728_1791_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1536_1599_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2944_3007_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3136_3199_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2880_2943_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3392_3455_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2560_2623_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2496_2559_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2304_2367_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2624_2687_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2688_2751_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1984_2047_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3904_3967_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2048_2111_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2112_2175_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2304_2367_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2240_2303_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2432_2495_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1472_1535_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3520_3583_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3712_3775_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_384_447_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3776_3839_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2176_2239_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 |                                                  | adjustable_clock/clear                |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_512_575_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3520_3583_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3584_3647_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_448_511_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_640_703_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_576_639_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_768_831_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_64_127_0_2_i_1_n_0    |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3968_4031_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3840_3903_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3776_3839_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1856_1919_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2112_2175_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_960_1023_0_2_i_1_n_0  |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_896_959_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_832_895_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_704_767_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3648_3711_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3584_3647_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3456_3519_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3392_3455_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3264_3327_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_320_383_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2496_2559_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2368_2431_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2304_2367_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2240_2303_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1024_1087_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2560_2623_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2688_2751_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2304_2367_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2496_2559_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2368_2431_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3648_3711_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3712_3775_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3776_3839_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3840_3903_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_384_447_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3904_3967_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3968_4031_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_4032_4095_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_448_511_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1472_1535_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1664_1727_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_576_639_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_640_703_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_64_127_0_2_i_1_n_0    |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_704_767_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_768_831_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_832_895_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1856_1919_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1728_1791_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1920_1983_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2496_2559_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2368_2431_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1152_1215_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 |                                                  | adjustable_clock/clear                |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3968_4031_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3776_3839_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_896_959_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_960_1023_0_2_i_1_n_0  |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_832_895_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_768_831_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_704_767_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_64_127_0_2_i_1_n_0    |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2432_2495_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2240_2303_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2176_2239_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2112_2175_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2048_2111_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1984_2047_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2560_2623_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_0_63_0_2_i_1_n_0      |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_960_1023_0_2_i_1_n_0  |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_896_959_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_832_895_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3008_3071_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2880_2943_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2816_2879_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2752_2815_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2624_2687_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2112_2175_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1984_2047_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_192_255_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1792_1855_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1216_1279_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_448_511_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1280_1343_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_128_191_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3520_3583_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3456_3519_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3712_3775_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2752_2815_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_3008_3071_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2816_2879_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_2624_2687_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_256_319_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1344_1407_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_128_191_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1280_1343_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1152_1215_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1152_1215_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1728_1791_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2944_3007_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3072_3135_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3136_3199_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3264_3327_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3200_3263_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3456_3519_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3520_3583_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3712_3775_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3648_3711_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_4032_4095_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3904_3967_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_0_63_0_2_i_1_n_0      |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2688_2751_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_256_319_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3328_3391_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1472_1535_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_0_63_0_2_i_1_n_0      |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3840_3903_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3776_3839_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_384_447_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3968_4031_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3648_3711_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1280_1343_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1408_1471_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1344_1407_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_128_191_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1600_1663_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1024_1087_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1792_1855_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_192_255_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1856_1919_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1984_2047_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2176_2239_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2112_2175_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2048_2111_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2240_2303_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2304_2367_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2816_2879_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2752_2815_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3392_3455_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2368_2431_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1536_1599_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1472_1535_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1408_1471_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_128_191_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_832_895_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_768_831_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_960_1023_0_2_i_1_n_0  |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_896_959_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_0_63_0_2_i_1_n_0      |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1088_1151_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_640_703_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3264_3327_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_320_383_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3072_3135_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_256_319_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2560_2623_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2496_2559_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2432_2495_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2368_2431_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1216_1279_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1152_1215_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1088_1151_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_64_127_0_2_i_1_n_0    |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2816_2879_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_2752_2815_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1728_1791_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3456_3519_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3520_3583_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3264_3327_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1024_1087_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1152_1215_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1216_1279_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1344_1407_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1280_1343_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_704_767_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3008_3071_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_576_639_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3200_3263_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_320_383_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3008_3071_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3072_3135_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3968_4031_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_4032_4095_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_448_511_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_512_575_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_576_639_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_64_127_0_2_i_1_n_0    |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_384_447_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2880_2943_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2944_3007_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3456_3519_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3328_3391_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3520_3583_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3712_3775_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3584_3647_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_4032_4095_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3904_3967_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_640_703_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_512_575_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_448_511_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1920_1983_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1856_1919_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1792_1855_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1600_1663_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3392_3455_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
 |  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3584_3647_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3648_3711_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3712_3775_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3776_3839_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3840_3903_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_3904_3967_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/uart_data_count[11]_i_2_n_0            | signalgen/uart_data_count[11]_i_1_n_0 |               54 |             74 |         1.37 |
-|  clk_gen/inst/CLK_OUT1 |                                                  |                                       |               57 |            106 |         1.86 |
-|  clk_gen/inst/CLK_OUT1 | signalgen/O_DAC1_I[11]_i_2_n_0                   | signalgen/O_DAC1_I[11]_i_1_n_0        |              154 |            299 |         1.94 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_64_127_0_2_i_1_n_0    |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_576_639_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_704_767_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_768_831_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_1664_1727_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_1088_1151_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_3_reg_384_447_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1024_1087_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_1088_1151_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2432_2495_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2560_2623_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_256_319_0_2_i_1_n_0   |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2752_2815_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2624_2687_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2816_2879_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2688_2751_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2944_3007_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_2880_2943_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_1_reg_3072_3135_0_2_i_1_n_0 |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/r_memory_I_2_reg_0_63_0_2_i_1_n_0      |                                       |                8 |             32 |         4.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/uart_data_count[11]_i_2_n_0            | signalgen/uart_data_count[11]_i_1_n_0 |               29 |             74 |         2.55 |
+|  clk_gen/inst/CLK_OUT1 |                                                  |                                       |               53 |            106 |         2.00 |
+|  clk_gen/inst/CLK_OUT1 | signalgen/O_DAC1_I[11]_i_2_n_0                   | signalgen/O_DAC1_I[11]_i_1_n_0        |              168 |            296 |         1.76 |
 +------------------------+--------------------------------------------------+---------------------------------------+------------------+----------------+--------------+
 
 

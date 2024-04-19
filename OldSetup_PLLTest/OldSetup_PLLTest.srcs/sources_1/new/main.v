@@ -253,8 +253,7 @@ module main(
 	parameter SPIACTDAC			= 8'h2E;			// New (Danny): Controls the SPI_CSB pins on DAC
 	parameter ODDR_Settings		= 8'h2F;			// New (Danny): Testing settings for ODDR on DACData7
 	parameter REALSPIDAC		= 8'h3A;			// New (Danny): Controls the sending to DAC or PLL (see REALSPIPLL)
-	parameter DIVISOR1			= 8'h3B;			// New (Danny): First part of the adjustable clock
-	parameter DIVISOR2			= 8'h3C;			// New (Danny): Second part of the adjustable clock
+	parameter DIVISOR			= 8'h3B;			// New (Danny): Period of the adjustable clock
 
 	// Internal constant parameters
 	parameter RESETTIME 		= 2_000_000; 		// Whenever reset is triggered, this number of clock cycles does the reset takes time (in case of 2_000_000 this is 10 ms)
@@ -314,8 +313,7 @@ module main(
 	reg [7:0] 	r_realspidac		= 8'h00;		// Trigger for the unique PLLs
 	reg [7:0]	r_oddrsettings		= 8'h01;		// New (Danny): Check ODDR instance for documentation about register values
 
-	reg [7:0]	r_divisor1			= 8'h00;
-	reg [7:0]	r_divisor2			= 8'h00;
+	reg [7:0]	r_divisor			= 8'h00;
 	
 	// Internal register (state machine etc.)
 	reg [3:0]	r_state 		= 4'b0000; 			// State of the state machine. Initialized with the IDLE state
@@ -861,25 +859,24 @@ module main(
 	// NEW (Danny): PLL SYMC Request
 	
 	pll_sync_rqst SYNCING(
-	    .I_clk(clk),
+        .I_clk(clk),
 		.I_pllSyncRequest(r_pll_sync[0]),
 		.I_PLLSyncPulseShift(r_syncPulseShift),
 		.O_PLL_sync(w_PLL_SYNC)
 	);
 	
-	
 	clock_10Hz tenhz_mod(
-    .clk(clk),
-    .ten_hertz(w_10hz_clock)
-
+	   .clk(clk),
+	   .ten_hertz(w_10hz_clock)
     );
 	
-	
-	// New (Danny): adjustable clock (1kHz - 100kHz)
+	// New (Danny): adjustable clock (1MHz - 200MHz)
+	// Changed from frequency dependent --> period dependent
+	// New divisor values: (2. 4, 20 and 200) for (100, 50, 10 and 1MHz)  <----- Implement in MATLAB!!
 	
 	clock_1khz_100khz adjustable_clock(
         .clk(clk),
-        .divisor({r_divisor2,r_divisor1}),	// actually only 10-bits needed to represent (1-1000)
+        .divisor(r_divisor),
         .clk_out(w_adjustable_clock)
     );
 	
@@ -995,8 +992,7 @@ module main(
 				r_dacDataLength_msb	<= 8'hFF;
 				r_dacWRTConfig	<= 8'h00;
 				r_dacActiveCore	<= 8'hFF;
-				r_divisor1		<= 8'h00;
-				r_divisor2		<= 8'h00;
+				r_divisor		<= 8'h00;
 				r_pll_sync		<= 8'h00;
 				r_dacMode		<= 8'h00;
 				r_syncPulseShift <= 8'h00;
@@ -1133,8 +1129,7 @@ module main(
 					DAC_MODE:			r_dacMode			<= r_tempRegVal;
 					DAC_CONFIG:			r_dacconfig			<= r_tempRegVal;
 					ODDR_Settings:		r_oddrsettings		<= r_tempRegVal;
-					DIVISOR1:			r_divisor1			<= r_tempRegVal;
-					DIVISOR2:			r_divisor2			<= r_tempRegVal;
+					DIVISOR:			r_divisor			<= r_tempRegVal;
 					
 					PLLSYNC: 				r_pll_sync				<= r_tempRegVal;
 					PLLSYNCPULSESHIFT: 		r_syncPulseShift		<= r_tempRegVal;
