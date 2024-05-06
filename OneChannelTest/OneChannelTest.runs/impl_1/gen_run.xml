@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7vx485tffg1761-2" LaunchTime="1713534277">
+<GenRun Id="impl_1" LaunchPart="xc7vx485tffg1761-2" LaunchTime="1715000434">
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-RQS" Name="main_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS" Name="main_routed.rqs"/>
@@ -93,13 +93,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/clock_1khz_100khz.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/crc.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -151,6 +144,14 @@
     </File>
     <File Path="$PPRDIR/../OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/main.v">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/clock_1khz_100khz.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>

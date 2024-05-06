@@ -90,7 +90,6 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
   /home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/clock_10Hz.v
-  /home/dracho/Downloads/OneChannelTest/OneChannelTest/OneChannelTest.srcs/sources_1/new/clock_1khz_100khz.v
   /home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/crc.v
   /home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/pll_sync.v
   /home/dracho/Downloads/OneChannelTest/OldSetup_PLLTest/OldSetup_PLLTest.srcs/sources_1/new/pll_sync_rqst.v

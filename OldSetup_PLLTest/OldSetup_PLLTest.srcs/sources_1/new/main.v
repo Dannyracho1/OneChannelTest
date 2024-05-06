@@ -173,7 +173,7 @@ module main(
 	wire            w_10hz_clock;
 
 	// DACData Protection: 10Hz from tenhz_mod
-	wire            w_adjustable_clock;
+	wire            w_adjustable_clock = clk;
 	
 	// DACData1 & DACData2: delayed to meet the setup+hold constraints of the DAC	
 	wire			DATACLK1_delayed;
@@ -874,11 +874,13 @@ module main(
 	// Changed from frequency dependent --> period dependent
 	// New divisor values: (2. 4, 20 and 200) for (100, 50, 10 and 1MHz)  <----- Implement in MATLAB!!
 	
+	/*
 	clock_1khz_100khz adjustable_clock(
         .clk(clk),
         .divisor(r_divisor),
         .clk_out(w_adjustable_clock)
     );
+	*/
 	
 	// Signal generator
 	

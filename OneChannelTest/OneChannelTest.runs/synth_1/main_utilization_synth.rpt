@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-| Date         : Fri Apr 19 15:44:13 2024
+| Date         : Mon May  6 15:00:29 2024
 | Host         : eddard.hfe.rwth-aachen.de running 64-bit Rocky Linux release 8.8 (Green Obsidian)
 | Command      : report_utilization -file main_utilization_synth.rpt -pb main_utilization_synth.pb
 | Design       : main
@@ -31,13 +31,13 @@ Table of Contents
 +----------------------------+------+-------+------------+-----------+-------+
 |          Site Type         | Used | Fixed | Prohibited | Available | Util% |
 +----------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*                | 8201 |     0 |          0 |    303600 |  2.70 |
-|   LUT as Logic             | 2057 |     0 |          0 |    303600 |  0.68 |
+| Slice LUTs*                | 8069 |     0 |          0 |    303600 |  2.66 |
+|   LUT as Logic             | 1925 |     0 |          0 |    303600 |  0.63 |
 |   LUT as Memory            | 6144 |     0 |          0 |    130800 |  4.70 |
 |     LUT as Distributed RAM | 6144 |     0 |            |           |       |
 |     LUT as Shift Register  |    0 |     0 |            |           |       |
-| Slice Registers            |  718 |     0 |          0 |    607200 |  0.12 |
-|   Register as Flip Flop    |  718 |     0 |          0 |    607200 |  0.12 |
+| Slice Registers            |  834 |     0 |          0 |    607200 |  0.14 |
+|   Register as Flip Flop    |  834 |     0 |          0 |    607200 |  0.14 |
 |   Register as Latch        |    0 |     0 |          0 |    607200 |  0.00 |
 | F7 Muxes                   |  580 |     0 |          0 |    151800 |  0.38 |
 | F8 Muxes                   |  288 |     0 |          0 |     75900 |  0.38 |
@@ -61,7 +61,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |          Yes |           - |          Set |
 | 15    |          Yes |           - |        Reset |
 | 41    |          Yes |         Set |            - |
-| 662   |          Yes |       Reset |            - |
+| 778   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -158,18 +158,18 @@ Warning! LUT value is adjusted to account for LUT combining.
 |  Ref Name  | Used | Functional Category |
 +------------+------+---------------------+
 | RAMD64E    | 6144 |  Distributed Memory |
-| LUT6       | 1529 |                 LUT |
-| FDRE       |  662 |        Flop & Latch |
+| LUT6       | 1540 |                 LUT |
+| FDRE       |  778 |        Flop & Latch |
 | MUXF7      |  580 |               MuxFx |
 | MUXF8      |  288 |               MuxFx |
-| LUT4       |  228 |                 LUT |
 | OBUFDS     |  226 |                  IO |
-| LUT3       |  165 |                 LUT |
-| LUT5       |  123 |                 LUT |
+| LUT3       |  117 |                 LUT |
+| LUT5       |  114 |                 LUT |
 | INV        |  113 |                 LUT |
-| LUT2       |   92 |                 LUT |
-| LUT1       |   87 |                 LUT |
-| CARRY4     |   65 |          CarryLogic |
+| LUT4       |  100 |                 LUT |
+| LUT1       |  100 |                 LUT |
+| LUT2       |   83 |                 LUT |
+| CARRY4     |   49 |          CarryLogic |
 | ODDR       |   48 |                  IO |
 | FDSE       |   41 |        Flop & Latch |
 | OBUF       |   34 |                  IO |
